@@ -1,12 +1,16 @@
 \documentclass[12pt]{report}
-\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage[backend=biber]{biblatex}
 \graphicspath{ {figures/} }
 
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{graphicx}
+\addbibresource{zotero.bib}
 
 \begin{document}
-
-
 \title{
 	{Thesis Title}\\
 	{\large Institution Name}\\
@@ -52,9 +56,14 @@ I want to thank...
 \chapter{Chapter Four Title}
 \input{06_conclusions_future}
 
+\chapter*{Bibliography}
+\printbibliography
 
 \appendix
 \chapter{Appendix Title}
 %\input{chapters/appendix}
+
+
+
 
 \end{document}
