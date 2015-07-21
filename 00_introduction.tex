@@ -64,25 +64,49 @@ These concepts can be applied in several domain as law enforcement, business int
 
 \section{User Centered Design}
 
-Designing systems that truly meet users' needs requires taking the user into account from the start of the design process. This may sound obvious and easy, but that is not the case. There are several examples of systems that are outstanding from a technical level but fail to be useful. User centered design\footnote{alguna cita importante}, proposes a methodology to efficiently consider the user as part of the design process. The methodology proposes ways to model user needs, analysis tasks, and use cases. Users should constantly be involved. The process is composed of several design, implementation and evaluation cycles. The first cycles should be short and produce low fidelity prototypes. Early evaluations should involve real users and real applications to the best extent possible in order to detect problems and opportunities.  
+Creating systems that truly meet users' needs requires taking the user into account from the start. This may sound obvious, but is not. There are several examples of systems that are outstanding from a technical level but fail to be useful\autocite{norman_design_2002}. User centered design\autocite{baxter_understanding_2005}, proposes a methodology to efficiently consider the user as part of the design process. 
+
+The principles of user-centered design are \autocite{baxter_understanding_2005}:
+
+\begin{itemize}
+	\item An Early Focus on Users and Tasks
+	\item Empirical Measurement of Product Usage
+	\item Iterative Design
+\end{itemize}
+
+
+Several techniques have been developed to address the first point. The point is to extract information about user needs, analysis tasks and use cases. This sounds simple but it is actually very complex to grasp the reality. The instruments available for this task include survey, interviews, focus groups and field studies. For more information about these methods refer to \autocite{baxter_understanding_2005} or \autocite{hartson_ux_2012}.
+
+During the interaction with users several aspects must be taken into account. 
+Some people argue that users don't really know what they want. There is some truth in this, because often users can't directly point you to what they want or need. They get so used to going through loops in their daily work, that they start to think of it as a natural step in the process. In order to go through this it is very important to pay attention and to ask questions. It is necessary to observe them working, the actual observed behavior is different to how it is narrated. During field visits pay attention to the surroundings, the environment also has a lot to say about how people work. If possible try to collect artifacts: pictures, paper forms, or screen-shots.
+
+Pay special attention to hesitation, problems or barriers. For example in one of the labs we visited the researcher was showing us how to analyze some TMS data. One of the steps involving moving the file to the desktop. When asked about why, he told us that the next program would not work otherwise. This was natural for him, but it shouldn't be like that. This is an unnecessary steps that has a negative impact on productivity. Notice that users are human, and therefore they are unlikely to accept ignorance or problems. Special attention is required to detect this issues.
+
+It is very important to avoid placing the designer ideas into the domain expert's mind. Questions must always be asked in an open form. For example instead of saying "`So what you are trying to do is .....?"', say "`Please elaborate on what you are doing"'. Users should not design, but they can give suggestions. Avoid asking directly "`What do you want?"' or "`What do you need?"', instead focus on collecting how the work is done now. During the first stages, limit to listen, observe and ask for details. Ideally the users should tell you stories about current and past work, specially the tricky cases. 
+
+\smallskip
+
+The second point focuses on evaluating usability of the product.  Early evaluations should involve real users and real applications to the best extent possible in order to detect problems and opportunities. These evaluations should be performed with potential users. They should look at the prototypes thoroughly and test which features are useful and which ones not so much. Evaluation processes are best if they can be done in a realistic scenario, using example data and tasks similar to the ones done on a day to day basis by the experts. If possible, quantitative and qualitative data should be collected. There is a high risk of involuntarily biasing the evaluation process, so measures must be taken to make it as honest and transparent as possible. 
+
+For this task several techniques are also available, including: controlled experiments, think-aloud, survey, and Multidimensional In-depth Long Term Case studies \autocite{shneiderman_strategies_2006}.
+
+\smallskip
+
+The whole process is composed of several analysis, design and evaluation cycles as shown in figure \ref{intro_spiral}. The first cycles should be fast and produce low fidelity prototypes. While the later iterations are expected to last longer and produce high fidelity prototypes and even fully functional beta versions. 
 
 \begin{figure}
 \includegraphics[scale=1]{figures/espiral2.png} 
-\caption{The user centered design process}
+\caption{ \label{intro_spiral} The user centered design process}
 \end{figure}
 
-The analysis phase should start from a conscious investigation of user needs. Characterizing the users current work-flow and analysis tasks is a priority. It is also worth analyzing the tools they use and understanding the data and processes involved.
+During the analysis phase, all the information gathered from the subjects should be sorted and analyzed. Patterns and common needs should be made evident, and design decisions should be made based on these observations. It is crucial that the proposed solution respects current standards and that it plays nice with current tools. They should also implement the language used by final users instead of the technical terms used inside.  Proposals should be materialized in prototypes which will be the prime matter for the evaluation phases. In these users get involved again in order to assess if the design is on the right track and making the necessary adjustments. During this process additional questions or use cases may emerge. Possible the need for additional information from users will appear. All of these information will be the input for the next iteration.
 
-Some people argue that users don't really know what they want. There is some truth in this, because users sometimes can't directly point you to what they want. Sometimes users get so used to going through loops in their daily work, that they start to think of it as a natural step in the process. In order to go through this it is very important to pay attention and to ask questions. Don't take anything for granted. 
-
-For example in one of the labs we visited the researcher was showing us how to analyze some TMS data. One of the steps involving moving the file to the desktop. When asked about why, he told us that the next program would not work otherwise. This was natural for him, but it shouldn't be like that. This is an unnecessary steps that has a negative impact on productivity. 
-
-It is very important to avoid placing the designer ideas into the domain expert's mind. Ideas should come from experts, but sometimes you will get the temptation to propose something. The result is that the expert would almost immediately agree. However it is likely that he agrees just to make the designer happy, and not really thinking deeply on the idea. During the first stages of work with process the designers should limit to listen, observe and ask questions in an open manner.
-
-During the design phase, all the information gathered from the subjects should be sorted and analyzed. Patterns and common needs should be made evident, and decisions should be made based on these observations. Proposals should be materialized in prototypes which will be the prime matter for the evaluation phase.
-
-During evaluation phases domain experts are again the most important asset. They should look at the prototypes thoroughly and evaluate which features are useful and which ones not so much. Evaluation processes are best if they can be done in a realistic scenario, using example data and tasks similar to the ones done on a day to day basis by the experts. If possible, quantitative and qualitative data should be collected. There is a high risk of involuntarily biasing the evaluation process, so measures must be taken to make it as honest and transparent as possible. The output from these evaluations will be the starting material for the next analysis phase. 
-
+%Respect standards
+%Play nice with current tools
+%Language of the users
+%Cite UX-book
+%Be a listener
+%Users hide ignorance, thy try to appear smart
 
 \section{Exploratory and Confirmatory Analysis}
 
