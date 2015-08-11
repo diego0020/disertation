@@ -9,12 +9,19 @@ This task will also require support from computational tools in order to be effi
 
 This is indeed a complex scenario, and it is evident that a single software tool will not be able to solve all the problems. Tackling the whole problem at once is also an impossible tasks. We need to break down the problem into simpler tasks that can be attacked without loosing the big picture. Doing this analysis is itself a challenging task, that can't be addressed lightly. Fortunately this kind of problems are found in several business applications and  software engineering techniques that can manage them have been developed. 
 
-As mentioned previously, the problem of integrating brain data involves several points of view and several types of work-flows. This is a clear signal of the need for different applications instead of a single, all-mighty application. Nevertheless these applications will likely share several aspects. Analyzing these commonalities and differences is the first step towards a solution to the problem. Methodologies to do this can be borrowed from software product line engineering, model based software engineering and generative programming. The first task that needs to be done is collecting and organizing as much as information as we can on the domain, which will be the basis of a domain model. At this step the scope of the domain will also be accurately selected and described. Afterwards the commonalities and differences of the needs of the different stake-holders, work-flows, and data in the scoped domain will be compiled into a feature model. This model will be the basis for a proposal of an applications family, where each application addresses a particular problem inside the domain. 
+As mentioned previously, the problem of integrating brain data involves several points of view and several types of work-flows. This is a clear signal of the need for different applications instead of a single, all-mighty application. Nevertheless these applications will likely share several aspects. Analyzing these commonalities and differences is the first step towards a solution to the problem. 
+Methodologies to do this can be borrowed from software product line engineering \autocite{pohl_software_2005}, model driven software engineering \autocite{brambilla_model-driven_2012} and generative programming \autocite{czarnecki_generative_2000}. 
+
+The first task will be the scoping of the domain and the selection of a domain where a it is feasible to make a contribution. Afterwards the commonalities and differences in the needs of the different stake-holders, work-flows, and data in the selected domain are analyzed in order to create a feature model. This model will be the basis for a proposal of an applications family, where each application addresses a particular problem inside the domain. 
 
 
-\section{Domain Analysis}
+\section{Domain Engineering}
 
-\subsection{Definition}
+Domain Engineering is the practice of selecting and characterizing the domain in which the application family will be built. A good description of the steps required for this task can be found in \autocite{czarnecki_generative_2000}. We will follow these steps in order to identify the domain where we will work on the rest of the thesis.
+
+\subsection{Domain Scoping}
+
+
 
 Domain Model
 
@@ -35,7 +42,7 @@ Domain Model
 -- Main Features
 -- Relationship to other domains
 
-\subsection{Characterization}
+\subsection{Domain Modeling}
 
 - Analysis of existing Applications
 -- Commonalities and Differences
