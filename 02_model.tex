@@ -26,7 +26,29 @@ As noted previously brain research involves several specialties, skills and tech
 In domain engineering the decision of where to focus must be also influenced by the strengths and experience of the organization, in this case our research group. Previous projects of the group (\footnote{Proyectos de Darwin, Jaime, Marcela}) have principally focused on analysis of medical images at m.m. scale, acquired by CT and MRI machines. We have good relationships with radiology departments at several hospitals and therefore access to images and, more critical, domain experts. MRI is an specially interesting technique as it does not produce ionizing radiation, and therefore is harmless for the subject. While CT and general x-rays involve radiating the human body. This is not harmful at small doses but the effects may accumulate over time. Therefore these techniques must be used with care and only when there is a valid medical reason that justifies it. On the other side, MRI scans can be applied to any subject and there is no need for a medical justification (but probably the study must be approved by an ethical committee). MRI scanners are also versatile machines which can acquire numerous kinds of images. Structural images can be acquired at different configurations which provides better contrast for different tissues or molecules. Advanced techniques grant the ability to do spectroscopy in order to characterize the composition of specific areas of the brain. By using contrast agents it is also possible to precisely locate specific proteins, cells or structures. 
 For these reasons we chose to focus our development on images acquired by MRI. We also chose to focus on T1 and T2 weighted structural images, Diffusion weighted images and BOLD f-MRI. This decision was also caused by the previous experiences in the group, but nevertheless keep in mind that domain definition and scoping is an iterative process, and therefore this decision will certainly be revisited in the future.
 
-An objective of the project from the start has been the integration of data, therefore even though we are focusing on MRI data, we need additional data to provide context and therefore a more complete picture. Recall that one of our hypotheses is that the brain is better understood by teams of specialists who can bring different perspectives. One of our challenges was linking structure and function of the brain.  
+An objective of the project from the start has been the integration of data, therefore even though we are focusing on MRI data, we need additional data to provide context and therefore a more complete picture. Recall that one of our hypotheses is that the brain is better understood by teams of specialists who can bring different perspectives. One of our challenges was linking structure and function of the brain. This function of the brain may signify quick reactions to stimuli, like for example catching a ball, all the way to complex social behaviors over several years. This kind of data can be collected by economists, psychologists, epidemiologists, and sociologists among others. This information can be very complex, but a non trivial subset of it consists of numerical, nominal and ordinal variables which can be registered in spreadsheet tables. We will attempt to integrate data from these diverse set of disciplines if it is presented in a table-like format, but we will not try to interpret the data in any way. This responsibility will fall on end users. 
+
+Finally there is another important kind of data we want to consider as it provides a perfect link between structure and functioning of the brain. This is, data from TMS exams. We are very lucky to have access to neurophysiologists specialized in this kind of exams, which can further enlight the functioning of the brain and its relationship to its structure. To recapitulate, the current project is going to consider the following kinds of data:
+
+\begin{itemize}
+\item MRI brain images
+\begin{itemize}
+\item Structural T1 and T2 weighted
+\item Diffusion Weighted Images
+\item Functional MRI
+\end{itemize}
+\item TMS exams
+\item Tabular data from other disciplines
+\begin{itemize}
+\item Nominal variables
+\item Ordinal variables
+\item Numeric variables
+\end{itemize}
+\end{itemize}  
+
+
+
+Nevertheless it is worth reiterating that domain scoping is an iterative process, which has to go on for the duration of the project. 
 
 Domain Model
 
