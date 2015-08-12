@@ -61,38 +61,56 @@ Their goals are extracting information and meaning out of the data. As mentioned
 
 Each specialty also incorporates their own work-flows. These include protocols for data acquisition, pre-processing, storage, processing and analysis. As mentioned in the introduction analysis usually take the form of null hypothesis significance testing, and plenty of tools exist for this purpose. Nonetheless exploratory data analysis is also very important, specially when huge amounts of data are available. Traditionally data acquisition was also tuned for the testing of particular hypotheses, but it is becoming common to acquire data in a more open-ended fashion. In this project we will not deal with data acquisition nor data processing. The focus is on visual exploratory analysis of already processed data.  
 
-
-It is worth reiterating that domain scoping is an iterative process, which has to go on for the duration of the project. 
+In conclusion, the scope of the project is now bounded in data types (MRI and tabular), stakeholders (interdisciplinary research groups), and tasks (visual exploratory analysis). However, it is worth reiterating that domain scoping is an iterative process, which has to go on for the duration of the project. 
 
 Domain Model
 
-- Stakeholders
-- Users
--- points of view
--- activities
--- teams
--- selfish
+%- Stakeholders
+%- Users
+%-- points of view
+%-- activities
+%-- teams
+%-- selfish
+%
+%-- Alternatives
+%-- choose
+%- Scope
+%-- Alternatives
+%-- Choose
 
--- Alternatives
--- choose
-- Scope
--- Alternatives
--- Choose
-- Define domain
--- Examples
--- Main Features
--- Relationship to other domains
 
 \subsection{Domain Modeling}
 
-- Analysis of existing Applications
--- Commonalities and Differences
--- From other domains, need to be compatible
-- Analysis of literatures and experts
-- Domain Terms
-- Domain Concepts
-- Variability of domain concepts
--- feature model in problem space?
+After choosing and bounding the domain we need to go deeper into its characterization. This task is accomplished by reading bibliography in the domain, contacting stakeholders and analyzing existing software. The details of the information gathered at this stage can be found in chapter \ref{chap_related}. In this section we will describe the domain based on that information.
+
+%Workflow
+A typical MRI experiment starts with a set of hypotheses which want to be tested on a target population. A protocol is designed to test the hypotheses and if possible correct sample sizes are calculated. Afterwards participants are recruited, and data is collected. This process is not always smooth, and often corrections must be made and acquisition repeated. Inevitable some data will not be useful and some participants will have to be removed from the study. Data acquired from the MRI machine must be taken out, stored and processed. There are different processing pipelines for different kinds of images, but most of them are designed to perform statistical tests using the images and some external variables. The results of the statistical tests have to be interpreted in order to write the report of the experiment and what we learned from it.
+
+As mentioned in chapter \ref{chap_intro} we intend to use data collected in these experiments as well as data collected in open-ended fashion to perform exploratory and data-driven analyzes. Still, most of the steps in traditional experiments will be the same, and we are required to play nice with existing tools and work-flows. 
+
+%Data
+
+%Processing
+
+%Existing applications
+
+%Stake Holders
+
+%Domain Term
+
+
+%- Define domain
+%-- Examples
+%-- Main Features
+%-- Relationship to other domains
+%- Analysis of existing Applications
+%-- Commonalities and Differences
+%-- From other domains, need to be compatible
+%- Analysis of literatures and experts
+%- Domain Terms
+%- Domain Concepts
+%- Variability of domain concepts
+%-- feature model in problem space?
 
 \section{Solution Proposal}
 
