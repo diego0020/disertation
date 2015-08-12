@@ -88,15 +88,99 @@ A typical MRI experiment starts with a set of hypotheses which want to be tested
 
 As mentioned in chapter \ref{chap_intro} we intend to use data collected in these experiments as well as data collected in open-ended fashion to perform exploratory and data-driven analyzes. Still, most of the steps in traditional experiments will be the same, and we are required to play nice with existing tools and work-flows. 
 
+\begin{figure}
+
+\caption{\label{fig_workflows}}
+\end{figure}
+
+Figure \ref{fig_workflows} shows the comparison of the two work-flows. It can be seen that the input for traditional experiments are hypotheses, while the output of data driven research are also hypotheses. Meanwhile the input to the data-driven research loop is data, which as mentioned earlier can come from finished experiments. This shows how both work-flows can complement each other. Also notice data processing takes place at both loops. The meaning is that the data-driven and hypotheses-driven research domains are deeply linked.  
+
 %Data
+\begin{figure}
+
+\caption{\label{fig_datum_class}}
+\end{figure}
+
+Data is the most important object in our domain, so we need to characterize it in a more precise way. Inside our scope, data is a collection of data-points each of whom is also called a datum. Figure \ref{fig_datum_class} shows a class diagram of a datum. The highlights of the drawing are
+
+%definitions
+
+\begin{itemize}
+\item Each datum is associated to an Entity
+\item An entity may be a single subject or a sample
+\item A sample is composed of several subjects, each subject can belong to several samples
+\item The two main kind of datum (in our scope) are spatial and variable values
+\item An spatial datum may be an image or polydata
+\item All spatial objects are associated with a coordinates system
+\item Transforms can be used to map between two coordinate systems
+\item Images are composed of voxels
+\item Polydata are collections of vertices, edges and polygons
+\item Voxels, edges, vertices and polygons may be associated with one or more scalar values.
+\item All spatial data must me associated to some meta-data
+\item VariableValues belong to a certain variable
+\item Each variable is associated with meta-data  
+\item Data which is neither a VariableValue nor a spatial object can be encoded into textual annotations
+\end{itemize} 
+
+Meta-data plays an important role. On the spatial side it lets us identify which images or polydata can be analyzed together. In other words, it is through this metadata that it becomes to possible to identify matching pieces of information belonging to different subjects. In the case of variables, the metadata provides important information on how to interpret the values that the variable takes. Some concrete examples of data are
+\begin{itemize}
+\item Image:
+\begin{itemize}
+\item T1-weighted structural image
+\item Color coded DTI image with 3 scalar values per voxel
+\item A label map where each voxel contains a value indicating to what structure it belongs 
+\end{itemize}
+\item PolyData:
+\begin{itemize}
+\item A group of fibers from a tratography
+\item Cerebral cortex surface reconstruction
+\item An iso-surface representing an activated area in a fMRI paradigm
+\end{itemize}
+\item Variable:
+\begin{itemize}
+\item Gender
+\item Height
+\item Score at a neuropsychological test
+\item Time it took to complete a marathon
+\item Level of pain in a likert scale
+\item Place of birth
+\item Latency in a TMS test
+\end{itemize}
+\end{itemize}
 
 %Processing
 
-%Existing applications
+It can be seen that this simple structure allows us to represent a wide array of data types. Some of this data are raw values that can be found directly, and some are the results of processing steps applied to raw data. As mentioned earlier we don't expect our system to do data processing, but there is a close relationship with these kind of procedures. In fact the system should be able to do additional processing when it is required, but delegating this task to third party tools fit for the job. As seen in figure \ref{fig_workflows} processed data is fed back into the system, and afterwards can be used in the same way as raw data. Some examples of the processing steps that we expect to utilize are
+
+\begin{itemize}
+\item Estimating diffusion models (like DTI)
+\item Reconstructing tractographies
+\item Segmentation of structural images
+\item Reconstruction of segmented structures
+\item Cortical surface reconstruction and parcellation, as done in FreeSurfer
+\item Linear and non linear registration
+\item Applying transforms to move spatial objects to a different coordinate system
+\item Creating frequency maps from several co-registered label maps.
+\item Filtering tractographies
+\item Calculating volumes, areas, and mean values of a scalar, for a given surface.
+\item Statistical tests involving images from two different groups (like VBM, or second level fMRI analysis)
+\item Clustering on a set of variables
+\item Fitting of statistical models on a set of variables
+\end{itemize}
+
+As usual, this is not an exhaustive nor final list. As the project evolves it is likely that we will have to incorporate additional processing algorithms. The vision is to take advantage of available tools whenever possible. Fortunely there is an ample set of high quality open source tools available as was shown on chapter \ref{chap_related}.
+
+% Existing viualization applications
+
+% Commonalities and differences in these applications
 
 %Stake Holders
 
-%Domain Term
+%Domain Terms
+
+%Use cases
+
+%Feature model
 
 
 %- Define domain
@@ -110,7 +194,9 @@ As mentioned in chapter \ref{chap_intro} we intend to use data collected in thes
 %- Domain Terms
 %- Domain Concepts
 %- Variability of domain concepts
-%-- feature model in problem space?
+%-- feature model in problem space
+% trade offs
+% analyzis of combinations
 
 \section{Solution Proposal}
 
