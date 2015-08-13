@@ -172,17 +172,42 @@ As usual, this is not an exhaustive nor final list. As the project evolves it is
 
 %Stake Holders
 
-The expected users in this project are research groups containing specialists from different backgrounds, however there are several other stakeholders who must be considered in the development of the project.   
+The expected users in this project are research groups containing specialists from different backgrounds, however there are several other stakeholders who must be considered in the development of the project. The data comes from real participants, which may have concerns about too many people looking at their data. On the other side the project managers and funding agencies want the best return of investment possible, which means extracting as much information and knowledge as possible from the collected data. Usually the participants of the experiment, whose data was collected, signed a consent which permits some use of the data. The contents and permissions granted by these agreements have to be taken into account. A common trade-off is for the participants to grant unlimited usage of the data as long as it is anonymized. In theory it shouldn't be possible to figure out the true identity of a subject based on anonymized data, but this is hard to guarantee in practice, specially when so much complementary data can be obtained from third parties \footnote{Moreno y las recomendaciones anónimas}. Also the anonymization procedure involves adding noise to the data, which will have an impact on the analysis. When data is analyzed as extensively and deeply as we are proposing, the risk of deanonimyzing the subjects increases. Therefore measures have to be taken into account to increase protection, either by limiting access to the data to a small group of researchers, or increasing the strength of anonymization measures. 
+
+Another possible concern is the loss of statistical rigor. As shown in figure \ref{fig_workflows} traditional research is based on the fact that data is used once for a statistical test. In this case meaningful metrics of significance can be reported. However when data is used more than once we fall into a multiple comparisons problem \footnote{quote}, where the chances of false positives increase and therefore corrections should be applied to significance metrics. Nevertheless the scientific community is concerned that researchers will not apply corrections and report results which are not really accurate. While we can't do anything against dishonest researchers, the proposed platforms may make it easier to cheat in order to get more impressive results. As mentioned on the introduction, this problem arises from publication bias. Under this situation some researchers may believe that the best way to guarantee a publication is by reporting some fantastic significance metrics, and try everything they can to get this values. It is key here to remember that the proposed platform is meant to be used as a mean for generating hypotheses, not to formally proof them. While the analysis carried on in the platform may provide evidence in favor of some hypothesis, it is also highly susceptible to the multiple comparisons problems. Therefore it is necessary to be skeptical about the data, and always validate hypotheses using external datasets.  
+
+Understanding the main users of the application is at the core of the design process. Recall that we are using a user centered design methodology, involving end-users constantly during the design process. Understanding the users is also central for the domain-modeling activity. This includes examining their current workflows and tools is the starting point for this. We accomplished this by visiting several labs and hospitals, and watching several experiments, from data acquisition to data analysis. The knowledge from other works in visual analytics can also be applied here. 
+
+First of all, brain researchers are human. As humans we all have limitations on the amount of information we can keep in memory and our ability to concentrate. The analysis platform should help mitigate this by unloading the memory of the specialist to the screen. All of the required information should be visible or easy to access. In order to avoid distractions, it is important to have a fast response time. If the application constantly makes the user wait, then probably he will loose interest and move to another task. A peculiarity of brain researchers is that they are very busy, and usually there is no time in their agenda reserved for data exploration. This activity is carried on at the spaces between tasks, and even tough there is a high chance of being interrupted by students or colleagues. Therefore it is essential for the platform to support work at different intervals and under constant interruptions. In practice this means efficient facilities to save and restore work, as well as additional information to recover the flow from the last session. 
+
+Visual Analytics recognizes that humans have limited cognitive capacity, and the point is to make the best possible use of it. One key point here is that the cognitive budget should be spent on the data and not on the tools. This means that the experts should always be thinking about the underlying data, not on details of the tool used to look at it. Consider for example watching TV, how much time do you spend thinking on details of the tv-set? If tools require complex commands, or the controls are not intuitive, the attention will have to shift to how to accomplish a task in the tool. Another key concept required here is that tools should adapt to users, instead of making users adapt to tools \autocite{norman_design_2002}. This also means that technical details or repetitive actions should be solved automatically. For example there are dozens of image data formats available, and each tool works with some of them. This forces the user to spend time thinking which tool is appropriate for each format, or if there is a need to convert it. The same goes to dealing with files in file system, users should not be thinking on what is the best way to organize files so that they can be easily found afterwards. 
+
+On the other side, researchers are the most fit, if not the only, who can interpret and make sense of this vast amount of data. As the data grows larger, chances of patterns appearing by chance also increase. Only experts can discriminate between true interesting findings and random noise. They can do this because they possess a strong theoretical background, which can be used to give meaning to data. They also have experience working with patients and data, and therefore can associate data from a study to past experiences and close cases. From all these they have also developed an intuition, that can guide them to interesting places. Given the familiarity with the data, experts can quickly spot common mistakes or find simple explanations to what may appear surprising for an outsider. 
+
+In summary some of the main characteristics of a hypothetical user are
+
+\begin{itemize}
+\item Limited memory
+\item Limited concentration
+\item Busy schedule
+\item Not interested in technical details
+\item Background knowledge
+\item Experience
+\item Intuition
+\end{itemize}
+
+Groups of experts are also interesting because their expertise are on different areas. Therefore while they are deeply familiarized with some aspects of the data, other aspects are foreign. In a similar way each expert is inclined to analyze data of a particular nature or in a particular way. Some teams are composed of experts located far from each other. Often they don't even share the same mother language. 
 
 
-%Domain Terms
-
+% groups
 
 % Existing viualization applications
 
 % Commonalities and differences in these applications
 
-%Use cases
+% Domain Terms
+
+% Use cases
 
 %Feature model
 
