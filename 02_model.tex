@@ -240,7 +240,29 @@ As mentioned earlier the objective is to create a family of applications that ca
 \caption{\label{fig_feature_problem}}
 \end{figure}
 
+The main elements in the diagram are
 
+\begin{itemize}
+\item Application: The root of the tree, each of the applications in the family are configurated based on this tree
+\item Visualization: Most applications will have visualization as its main component. The exception are applications that that only process data without interaction. Visualizations can exist for spatial data or statistical data.
+\begin{itemize}
+\item Spatial Visualization: These visualizations show spatial objects, these is, objects with coordinates associated to some physical space. Notice this visualizations can be in a plane, with only two coordinates, or a in a full 3d space. These visualizations can display one or several of the listed Geometric Objects.
+\item Statistical Visualization: These visualizations represent abstract values in a coordinate system that is not necessarily associated with any physical space. Typical plots found in statistical tools belong here, the diagram shows only some examples. Notice that several of them can be displayed at the same time to create a dashboard like array. The information displayed in the plots comes from variables. These variables represent properties of the subjects or samples, and therefore they should have a description to help with its interpretation. There are three main types of variables.
+\begin{itemize}
+\item Nominal Variables: These variables represent categories of data. They don't necessarily have an order and in general it is not possible to perform arithmetic operations on them. Examples of these are: Gender, City of birth and eye's color.
+\item Ordinal Variables: These variables have an associated order but in general it is not possible to perform arithmetic on them. Examples of these are a likert scale (strongly agree, agree, neither agree or disagree, disagree or strongly disagree), months in a year, streets in a city, poker hands or a names in a phone-book.
+\item Numerical variables: These variables can me mapped to a subset of the real numbers. They can be further divided into \emph{interval} and  \emph{ratio}. In interval ratio the distance between two values is meaningful, for example temperature in degrees Celsius, dates or coordinates in the globe. These variables can be added and subtracted, and statistics like the arithmetic mean and variance are meaningful. Ratio variables additionally have a meaningful zero or origin. Examples of these are age, speed, height, weight or electric field. It makes sense to multiply two of these values together and therefore statistics like the geometric mean are meaningful.
+\end{itemize}
+\end{itemize}
+\item State: One of the key requirements is being able to split an analysis sessions between several times. Therefore applications should have an state that can be saved and restored. The state can have a reference to the current subject, current sample and the internal state of visualizations. Each of these may be shared with other applications in the family. 
+\item Processing: Applications may include data processing (or transformation) facilities. These functions may come operate on spatial data, and therefore come from the computational geometry domain, or they may operate on tabular data using techniques from statistics or machine learning. Some examples of these operations are shown in the tree.
+\item Graphical Interface: Most applications are expected to have a graphical interface so that users can interact with it visually. Remember these interfaces should be simple and expose only the functionality required for a specific task.
+\item  Manual Transform: Some operations can't yet be performed reliably in a fully automatic way. In these cases it is necessary to get the expert involved in the systematic transformation of the data. Tools should be designed to make the manual intervention as small as possible, and everything that could be automated should be in order to ease the workload or the expert. An example could be providing an initial estimation automatically and then let the expert make adjustments. Some examples of these operations are presented in the tree: ROI (Region of Interest) definition, length measurement, and manual segmentation.
+\end{itemize}
+
+Under the feature model some additional restrictions are found. First, applications should either have a graphical interface or perform automatic processing of data. Visualizations require a graphical user interface. Also if visualizations are present they should have an explicit visualization state, at the same time the visualization state must be associated with visualizations. Statistical visualizations require a explicit sample. Finally manual transformations require an spatial visualization. 
+
+These feature model represents a family of applications that can be adapted for several tasks, data types and users. By choosing different features several kinds of applications can be built. Specifically there are applications focused on transforming the data and others focused on visualizing it. Both of these fit at different places of the visual analytics workflow (figure \ref{fig_workflows}). Notice that the model permits applications focused on spatial data, applications focused on tabular data, but also applications that integrate both of them. The sharing nodes in the tree are there to allow users and teams to use several applications to complete more complex analyzes. However coordinating operations is more easily accomplished by having a central coordinator. This central coordinator can also help with the recovery of a previous session by keeping a log of the usage of different applications. In the following section we will show how this platform and the family of applications can be implemented.
 
 % Commonalities and differences in these applications
 
