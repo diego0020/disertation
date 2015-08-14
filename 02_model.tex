@@ -210,6 +210,38 @@ Groups of experts are also interesting because their expertise are on different 
 % Existing viualization applications
 In chapter \ref{chap_intro} a review of the tools currently used in the domain was presented. These tools have several things in common and several differences as shown in figure X. While most of the processing tools provide utilities for batch processing several subjects, visualization are mostly available for a single subject or for the results of statistical tests. Going through visualizations of several subjects requires several steps and most of the time repeating work. Also while most of them permit the use of linear transform to move the data to a different coordinate system, the end user must specify the adequate transform for each case. These tools offer very good performance for quality control or publication graphs, but for exploratory analysis we require a more streamlined workflow, with minimal need for repetition, and limiting as much as possible the exposure of technical details to the user. In the world of statistical visualization there has been a bigger growth in interactive solutions. For example tableau can be used to create highly interactive dashboards for the exploration of large datasets. These dashboards display several coordinated views of the data and permit the user to interactively change parameters and therefore get visualizations tailored for the current question. We are interested in using these kind of techniques but extend them to be better integrated with spatial data. 
 
+\bigskip
+
+In summary, the target domain is characterized by
+\begin{itemize}
+\item Data Sources
+\begin{itemize}
+\item Spatial Data
+\item Tabular Data
+\end{itemize}
+\item Visual Analytics
+\begin{itemize}
+\item Data Transformations
+\item Fast iteration
+\item Interactive Visualizations
+\item Focus on data, not tools
+\end{itemize}
+\item Research groups
+\begin{itemize}
+\item Collaboration
+\item Interrupted work
+\item Diverse points of view
+\end{itemize}
+\end{itemize}
+
+As mentioned earlier the objective is to create a family of applications that can adapt to different tasks inside the domain. Following visual analytics principle these applications should put the data at front, and let users focus on it instead of the applications. For this reasons applications should be simple, and have a limited set of features. Nevertheless we are also interested in fostering collaboration, and for these reason we would like applications inside the family to play nice with each other. It is also important that applications have strong features that let the user save and restore work efficiently, and therefore work over several interrupted sessions. Finally some applications in the family should support data transformation utilities. These transformations can be seen as measurements done based on spatial data, as well as additional geometric processing on spatial data, and the use of tools from the statistical analysis world. Visualization is the basis of exploratory analysis, and therefore it will likely be at the core of most applications in the family. The set of applications that will make part of the family can be better seen in the feature diagram of figure \ref{fig_feature_problem}.
+
+\begin{figure}
+\caption{\label{fig_feature_problem}}
+\end{figure}
+
+
+
 % Commonalities and differences in these applications
 
 % Domain Terms
