@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and mandatory="true" name="BravizApplication">
+				<alt mandatory="true" name="userInterface">
+					<or mandatory="true" name="Web">
+						<feature mandatory="true" name="D3"/>
+						<feature mandatory="true" name="Bootstrap"/>
+					</or>
+					<or mandatory="true" name="DesktopGUI">
+						<feature mandatory="true" name="MatplotLib"/>
+						<feature mandatory="true" name="VTK"/>
+						<feature mandatory="true" name="QItemViews"/>
+						<or mandatory="true" name="Qt_braviz_widgets">
+							<feature mandatory="true" name="SampleManager"/>
+							<feature mandatory="true" name="ImageManager"/>
+							<feature mandatory="true" name="ContextPanel"/>
+							<feature mandatory="true" name="VariableSelectDialog"/>
+						</or>
+					</or>
+					<feature mandatory="true" name="CLI"/>
+				</alt>
+				<or mandatory="true" name="DataSources">
+					<or mandatory="true" name="Tabular">
+						<feature mandatory="true" name="Variables"/>
+						<feature mandatory="true" name="Samples"/>
+						<feature mandatory="true" name="Scenarios"/>
+						<feature mandatory="true" name="Annotations"/>
+					</or>
+					<and mandatory="true" name="Spatial">
+						<or mandatory="true" name="Coordinates">
+							<feature mandatory="true" name="Talairach"/>
+							<feature mandatory="true" name="Dartel"/>
+							<feature mandatory="true" name="World"/>
+							<feature mandatory="true" name="Diffusion"/>
+							<feature mandatory="true" name="fMRI"/>
+						</or>
+						<or mandatory="true" name="DataTypes">
+							<or mandatory="true" name="Images">
+								<feature mandatory="true" name="Intensity"/>
+								<feature mandatory="true" name="LabelMap"/>
+								<feature mandatory="true" name="Color"/>
+							</or>
+							<or mandatory="true" name="PolyData">
+								<feature mandatory="true" name="SegmentedStructures"/>
+								<feature mandatory="true" name="Tractography"/>
+								<feature mandatory="true" name="Surfaces"/>
+								<feature mandatory="true" name="Tracula"/>
+							</or>
+						</or>
+					</and>
+				</or>
+				<or name="Communications">
+					<feature mandatory="true" name="SamplesCom"/>
+					<feature mandatory="true" name="SubjectsCom"/>
+					<feature mandatory="true" name="ScenariosCom"/>
+					<feature mandatory="true" name="Logging"/>
+				</or>
+				<or name="Processing">
+					<or mandatory="true" name="Geometric">
+						<feature mandatory="true" name="VTKFilters"/>
+						<feature mandatory="true" name="Scipy_Numpy"/>
+					</or>
+					<or mandatory="true" name="Statistical">
+						<feature mandatory="true" name="R"/>
+					</or>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<disj>
+					<not>
+						<var>VTK</var>
+					</not>
+					<var>Spatial</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<not>
+						<var>MatplotLib</var>
+					</not>
+					<var>Variables</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<var>Tabular</var>
+					<not>
+						<var>Statistical</var>
+					</not>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<not>
+						<var>D3</var>
+					</not>
+					<var>Variables</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<var>Spatial</var>
+					<not>
+						<var>Geometric</var>
+					</not>
+				</disj>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

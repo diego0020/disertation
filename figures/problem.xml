@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and mandatory="true" name="Application">
+				<or name="Visualization">
+					<and mandatory="true" name="Spatial">
+						<or abstract="true" name="Dimensions">
+							<feature mandatory="true" name="Two"/>
+							<feature mandatory="true" name="Three"/>
+						</or>
+						<feature mandatory="true" name="Data"/>
+						<or abstract="true" mandatory="true" name="GeometricObjects">
+							<feature mandatory="true" name="Images"/>
+							<feature mandatory="true" name="Surfaces"/>
+							<feature mandatory="true" name="Tracts"/>
+						</or>
+					</and>
+					<and mandatory="true" name="Statistical">
+						<or abstract="true" name="Plots">
+							<feature mandatory="true" name="Bars"/>
+							<feature mandatory="true" name="Scatter"/>
+							<feature mandatory="true" name="Histogram"/>
+							<feature mandatory="true" name="BoxPlot"/>
+							<feature mandatory="true" name="Spider"/>
+							<feature mandatory="true" name="ParallelCoordinates"/>
+						</or>
+						<and mandatory="true" name="Variables">
+							<feature mandatory="true" name="Description"/>
+							<alt mandatory="true" name="Type">
+								<and mandatory="true" name="Nominal">
+									<feature name="Labels"/>
+								</and>
+								<and mandatory="true" name="Ordinal">
+									<feature mandatory="true" name="Levels"/>
+									<feature name="Order"/>
+								</and>
+								<and mandatory="true" name="Numeric">
+									<feature name="Range"/>
+									<feature name="Optimalvalue"/>
+								</and>
+							</alt>
+						</and>
+					</and>
+				</or>
+				<and name="State">
+					<feature mandatory="true" name="Save"/>
+					<feature mandatory="true" name="Restore"/>
+					<feature name="Share"/>
+					<or mandatory="true" name="Objects">
+						<and mandatory="true" name="CurrentSample">
+							<feature name="ShareSample"/>
+						</and>
+						<and mandatory="true" name="CurrentSubject">
+							<feature name="ShareSubject"/>
+						</and>
+						<and mandatory="true" name="VisualizationsState">
+							<feature name="ShareViz"/>
+						</and>
+					</or>
+				</and>
+				<or name="Processing">
+					<or mandatory="true" name="GeometricalProc">
+						<feature mandatory="true" name="Filter"/>
+						<feature mandatory="true" name="Reconstruct"/>
+						<feature mandatory="true" name="Isosurfaces"/>
+					</or>
+					<or mandatory="true" name="StatisticalProc">
+						<feature mandatory="true" name="LinearModels"/>
+						<feature mandatory="true" name="Classification"/>
+						<feature mandatory="true" name="Clustering"/>
+					</or>
+				</or>
+				<feature name="GraphicalInterface"/>
+				<or name="Measure">
+					<feature mandatory="true" name="ROI"/>
+					<feature mandatory="true" name="Linear"/>
+					<feature mandatory="true" name="Volume"/>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<disj>
+					<not>
+						<var>Visualization</var>
+					</not>
+					<var>State</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<var>Visualization</var>
+					<not>
+						<var>VisualizationsState</var>
+					</not>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<not>
+						<var>Visualization</var>
+					</not>
+					<var>VisualizationsState</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<var>Processing</var>
+					<var>GraphicalInterface</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<not>
+						<var>Statistical</var>
+					</not>
+					<var>CurrentSample</var>
+				</disj>
+			</rule>
+			<rule>
+				<disj>
+					<var>CurrentSample</var>
+					<not>
+						<var>StatisticalProc</var>
+					</not>
+				</disj>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
