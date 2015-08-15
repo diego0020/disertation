@@ -1,6 +1,6 @@
 %Introduction
 
-The human brain can be analyzed from several different points of views. Some disciplines look at it from the outside, and try to understand how it responds to stimuli, how it behaves on different conditions, how it adapts to new contexts and how it changes over time. Some disciplines look at it at cellular and molecular level, trying to understand the chemical reactions that go on inside each cell making it work. Others analyze the activity of a groups of cells analyzing how they cooperate. Some focus on larger structures composed of several cells, trying to understand how they connect to each other and how the different types of organs complement each other. It is of special interest seeing how it matures over time, and how it recovers from traumatic events. Additionally it is important to analyze how it degenerates over time, and what diseases can affect it in order to create treatments and help the brain heal. 
+The human brain can be analyzed from different points of views. Some disciplines look at it from the outside, and try to understand how it responds to stimuli, how it behaves on different conditions, how it adapts to new contexts and how it changes over time. Some disciplines look at it at cellular and molecular level, trying to understand the chemical reactions that go on inside each cell making it work. Others analyze the activity of a groups of cells analyzing how they cooperate. Some focus on larger structures composed of several cells, trying to understand how they connect to each other and how the different types of organs complement each other. It is of special interest seeing how it matures over time, and how it recovers from traumatic events. Additionally it is important to analyze how it degenerates over time, and what diseases can affect it in order to create treatments and help the brain heal. 
 These tasks are carried out by different specialists in very different environments. There are also a wide range of tools designed for studying the brain, from microscopes and voltage clamping techniques, to psychology instruments. There are also studies based on animals with similar structures or even electronics circuits specifically built to emulate the human brain. 
 
 This shows that understanding the brain is far from easy, and that it involves an enormous amount of skills, tools and knowledge. It can also be seen that all of these information gathered from different perspectives must be integrated in other to get a full understanding. This will require teams from diverse specialties and contexts to work together, each providing one piece of the puzzle. 
@@ -296,16 +296,26 @@ The domain described above requires applications tailored for specific tasks and
 \caption{\label{fig_deployment}}
 \end{figure}
 
-
+The \emph{Main Menu} process behaves as the master of the session. There are two flavors of applications: stand-alone or web based, more details about this distinction will be given on chapter \ref{chap_braviz}. Finally there is a single database containing the data, this data is visible by all applications, and any transformed data is sent to this same database. This shared database is the first mechanism for coordination between applications, but more fluid integration can be achieved by sharing state across the system. For this purpose all applications connect to the \emph{Main Menu}. This central application also keeps track of important changes done on the other applications and saves them in a log. This log will allow future retrieval and reconstruction of the analysis session. All applications and the central node share significant functionality, therefore we expect them to share important parts of code, as the module that connects to the database. 
 
 \subsection{Platform}
 
-Proposal for Braviz platform
+Exploratory analysis requires iterating trough the data several times, using different tools and looking from different points of view. This is best accomplished by using different applications, but having them all working in the same direction. We propose a set of coordinated applications for this task. Usually changing from one application to another requires has a large overhead. For this reason users try to avoid switching applications, and when it has to be done, they are forced to change their focus to the details of the operation and momentarily forget about the data. We propose an environment when users can move seamless between applications. Even better, multiple applications can be opened at the same time, and what goes on in one will be reflected on the other. If large display real estate is available, there could be multiple points of view active at the same time, and the specialist would just have to move the eyes to see the current data from a different point of view. Even though work happens on several different applications, when reviewing it, it should look as a coherent work-flow. 
 
-- Data Flow
-- Task
-- Use Case (igual que arriba?)
-- Deployment
+During the Visual Analytics cycle shown in figure \ref{fig_workflows} data is constantly transformed and fed back into the process. In the proposed analysis environment there is a single pool of data. All applications read from data from here, expose it to the user, and in case the user requests a transformation the transformed data is fed back into the system. In this way the pool of data is constantly growing and getting richer. Notice that data created by some application can be accessed from any other. This provides a practical mechanism to move data between applications. All applications can share the code that accesses this pool of data, and therefore the user won't have to care about making data compatible with other applications. It can be seen like all applications contribute to this repository of data and at the same way all of them benefit from it, this is the fist way in which the system moves forward as a whole.
+
+Data in this domain is either associated to a subject or to a sample (see figure \ref{fig_datum_class}). During an analysis session users will look at several of them. Ideally each application should provide a different point of view on the same entity. Some of them will provide higher detail, and some will provide lower detail. Some will show mainly spatial data while others will focus on complementary data. The mechanism trough which this is achieved is that when an application changes the current sample or subject, it reports the change to the rest of the running applications. These applications can listen to the message and react to it. Applications may also choose to ignore certain messages at certain times. As always, the user is the most important actor of the system. The system should adapt to the user, and the user should always be in control, and feel like that. If applications over-react to signals they may confuse the user, who may not understand what is going on. Then it is important to make explicit the messaging mechanism, and let the user turn it on, off or fine tune it at will. If done correctly, this mechanism can improve user experience by providing the user the information he is interested in at the right time.
+
+If the above mechanisms are implemented right the set of applications should move forward as a pack. Therefore it would be nice to monitor it as an unique system instead of separate applications. For this reason we can take advantage of the already central position of the message server. Applications may not only send reports when switching focus, but also send messages reporting changes in their internal states just for logging purposes. The purpose of the log is to let users review the workflow and specially the path that led to a discovery. For this reason it is important to display this log to the user in a way that allows him to recall the situation at a glance. The log should also allow annotations such that it can be shared among users. Finally, the crucial pieces of evidence that support a discovery should be identifiable from the log, associated to the discovery and finally attached to a report on such discovery.
+
+
+
+%Proposal for Braviz platform
+%
+%- Data Flow
+%- Task
+%- Use Case (igual que arriba?)
+%- Deployment
 
 
 \subsection{Applications Family}
@@ -319,3 +329,7 @@ Proposal for Braviz application family
 - rationale for each choice
 - when to select each feature
 - how to choose between alternatives
+
+\bigskip
+
+It can be seen that applications support the \emph{explore} use case, while the platform plays the main role in \emph{share} and \emph{review}. In the next chapter we will describe an implementation of the proposed system and later on we will see how it gets used in real projects.
