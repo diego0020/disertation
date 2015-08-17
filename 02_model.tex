@@ -221,6 +221,24 @@ Groups of experts are also interesting because their expertise are on different 
 % Existing viualization applications
 In chapter \ref{chap_intro} a review of the tools currently used in the domain was presented. These tools have several things in common and several differences as shown in figure X. While most of the processing tools provide utilities for batch processing several subjects, visualization are mostly available for a single subject or for the results of statistical tests. Going through visualizations of several subjects requires several steps and most of the time repeating work. Also while most of them permit the use of linear transform to move the data to a different coordinate system, the end user must specify the adequate transform for each case. These tools offer very good performance for quality control or publication graphs, but for exploratory analysis we require a more streamlined workflow, with minimal need for repetition, and limiting as much as possible the exposure of technical details to the user. In the world of statistical visualization there has been a bigger growth in interactive solutions. For example tableau can be used to create highly interactive dashboards for the exploration of large datasets. These dashboards display several coordinated views of the data and permit the user to interactively change parameters and therefore get visualizations tailored for the current question. We are interested in using these kind of techniques but extend them to be better integrated with spatial data. 
 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{domain/UseCaseGeneral}
+\caption{The high level use cases of the system. It should allow each specialist to explore, share and review. Notice one expert may review the results from another member of the team.\label{fig_use_case_general}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{domain/UseCaseExplore}
+\caption{The explore activity can be achieved trough a combination of several analysis tasks. Connect: show similar data, Reconfigure: change arrangement of data, Compare: view differences and similarities between two entities, Drill Down: Get additional details, Group: join similar entities, Annotate: attach additional information to an entity, Aggregate: show less detail, Change: show something different, Filter: show something conditionally. Most of these tasks are taken from \autocite{yi_toward_2007}\label{fig_use_case_explore}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{domain/UseCaseShare}
+\caption{The review and share use cases contain the following activities. BackTrack: reconstruct a previous session, Retrieve: recover the state of a previous section, Send: send data from a previous section to a colleague or a report.\label{fig_use_case_share}}
+\end{figure}
+
 \bigskip
 
 In summary, the target domain is characterized by
@@ -245,7 +263,8 @@ In summary, the target domain is characterized by
 \end{itemize}
 \end{itemize}
 
-As mentioned earlier the objective is to create a family of applications that can adapt to different tasks inside the domain. Following visual analytics principle these applications should put the data at front, and let users focus on it instead of the applications. For this reasons applications should be simple, and have a limited set of features. Nevertheless we are also interested in fostering collaboration, and for these reason we would like applications inside the family to play nice with each other. It is also important that applications have strong features that let the user save and restore work efficiently, and therefore work over several interrupted sessions. Finally some applications in the family should support data transformation utilities. These transformations can be seen as measurements done based on spatial data, as well as additional geometric processing on spatial data, and the use of tools from the statistical analysis world. Visualization is the basis of exploratory analysis, and therefore it will likely be at the core of most applications in the family. The set of applications that will make part of the family can be better seen in the feature diagram of figure \ref{fig_feature_problem}.
+As mentioned earlier the objective is to create a family of applications that can adapt to different tasks inside the domain. Following visual analytics principle these applications should put the data at front, and let users focus on it instead of the applications. For this reasons applications should be simple, and have a limited set of features. Nevertheless we are also interested in fostering collaboration, and for these reason we would like applications inside the family to play nice with each other. It is also important that applications have strong features that let the user save and restore work efficiently, and therefore work over several interrupted sessions. Figures \ref{fig_use_case_general}, \ref{fig_use_case_explore} and \ref{fig_use_case_share} show a representation of the activities that have to be completed by users in the domain.
+Finally some applications in the family should support data transformation utilities. These transformations can be seen as measurements done based on spatial data, as well as additional geometric processing on spatial data, and the use of tools from the statistical analysis world. Visualization is the basis of exploratory analysis, and therefore it will likely be at the core of most applications in the family. The set of applications that will make part of the family can be better seen in the feature diagram of figure \ref{fig_feature_problem}.
 
 \begin{figure}
 \centering
@@ -340,8 +359,9 @@ If the above mechanisms are implemented right the set of applications should mov
 Individual applications are where most of the job will be accomplished. We expect to have a very diverse set of applications that adapts to several users and tasks. While each application will be different, there will be all based on common asset. The objective is to create these applications using the techniques from Software Product Line Engineering \autocite{pohl_software_2005}. The feature diagram from figure \ref{fig_feature_problem} show the expected variability from the user perspective. From it we derive a second feature plot (see figure \ref{fig_feature_solution}) that shows the variability of applications from a more technical point of view.  
 
 \begin{figure}
-
-\caption{\label{fig_feature_solution}}
+\centering
+\includegraphics[width=\textwidth]{featureSolution}
+\caption{\label{fig_feature_solution}Feature Diagram of the solution space. It shows the available choices of features to create applications in the domain. Choices must be made depending on the task and the user.}
 \end{figure}
 
 Notice that this diagram evidences some selections of the technology that will be used in the implementation. VTK \autocite{schroeder_vtk_1998} is the most common scientific visualization framework, and most of the tools we analyzed use it. Given that one of our objectives is to play nice with existing software this comes as a natural choice. In the statistical side, R \autocite{team_r:_2012} is one of the most used statistical software, and it has the advantage of being open source. Because of this it we can connect it to our application, and most importantly, we can ask our users to install it without this imposing a financial burden. We will be using python as the main developing environment, again, because it has become on of the most popular languages in the neuro-science  community. For this reason several packages can we found to perform data processing and reading. An important example is the nipy \autocite{gorgolewski_nipype:_2011-1} suite. There are also robust scientific libraries \autocite{van_der_walt_numpy_2011, jones_scipy:_2001,mckinney_data_2010} available inside this platform as well as libraries for statistical plotting, specifically Matplotlib \autocite{hunter_matplotlib:_2007} and seaborn \autocite{michael_waskom_seaborn:_2015}.
