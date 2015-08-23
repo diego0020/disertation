@@ -43,8 +43,41 @@ Based on these we proposed a new set of prototypes.
 
 \subsection{First prototypes}
 
+%-- titanic
 
--- titanic
+For the first round of prototypes after KAB, we focused on creating tools with a limited set of features, which could run faster and be easier to learn. We stayed with the BBTK framework as it provided us a fast way to iterate. At this stage our main objectives were solving the technical problems we identified in KAB. Specifically
+\begin{itemize}
+\item Perform registration automatically
+\item Integrate non-image data
+\item Increase computational performance
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/Titanic_B.png} 
+\caption{\label{fig_titanic}Prototype integrating tabular and image data}
+\end{figure}
+
+Most of the prototypes created at this stage were only used internally to test different algorithms and techniques. Figure \ref{fig_titanic} shows the final prototype of this series. Its main features are
+\begin{itemize}
+\item Display values of clinical variables together with the image
+\item Explicit identification of the current subject
+\item Simple interface
+\item Selection of different image modalities
+\item Selection of different coloring schemes for bundles
+\item Direct selection of the most important fiber groups
+\item Control on most important visualization parameters
+\end{itemize}
+
+This tool was really simple to use there were few controls and all of them were visible. Notice this application was tailored towards the specific project. At the time the research team was specially interested in corpus callosum and motor fibers. This application allowed researchers to quickly answer specific questions relating fiber bundles to clinical variables. Also now researchers from all specialists could look at tractography and a different MRI images painlessly, where before they had to rely on large, hard to use applications. Data was organized in drive in a well defined structure. When the application launches the user only needed to select the main structural image, and the rest of the necessary files were located trough their relative paths. There was no need for end user to even know about the existence of transformation matrices or other files. This simplified a lot the process of simply looking at spatial data in context, and allowed experts to do this in a convenient way. Having a more direct access to spatial data allowed experts from different specialties to look at them on their own time, and therefore come up with new ideas for analyzes. They were also using the tool to communicate ideas to other brain experts and also to us. We now had a better way of communicating with experts, and therefore we could get a better understanding of their needs. This tool showed us the potential of integrating spatial data with clinical data, but some limitations were made evident in our work with experts
+\begin{itemize}
+\item It was not possible to change subject during an analysis
+\item It was not easy to select different variables
+\item It was not possible to use different sets of tracks
+\item It is cumbersome to compare different subjects
+\end{itemize}
+
+Analyzing groups of subjects and comparing subjects became the priority for the next round.
 
 \subsection{Braviz, First Version}
 - Braviz/tk
