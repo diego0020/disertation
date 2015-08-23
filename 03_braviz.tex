@@ -80,8 +80,61 @@ This tool was really simple to use there were few controls and all of them were 
 Analyzing groups of subjects and comparing subjects became the priority for the next round.
 
 \subsection{Braviz, First Version}
-- Braviz/tk
--- sample applications
+
+%- Braviz/tk
+%-- sample applications
+
+For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/surf1.png} 
+\caption{\label{fig_surf_1}A freesurfer surface inside Braviz}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/grid_and_scatter.png} 
+\caption{\label{fig_grid}Corpus Callosums of several subjects organized on a grid and colored with respect to clinical variables.
+A scatter plot of these variables is shown at the bottom left}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/fibers-in-context.png} 
+\caption{\label{fig_fibers_ctx}Fibers could be selected using freesurfer segmentation. Vtk widgets could be used to make measurements.
+Additionally statistics of each bundle were calculated and shown instantaneously.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/rejean2.png} 
+\caption{\label{fig_fmri_1}This prototypes make the time aspect of fMRI explicit, therefore helping non-experts understand its meaning and make better interpretations}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/braviz_menu.png} 
+\caption{\label{fig_menu_1}A menu was provided to give an overview of the available applications and provide simple access.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
+\caption{\label{fig_tms_1}An application tailored at analyzing TMS variables relationship with tractography}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/cc_in_context.png} 
+\caption{\label{fig_cc_ctx_1}Fibers of the corpus callosum with segmentation and anatomical image as context}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/cc_in_context.png} 
+\caption{\label{fig_cc_ctx_1}Fibers of the corpus callosum with segmentation and anatomical image as context}
+\end{figure}
 
 \subsection{Braviz, Second Version}
 - Braviz Qt
