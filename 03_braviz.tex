@@ -7,13 +7,30 @@ The development of the platform went trough several prototypes that were tested 
 
 \subsection{Previous Work}
 
-The first prototype built by our group was called KAB \autocite{castro_kab:_2012}. This tool was built to analyze data from the KMC pilot study \autocite{schneider_cerebral_2012}. This software integrated data from Diffusion MRI, Functional MRI and structural MRI. The main interface of the tool is shown in figure \ref{}
-
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{historic/kab_figura1.png} 
 \caption{\label{fig_kab}The main interface of KAB}
 \end{figure}
+
+The first prototype built by our group was called KAB \autocite{castro_kab:_2012}. This tool was built to analyze data from the KMC pilot study \autocite{schneider_cerebral_2012}. This software integrated data from Diffusion MRI, Functional MRI and structural MRI. The main interface of the tool is shown in figure \ref{fig_kab}. Data was pre-processed using FSL \autocite{jenkinson_fsl_2012} for skull removal and FMRI modeling, and Medinria \autocite{toussaint_medinria} for diffusion data. Registration between diffusion and structural spaces was done on-line using the tool itself. The most important features of the software were:
+
+\begin{itemize}
+\item Visualizing structural MRI, fMRI and tractography on the same space
+\item Selection of bundles in a full tractography
+\begin{itemize}
+\item Using two spherical regions of interests located manually
+\item Using conical regions of interests, representing the spread of TMS magnetic pulses
+\item Using areas where fMRI statistics were above a threshold
+\item Using hand-drawn regions
+\end{itemize}
+\item Generating statistics from selected bundles
+\item Automatic generation of reports
+\end{itemize}
+
+Integrating information from different sources was the major contribution of the tool. Traditionally each type of data was analyzed on its own, using dedicated tools, and integrating information in this way was beyond brain experts. This tool was implemented based on the BBTK framework \autocite{} developed by Creatis.
+
+
 
 - background
 -- kab
