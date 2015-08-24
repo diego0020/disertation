@@ -99,7 +99,9 @@ Analyzing groups of subjects and comparing subjects became the priority for the 
 %- Braviz/tk
 %-- sample applications
 
-For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python. Additionally we were exploring how to bring into the applications of more sophisticated processing tools. FreeSurfer specially grabbed our attention as it provided information from an ATLAS, and provided a way to identify the different regions of the brain using common names. This was very important to experts as it allowed them to compare their finding to those of other groups, and those in the literature. Figure \ref{fig_surf_1} shows one of the prototypes which allowed experts to visualize FreeSurfer surface parcellations. This application has a 3D viewer on the right side and a control panel on the left side. The bottom part of this panel lets the user select the different FreeSurfer surfaces and scalars, while the top of the panel lets him show a subject. Notice that it is now possible to change the subject in the middle of a session, and by doing so, it is also easier to compare the same view for multiple subjects. This was one of the main goals at this stage.
+For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python. In the following we will describe some of the applications developed at this stage. 
+
+We were exploring how to bring into the applications of more sophisticated processing tools. FreeSurfer specially grabbed our attention as it provided information from an ATLAS, and provided a way to identify the different regions of the brain using common names. This was very important to experts as it allowed them to compare their finding to those of other groups, and those in the literature. Figure \ref{fig_surf_1} shows one of the prototypes which allowed experts to visualize FreeSurfer surface parcellations. This application has a 3D viewer on the right side and a control panel on the left side. The bottom part of this panel lets the user select the different FreeSurfer surfaces and scalars, while the top of the panel lets him show a subject. Notice that it is now possible to change the subject in the middle of a session, and by doing so, it is also easier to compare the same view for multiple subjects. This was one of the main goals at this stage. 
 
 \begin{figure}
 \centering
@@ -119,10 +121,10 @@ The FreeSurfer segmentations also provided us a repeatable way of selecting fibe
 \centering
 \includegraphics[width=0.9\textwidth]{historic/fibers_in_context.png} 
 \caption{\label{fig_fibers_ctx}Fibers could be selected using freesurfer segmentation. Vtk widgets could be used to make measurements.
-Additionally statistics of each bundle were calculated and shown instantaneously.}
+Additionally statistics of each bundle were also available.}
 \end{figure}
 
-
+An application for viewing two subjects at the same time and comparing them was also created. Its interface can be seen on figure \ref{fig_compare_1}. In this application it was possible to show the same selection of images, fibers and structures for two different subjects. The screen could be split vertically, horizontally or both subjects could be shown on the same space but using different colors and possibly adding a small offset.
 
 \begin{figure}
 \centering
@@ -130,11 +132,15 @@ Additionally statistics of each bundle were calculated and shown instantaneously
 \caption{\label{fig_compare_1}Comparing the motor tract of two subjects}
 \end{figure}
 
+At this point the interest in fMRI was increasing, but some of the researchers who were not expert on this technique were having problems interpreting this data correctly. Figure \ref{fig_fmri_1} shows an application created to make the nature of fMRI explicit. The application shows the T-score image in the 3D view, but also shows the corresponding time signal at each voxel, together with the experiment design. In this way users could better understand that a higher score meant a larger relationship between the BOLD signal an the paradigm. 
+
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{historic/rejean2.png} 
-\caption{\label{fig_fmri_1}This prototypes make the time aspect of fMRI explicit, therefore helping non-experts understand its meaning and make better interpretations}
+\caption{\label{fig_fmri_1}This prototypes make the time dimension of fMRI explicit, therefore helping non-experts understand its meaning and make better interpretations}
 \end{figure}
+
+We wanted to let researchers search for patterns between clinical variables and structures. One proposal in this direction can be seen in figure \ref{fig_grid}, this application shows the corpus callosums of all subjects in the study organized in a grid. From left to right the structures are organized according to a clinical variable, while the color of the structures reflect the value of another clinical variable. The variables used for these purposes could be selected from the panel on the left. At the bottom right of the viewer was a small scatter plot showing the relationships between the two variables. This plot was linked to the grid view, so selecting a point in the plot would highlight the corresponding structure and vice versa. Another important feature was that an individual structure could be rotated in 3d space, and the rotations would be propagate to all the structures on the grid.
 
 \begin{figure}
 \centering
@@ -143,12 +149,7 @@ Additionally statistics of each bundle were calculated and shown instantaneously
 A scatter plot of these variables is shown at the bottom left}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
-\caption{\label{fig_tms_1}An application tailored at analyzing TMS variables relationship with tractography}
-\end{figure}
-
+Another proposal for showing relationships between structures and clinical variables is shown in figure \ref{fig_star_1}. In this case structures and data are separated in three groups. This grouping is done by the main categorical variable in the study (see chapter \ref{chap_kmc}). Clinical data is shown using a spider plot, where each subject is represented as a polygon and each variable is an axis. Structures are shown on the same space using alpha-blending. By mixing all the structures in this way the average shape for the group appears. Also notice variables are organized in a tree like structure on the top left, and the description of each variable appears when the user hovers on its name. This tree also showed FreeSurfer structures and allowed the user to add the volumes and areas of such structures to the star plot. As in the previous case there was an integration between the numerical variables and the structure, and clicking on one would highlight the corresponding subject on both views.
 
 \begin{figure}
 \centering
@@ -158,9 +159,17 @@ A scatter plot of these variables is shown at the bottom left}
 
 \begin{figure}
 \centering
+\includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
+\caption{\label{fig_tms_1}An application tailored at analyzing TMS variables relationship with tractography}
+\end{figure}
+
+\begin{figure}
+\centering
 \includegraphics[width=0.9\textwidth]{historic/braviz_menu.png} 
 \caption{\label{fig_menu_1}A menu was provided to give an overview of the available applications and provide simple access.}
 \end{figure}
+
+%Feedback
 
 \subsection{Braviz, Second Version}
 
