@@ -21,7 +21,7 @@ The development of the platform went trough several prototypes that were tested 
 \caption{\label{fig_kab}The main interface of KAB}
 \end{figure}
 
-The first prototype built by our group was called KAB \autocite{castro_kab:_2012}. This tool was built to analyze data from the KMC pilot study \autocite{schneider_cerebral_2012}. This software integrated data from Diffusion MRI, Functional MRI and structural MRI. The main interface of the tool is shown in figure \ref{fig_kab}. Data was pre-processed using FSL \autocite{jenkinson_fsl_2012} for skull removal and FMRI modeling, and Medinria \autocite{toussaint_medinria} for diffusion data. Registration between diffusion and structural spaces was done on-line using the tool itself. The most important features of the software were:
+The first prototype built by our group was called KAB \autocite{castro_kab:_2012}. This tool was built to analyze data from the KMC pilot study \autocite{schneider_cerebral_2012}. This software integrated data from Diffusion MRI, Functional MRI and structural MRI. The main interface of the tool is shown in figure \ref{fig_kab}. Data was pre-processed using FSL \autocite{jenkinson_fsl_2012} for skull removal and FMRI modeling, and Medinria \autocite{toussaint_medinria:_2007} for diffusion data. Registration between diffusion and structural spaces was done on-line using the tool itself. The most important features of the software were:
 
 \begin{itemize}
 \item Visualizing structural MRI, fMRI and tractography on the same space
@@ -36,7 +36,7 @@ The first prototype built by our group was called KAB \autocite{castro_kab:_2012
 \item Automatic generation of reports
 \end{itemize}
 
-Integrating information from different sources was the major contribution of the tool. Traditionally each type of data was analyzed on its own, using dedicated tools, and integrating information in this way was beyond brain experts. This tool was implemented based on the BBTK framework \autocite{hoyos_creatools} developed by Creatis. 
+Integrating information from different sources was the major contribution of the tool. Traditionally each type of data was analyzed on its own, using dedicated tools, and integrating information in this way was beyond brain experts. This tool was implemented based on the BBTK framework \autocite{hoyos_creatools:_2012} developed by Creatis. 
 
 Specialists appreciated the ability to integrate several kinds of data and ask questions that involved relationships between them. During the development of the application specialists started asking questions about symmetries in the brain, and therefore the option of reflecting a ROI to the other hemisphere was added. Specialists also expressed the need of linking the coordinate system of the tool to a known atlas.
 
@@ -198,10 +198,17 @@ As it can be seen the interest in the analysis of clinical values was increasing
 %- Braviz Qt
 %-- sample applications
 
+The first version of Braviz provided a robust infrastructure for displaying spatial data on multiple coordinate systems, however its ability to handle clinical variable was still limited. From the last iteration we realized that in order to efficiently use the data we needed some analytics on the variables. We also required a better infrastructure to store and manipulate this variables. Another limitation of the previous prototype was that work could not be saved or restored. Measurements derived from segmented structures or fibers were separated from clinical variables. Finally, all of the applications operated independently without any connection. This version of Braviz addresses those limitations. 
+
+In order to store and manage clinical variables and those derived from spatial data a database was integrated in the system. This database is also used to let user store and retrieve data. Details of the database will be given on section \ref{sec_tech}. Applications were coordinated by sharing the same database, and by passing messages between them. The model described in chapter \ref{chap_model} was mature by this moment, and was the basis for this implementation. Section \ref{sec_arch} will provide a closer look at how the model is realized into this platform, but first we will take a look at some of the features of this version.
+
+% Sample applications
+% Maybe recycle from paper , or from old draft on bitbucket
 
 
 \section{Architecture}
 
+\label{sec_arch}
 From model to implementation
 -----------------------------
 
@@ -212,6 +219,8 @@ From model to implementation
 
 
 \section{Technical Details}
+
+\label{sec_tech} 
 
 Technical details
 ------------------
