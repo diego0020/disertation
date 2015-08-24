@@ -124,7 +124,7 @@ The FreeSurfer segmentations also provided us a repeatable way of selecting fibe
 Additionally statistics of each bundle were also available.}
 \end{figure}
 
-An application for viewing two subjects at the same time and comparing them was also created. Its interface can be seen on figure \ref{fig_compare_1}. In this application it was possible to show the same selection of images, fibers and structures for two different subjects. The screen could be split vertically, horizontally or both subjects could be shown on the same space but using different colors and possibly adding a small offset.
+An application for viewing two subjects at the same time and comparing them was also created. Its interface can be seen on figure \ref{fig_compare_1}. In this application it was possible to show the same selection of images, fibers and structures for two different subjects. The screen could be split vertically, horizontally or both subjects could be shown on the same space but using different colors and possibly adding a small offset. In the case of split screen the camera in both views was coordinated, and there was the possibility to add a plane that would be replicated in both views to use as context.
 
 \begin{figure}
 \centering
@@ -157,6 +157,9 @@ Another proposal for showing relationships between structures and clinical varia
 \caption{\label{fig_star_1}This application allowed comparing several structures and variables between groups of subjects.}
 \end{figure}
 
+The application shown in figure \ref{fig_tms_1} was developed for a very specific task: analyzing the relationship between TMS metrics with fibers. The application shows at the left a list of tms variables organized in a tree, a selection between dominant and non-dominant hemisphere, and the option to add males or females to the sample. In this case the application would know if a given subject is right handed or left handed, and display the values for the dominant or non-dominant hemisphere. At the bottom of the screen the values for the whole sample would be shown with the current subject on the right. The picture at the top of the screen would display the motor fibers where the current metric only involved one hemisphere, and the corpus callosum (see figure \ref{fig_tms_2}) where the current metric involved both hemispheres. The user could click on a bar on the bottom display and select that subject.
+It was also possible to show aggregated measures for the three groups on the bottom display as seen in figure  \ref{fig_tms_2}. By doing this the expert could quickly evaluate the relationship between the visual appearance of tractography and values of tms metrics. 
+
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
@@ -165,9 +168,28 @@ Another proposal for showing relationships between structures and clinical varia
 
 \begin{figure}
 \centering
+\includegraphics[width=0.9\textwidth]{historic/tms_2.png} 
+\caption{\label{fig_tms_2}Another view of the TMS applications, this time showing the fibers of the corpus callosum.}
+\end{figure}
+
+Finally, we created a menu in order to group all applications and provide users with a direct access point to all of them. Before this, we had a collection of icons in a folder, but users found it complex. Trough the menu they can see a picture of each application, and therefore find the one they need without even reading.
+
+\begin{figure}
+\centering
 \includegraphics[width=0.9\textwidth]{historic/braviz_menu.png} 
 \caption{\label{fig_menu_1}A menu was provided to give an overview of the available applications and provide simple access.}
 \end{figure}
+
+By this iteration we had more confidence in the underlying data analysis steps, and therefore were able to propose a wide array of solutions. We got closer to our goal of analyzing groups of subjects and integrating clinical variables with structural data. The features users liked the most were
+
+\begin{itemize}
+\item Seeing the same display for different subjects
+\item Associating locations in the image to areas in an Atlas
+\item Relating Volumes, Areas and Lengths of fibers to clinical variables
+\item Quickly seeing relationships between clinical variables
+\end{itemize}
+
+As it can be seen the interest in the analysis of clinical values was increasing. In fact the favorite feature from the grid viewer in figure \ref{fig_grid} was the scatter plot at the corner. We were somehow disappointed for the lack of interest in the 3D graphs, but those were the opinions of the users. In fact they mentioned that hardly anything could be seen in the alpha blended images from figure \ref{fig_star_1}. In other views they were happy to be able to see the data, but they demanded even more for numerical measures where statistics could be applied. Therefore the main goal for the next iteration was improving the support for clinical data.
 
 %Feedback
 
@@ -175,6 +197,7 @@ Another proposal for showing relationships between structures and clinical varia
 
 %- Braviz Qt
 %-- sample applications
+
 
 
 \section{Architecture}
