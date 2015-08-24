@@ -99,12 +99,41 @@ Analyzing groups of subjects and comparing subjects became the priority for the 
 %- Braviz/tk
 %-- sample applications
 
-For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python.
+For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python. Additionally we were exploring how to bring into the applications of more sophisticated processing tools. FreeSurfer specially grabbed our attention as it provided information from an ATLAS, and provided a way to identify the different regions of the brain using common names. This was very important to experts as it allowed them to compare their finding to those of other groups, and those in the literature. Figure \ref{fig_surf_1} shows one of the prototypes which allowed experts to visualize FreeSurfer surface parcellations. This application has a 3D viewer on the right side and a control panel on the left side. The bottom part of this panel lets the user select the different FreeSurfer surfaces and scalars, while the top of the panel lets him show a subject. Notice that it is now possible to change the subject in the middle of a session, and by doing so, it is also easier to compare the same view for multiple subjects. This was one of the main goals at this stage.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{historic/surf1.png} 
 \caption{\label{fig_surf_1}A freesurfer surface inside Braviz}
+\end{figure}
+
+The FreeSurfer segmentations also provided us a repeatable way of selecting fibers across all subjects. Figure \ref{fig_cc_ctx_1} shows an application designed for this task. In the control panel we now have a list of structures where the user can select one or several. In the middle of the panel is a combo-box which provides the options "\emph{or}" or "\emph{and}". This selection will change the way in which multiple selections are interpreted, in the case of \emph{or}, fibers that go trough any of the structures will be selected, while in the case of \emph{and} only fibers that go trough all of them will be selected. Notice there is another combo-box labeled "\emph{coordinates}", this box provides the options "\emph{world}", "\emph{talairach}" and "\emph{dartel}". In "\emph{world}" objects on the 3D view are represented based on the coordinates of the anatomical image, in "\emph{talairach}" mode the coordinates change to the standard Talairach space and, in "\emph{dartel}" mode, objects are registered to sample template using a non-linear registration. By moving to a standard space comparing two different subjects is easier, as some of the differences will be absorbed by the transformation. This will enhance some types of differences but will hide some others; the most appropriate coordinate system will depend on what types of differences are currently of interest for the end user. In this application several other FreeSurfer structures could be added to the scene in order to provide context. Figure \ref{fig_fibers_ctx} shows another view of this application. By hovering the cursor on top of a bundle the user could get some information about them. It was also possible to measure distances in the 3D space in order to make numeric comparisons across subjects.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/cc_in_context.png} 
+\caption{\label{fig_cc_ctx_1}Fibers of the corpus callosum with segmentation and anatomical image as context}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/fibers_in_context.png} 
+\caption{\label{fig_fibers_ctx}Fibers could be selected using freesurfer segmentation. Vtk widgets could be used to make measurements.
+Additionally statistics of each bundle were calculated and shown instantaneously.}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/compare.png} 
+\caption{\label{fig_compare_1}Comparing the motor tract of two subjects}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{historic/rejean2.png} 
+\caption{\label{fig_fmri_1}This prototypes make the time aspect of fMRI explicit, therefore helping non-experts understand its meaning and make better interpretations}
 \end{figure}
 
 \begin{figure}
@@ -116,45 +145,21 @@ A scatter plot of these variables is shown at the bottom left}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/fibers_in_context.png} 
-\caption{\label{fig_fibers_ctx}Fibers could be selected using freesurfer segmentation. Vtk widgets could be used to make measurements.
-Additionally statistics of each bundle were calculated and shown instantaneously.}
+\includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
+\caption{\label{fig_tms_1}An application tailored at analyzing TMS variables relationship with tractography}
 \end{figure}
+
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/rejean2.png} 
-\caption{\label{fig_fmri_1}This prototypes make the time aspect of fMRI explicit, therefore helping non-experts understand its meaning and make better interpretations}
+\includegraphics[width=0.9\textwidth]{historic/mini_star.png} 
+\caption{\label{fig_star_1}This application allowed comparing several structures and variables between groups of subjects.}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{historic/braviz_menu.png} 
 \caption{\label{fig_menu_1}A menu was provided to give an overview of the available applications and provide simple access.}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
-\caption{\label{fig_tms_1}An application tailored at analyzing TMS variables relationship with tractography}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{historic/cc_in_context.png} 
-\caption{\label{fig_cc_ctx_1}Fibers of the corpus callosum with segmentation and anatomical image as context}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{historic/compare.png} 
-\caption{\label{fig_compare_1}Comparing the motor tract of two subjects}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{historic/mini_star.png} 
-\caption{\label{fig_star_1}This application allowed comparing several structures and variables between groups of subjects.}
 \end{figure}
 
 \subsection{Braviz, Second Version}
