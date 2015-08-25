@@ -209,7 +209,11 @@ In order to store and manage clinical variables and those derived from spatial d
 	\item New QT based user interface
 	\item Create new variables based on spatial data and add them to the database
 	\item Statistical processing based on R
+	\item Create, use and share custom sub-samples
+	\item Save and restore the state of applications
 \end{itemize}
+
+We took all of the different data viewers of the previous iteration and combined them into a single viewer, called \emph{subject overview}. This viewer can be used to show all the different kinds of data that are available on the same space. Several of the possibilities are shown on figure \ref{fig_subj_viewer_mosaic}. The main interface of this application is shown in figure \ref{fig_subj_overview_2}. Notice that below the main view now we can find the values of several values for the current subject. Another feature is that the viewer lets the user calculate scalar metrics based on the objects in the scene, and add this values to the database as a new variable.
 
 \begin{figure}
 \centering
@@ -223,6 +227,7 @@ In order to store and manage clinical variables and those derived from spatial d
 \caption{\label{fig_subj_viewer_mosaic}Examples of visualizations that can be achieved with the new subject viewer.}
 \end{figure}
 
+The application shown in figure \ref{fig_sample_overview_2}, called \emph{sample overview}, lets the expert look at several subjects at the same time. Subjects are arranged in rows based on a nominal variable and from left to right based on a numerical value. The values of this variables are also shown on the bar plots at the right. Each bar is linked to one 3d viewer, and by selecting a subject on one of the view it will be highlighted on the other one. As before it is possible to manipulate the camera on one viewer and copy it to the rest. Notice that we abandoned the idea of alpha blending in favor of multiple views that we expect will be easier to interpret. If more details from a single subject are required, the user can right click on the small picture, and from the context menu select \emph{show in other viewers} or \emph{show in new viewer}. The first option will highlight the subject on all opened viewers, while the second one will launch a new subject overview subject configured in the same way as the small viewer.
 
 \begin{figure}
 \centering
@@ -230,11 +235,15 @@ In order to store and manage clinical variables and those derived from spatial d
 \caption{\label{fig_sample_overview_2}Multiple subjects can be visualized at the same time in small multiples, a nominal variables is used for rows and a numerical value for left to right order.}
 \end{figure}
 
+In order to select variables in all of the applications, dialogs similar to the one shown on figure \ref{fig_var_select}. This dialog shows a list of variables that can be filtered, and for each variable provides a description, a type and a plot. In the case of nominal variables the labels for each level are also shown, while on numerical value the expected range of the variable and the optimal value is shown. Notice that this information can be modified by the user. 
+
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{braviz_qt/var_select.png} 
 \caption{\label{fig_var_select}The standard dialog for selecting variables, notice the middle panel contains information about the variable while the right plot provides an overview.}
 \end{figure}
+
+The database of variables is a central component of this version, and as such we added features to perform typical statistical analyses on them without having to leave the platform. Figure \ref{fig_anova_2} shows an interface for performing anova  analysis using the data on the database. The user just selects an outcome, regressors, interactions and a sample. Samples can be created by filtering the population or other samples. An important advantage of doing the analysis here is that points in plots are also coordinated with other applications. This means that it is possible to right click on a point in a plot and make all currently open applications focus on that subjects, this includes the \emph{subject overview} application.
 
 \begin{figure}
 \centering
@@ -242,13 +251,15 @@ In order to store and manage clinical variables and those derived from spatial d
 \caption{\label{fig_anova_2}Anova analyzes on the variables in the database can be performed and visualized on this application. Data-points in the plots are coordinated to all other open applications.}
 \end{figure}
 
+Figure \ref{fig_lm_2} shows a similar application tuned for linear regressions. In this nominal variables are encoded using dummy variables, and the effects of each variable can be analyzed in the presence of the other variables. 
+
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{braviz_qt/linear_model.png} 
-\caption{\label{fig_lm_2}An application for fitting linear models on the variables on the database, the effect of one variable after correcting for the others can be visualized.}
+\caption{\label{fig_lm_2}An application for fitting linear models on the variables on the database, the effect of one variable after correcting for the others can be visualized. Notice the highlighted subject in the plot.}
 \end{figure}
 
-
+Finding correlations between variables is a common task for researchers, and thus we developed the application shown in figure \ref{fig_correlations}. It features a correlations matrix in the middle, on the left side is a list of all variables in the project which can be added or removed from analysis with a click. Finally, when the user clicks on a square of the matrix a scatter plot of the two variables is shown at the right. This scatter plot also allows users to select a point and see the corresponding subject on other views, and it reacts to messages sent for this purpose from other applications. Another feature is that individual points can be added or removed from the sample just by clicking on them, in this way anormal points that have a large influence on the regression can be temporarily removed from the analysis. The reduced sample that is created trough this process can be shared to other applications to perform other analysis.
 
 \begin{figure}
 \centering
@@ -256,12 +267,23 @@ In order to store and manage clinical variables and those derived from spatial d
 \caption{\label{fig_correlations}With this application it is straightforward to analyze correlations between variables.}
 \end{figure}
 
+The fMRI viewer from the previous iteration was upgrade to the one shown on figure \ref{fig_fmri_2}. This new version now loads complex experiment designs and contrasts directly from SPM files, which gives instantaneously an intuition of experiment structure, and makes mistakes evident. The new application also lets the user select multiple timelines at the same time, group them together, and make comparisons between groups. 
+
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{braviz_qt/fmri.png} 
 \caption{\label{fig_fmri_2}New version of the fmri explorer, now more complex experiments can be analyzed and timelines from different locations and subjects can be saved and compared.}
 \end{figure}
 
+While most of the applications of this iteration use QT for the graphical interface, we were also interested in web based technologies. Figure \ref{fig_parallel_2} shows a parallel coordinates view of the variables in the database created with the D3 \autocite{bostock_d$^3$_2011} javascript library and running on a web browser. Each line on the visualization represents a subject, while each axis represents a variable. Even though this application is running on a web browser, it is still possible to synchronize it with the rest of the system. This means the user can right click on one of the lines and make all the other apps focus on that subject, and in the same way, a line will be highlighted when the user asks for so in any other application. The mechanisms for making this possible will be explained on section \ref{sec_tech}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{braviz_qt/parallel.png} 
+\caption{\label{fig_parallel_2}A parallel coordinates view of the variables in the database. Notice this visualization runs on a web browser.}
+\end{figure}
+
+Finally the menu, which acts as the entry point to the system, was also upgraded. Now in addition to the application launchers it includes utilities to import data into the database and export it, review and modify subsamples, look at the current variables and their meta-data, and review the saved states (scenarios) for all applications. From this last menu, it is possible to open any scenario, the correct application will then launch and load the saved state. Notice that the menu includes a first row with applications dedicated to manual or semi-manual measuring tasks. The objective of these applications is defining new geometrical structures or scalar measures that can be used in the rest of the system. It is possible to make linear measures on top of images, place spherical regions of interest based on images or surfaces while looking at the set of fibers that would result from that selection, and define custom fiber bundles by combining spheres and segmented structures trough logical operations. Examples of this will be given on chapter \ref{chap_kmc}.
 
 \begin{figure}
 \centering
