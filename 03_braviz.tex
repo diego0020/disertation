@@ -202,6 +202,27 @@ The first version of Braviz provided a robust infrastructure for displaying spat
 
 In order to store and manage clinical variables and those derived from spatial data a database was integrated in the system. This database is also used to let user store and retrieve data. Details of the database will be given on section \ref{sec_tech}. Applications were coordinated by sharing the same database, and by passing messages between them. The model described in chapter \ref{chap_model} was mature by this moment, and was the basis for this implementation. Section \ref{sec_arch} will provide a closer look at how the model is realized into this platform, but first we will take a look at some of the features of this version.
 
+\begin{itemize}
+	\item Centralized storage of variables and user data
+	\item Importing and Exporting variables to/from spreadsheets
+	\item Coordinated applications, can focus on the same subject on all applications
+	\item New QT based user interface
+	\item Create new variables based on spatial data and add them to the database
+	\item Statistical processing based on R
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{braviz_qt/anova.png} 
+\caption{\label{fig_anova_1}Anova analyzes on the variables in the database can be performed and visualized on this application. Data-points in the plots are coordinated to all other open applications.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{braviz_qt/anova.png} 
+\caption{\label{fig_anova_1}Anova analyzes on the variables in the database can be performed and visualized on this application. Data-points in the plots are coordinated to all other open applications.}
+\end{figure}
+
 % Sample applications
 % Maybe recycle from paper , or from old draft on bitbucket
 
