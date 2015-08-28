@@ -296,15 +296,42 @@ Finally the menu, which acts as the entry point to the system, was also upgraded
 
 
 \section{Architecture}
-
 \label{sec_arch}
-From model to implementation
------------------------------
 
-- architecture
-- common platform
-- skeleton of a application
-- database
+%From model to implementation
+%-----------------------------
+%
+%- architecture
+%- common platform
+%- coordinate system
+%- skeleton of a application
+%- database
+
+
+Trough the user centered design process described in the previous section we arrived to the model described on chapter \ref{chap_model}. The proposal consists of a family of applications, each providing interfaces, visualizations and interaction mechanisms suited for specific tasks. However all applications share the same data and can communicate with other running applications. While they will be different from the user point of view, on the inside they share several operations, therefore it makes sense for them to share significant amounts of code. Another important requirement was that the whole system should adapt to different data storage mechanisms. 
+
+The proposed architecture to implement these features is shown in figure \ref{fig_archi}. At the top of the diagram are the concrete applications. All of them make use of a library which provides all common braviz functionalities. Notice that each application can use a different subset of features from this library, as specified in figure \ref{fig_feature_solution}. In order to made the platform flexible, and adaptable to different data storage solutions, all data access operations are isolated trough the "`Project Reader"' layer. The current implementation uses files stored in disk, but we had used this layer to adapt to two different disk layouts. In the future this layer could be used to read spatial data from a database or web service. 
+
+\begin{figure}
+\includegraphics[width=\textwidth]{braviz/appArchitecture}%
+\caption{\label{fig_archi} The architecture of Braviz Applications. The bottom of the diagram shows the underlying data storage, which is expected to be different for every project. The "`Project Reader"' layer serves as an isolation layer, when data storage mechanisms change only this layer needs to be adapted.}
+\end{figure}
+
+The library itself is divided into three modules
+
+\begin{itemize}
+	\item Read and Filter: Provides functions to access data and manipulate spatial data. This module loads the appropriate project reader based on a configuration file. However project readers themselves can use the other facilities in the module in order to transform the data into the expected format.
+	\item Interaction: Provides re-usable widgets and interaction mechanisms, including communications with other applications in the family.
+	\item Visualization: Provides several visualization elements, both for spatial data and tabular data.
+\end{itemize}
+
+
+
+\subsection{Read and Filter}
+
+The \emph{readAndFilter} modules is in charge of providing the right data for all the other components. This mainly corresponds to the \emph{Data Sources} feature in\ref{fig_feature_solution}, and some basic \emph{Geometric Processing} operations, mainly related to data filtering and coordinate space transformation. 
+
+
 
 
 \section{Technical Details}
