@@ -331,8 +331,28 @@ The library itself is divided into three modules
 
 The \emph{readAndFilter} modules is in charge of providing the right data for all the other components. This mainly corresponds to the \emph{Data Sources} feature in\ref{fig_feature_solution}, and some basic \emph{Geometric Processing} operations, mainly related to data filtering and coordinate space transformation. 
 
+Spatial data is exposed to the top layers via a declarative API; where the type of data, subject, coordinate system, and other parameters appropriate for the data type are passed to a function. Inside the function loads and applies all the required transformations. Each project reader must implement this API and must do the concrete operations required in the specific data-set to return the requested objects. Some examples of a call to this function are
+
+\begin{minted}
+mri = reader.get("")
 
 
+\end{minted}
+
+The complete documentation can be found on the Braviz website.
+
+% Dibujo espacioes de coordenadas
+
+% Dibujo esquema base de datos
+
+\subsection{visualization}
+
+
+\subsection{interaction}
+
+\subsection{applications}
+
+¿Maybe a table indicating which features are used in each application?
 
 \section{Technical Details}
 
