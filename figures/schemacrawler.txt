@@ -1,0 +1,2 @@
+schemacrawler.cmd -server="sqlite" -da
+tabase="D:\kmc400-braviz\braviz_data\tabular_data3.sqlite" -infolevel="standard" -c="graph"

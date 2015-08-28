@@ -351,7 +351,9 @@ The types of data available for each project is not always the same. For this re
 \label{listing_read_and_filter_indices}
 \end{listing}
 
-Applications and functions from other modules may assume that this function exists and behaves as expected, and in this way applications that work across different projects can be built. This API can also be used in an interactive console in order fetch data on the fly. 
+Applications and functions from other modules may assume that this function exists and behaves as expected, and in this way applications that work across different projects can be built. This API can also be used in an interactive console in order fetch data on the fly.
+
+Project readers themselves are likely to share several operations. For this reason the module provides reusable functions wrapping input and output, format changes, transformations between coordinate systems and computation of scalars.
 
 The spatial data repository should not be writable by the Braviz system. In this way users won't fear altering their raw data while using Braviz, and the platform will be easier to use together with other systems. However there should be another location where the results from expensive operations can be stored in a persistent cache. 
 
@@ -370,6 +372,20 @@ The concrete way in which these objects are stored depends on the project, but a
 
 
 \subsection{visualization}
+
+The visualization module provides reusable interactive visualizations. These are divided in two families: spatial data viewers based on VTK and statistical data viewer based on Matplotlib or D3. 
+
+Spatial data viewers are made from several \emph{managers} specialized for dealing with each of the different data types. All managers render to the same renderer, but each of them keeps the objects associated to specific kinds of data. In order for the full viewer to behave correctly it is important to keep all managers in the same coordinate system and the same subject. The currently available managers are 
+
+\begin{itemize}
+	\item ImageManager: Displays an image in a plane. The user can click on the image to get the values and coordinates of the current voxel. The manager keeps track of the current image modality, orientation and slice.
+	\item FmriContours: Displays contoures for fMRI statistical maps. The manager keeps track of the paradigm and contrast, and the level of the template. A custom lookup-table can be used to color the contours.
+	\item Model Manager: Displays segmented structures. Keeps tracks of the available models and the currently selected models. Can also return scalar values associated to the current models, and allows specifying models by laterality ("`dominand or non-dominant"') or side ("`left"' or "`right"').
+	\item SurfaceManager:
+	\item TractographyManager:
+	\item TraculaManager: 
+	
+\end{itemize}
 
 
 \subsection{interaction}
