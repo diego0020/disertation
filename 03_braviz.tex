@@ -334,16 +334,60 @@ The \emph{readAndFilter} modules is in charge of providing the right data for al
 Spatial data is exposed to the top layers via a declarative API; where the type of data, subject, coordinate system, and other parameters appropriate for the data type are passed to a function. Inside the function loads and applies all the required transformations. Each project reader must implement this API and must do the concrete operations required in the specific data-set to return the requested objects. Some examples of a call to this function are
 
 \begin{minted}
-mri = reader.get("")
+# MRI structural image
+mri = reader.get("IMAGE",119,"world",name="MRI")
 
+# Free Surfer Label Map
+aparc = reader.get("LABEL",119,"world",name="APARC")
 
+# Right Thalamus model
+r_tha = reader.get("MODEL",119,"world",name="right-thalamus")
+
+# Now in talairach space
+r_tha = reader.get("MODEL",119,"talairach",name="right-thalamus")
+
+# Brain Stem Fibers
+bs_fibs = reader.get("FIBERS",119,"talairach",checkpoints="brain-stem")
+
+# Lerft Cortical Surface with thikcness scalars
+cortex = reader.get("Surface",119,"talairach",hemi="l", scalar="thickness", name="pial")
 \end{minted}
 
-The complete documentation can be found on the Braviz website.
+The complete documentation can be found on the Braviz website. Notice that changing the coordinate system or the current subject is trivial if variables are used as arguments in all queries. Readers can also implement caching mechanisms in order to improve performance of future queries.  
 
-% Dibujo espacioes de coordenadas
+Notice that it is possible to request specific sets of fibers by setting way-points in the query. This mechanism only supports getting bundles of fibers that cross several way-points or which cross any of them. More complex bundles can be requested by implementing specific functions inside the project reader, or by reading its description from the database. 
 
-% Dibujo esquema base de datos
+The types of data available for each project is not always the same. For this reason this method must also be able to inform applications which kinds of data are available. For this purpose most data types include an index parameter. For example
+
+\begin{minted}
+# Available images
+images = reader.get("IMAGE",119,None,index="True")
+
+# Available structures
+models = reader.get("MODEL",119,None,index="True")
+
+# fMRI paradigms
+?????????????????????????????????????????
+\end{minted}
+
+Applications and functions from other modules may assume that this function exists and behaves as expected, and in this way applications that work across different projects can be built. This API can also be used in an interactive console in order fetch data on the fly. 
+
+The spatial data repository should not be writable by the Braviz system. In this way users won't fear altering their raw data while using Braviz, and the platform will be easier to use together with other systems. However there should be another location where the results from expensive operations can be stored in a persistent cache. 
+
+Complementing this source of spatial data is a database which contains several objects which can be manipulated by end users. This include
+
+\begin{itemize}
+\item Variables values and metadata
+\item Saved application state
+\item Subsamples
+\item Subject Annotations
+\item User defined fiber bundles
+\item User defined geometrical objects (ROIs, Lines)
+\end{itemize}
+
+The concrete way in which these objects are stored depends on the project, but all reading and writing into the database should also be limited to this modules. More details about the currently implemented schema will be given in section \ref{sec_tech}
+
+
 
 \subsection{visualization}
 
@@ -367,6 +411,6 @@ Technical details
 - data input/output
 - transformations
 - coordinate systems
-
+% Dibujo esquema base de datos
 
 
