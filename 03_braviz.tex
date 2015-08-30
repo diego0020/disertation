@@ -375,24 +375,46 @@ The concrete way in which these objects are stored depends on the project, but a
 
 The visualization module provides reusable interactive visualizations. These are divided in two families: spatial data viewers based on VTK and statistical data viewer based on Matplotlib or D3. 
 
-Spatial data viewers are made from several \emph{managers} specialized for dealing with each of the different data types. All managers render to the same renderer, but each of them keeps the objects associated to specific kinds of data. In order for the full viewer to behave correctly it is important to keep all managers in the same coordinate system and the same subject. The currently available managers are 
+Spatial data viewers are made from several \emph{managers} specialized for dealing with each of the different data types. All managers draw to the same renderer, but each of them keeps the objects associated to specific kinds of data. In order for the full viewer to behave correctly it is important to keep all managers in the same coordinate system and the same subject. The currently available managers are 
 
 \begin{itemize}
 	\item ImageManager: Displays an image in a plane. The user can click on the image to get the values and coordinates of the current voxel. The manager keeps track of the current image modality, orientation and slice.
 	\item FmriContours: Displays contoures for fMRI statistical maps. The manager keeps track of the paradigm and contrast, and the level of the template. A custom lookup-table can be used to color the contours.
 	\item Model Manager: Displays segmented structures. Keeps tracks of the available models and the currently selected models. Can also return scalar values associated to the current models, and allows specifying models by laterality ("`dominand or non-dominant"') or side ("`left"' or "`right"').
-	\item SurfaceManager:
-	\item TractographyManager:
-	\item TraculaManager: 
-	
+	\item SurfaceManager: Displays freeSurfer surface reconstructions and its associated scalars. As the model manager it can handle subject laterality. Users can click on top of the cortical surfaces and get the value of the associated scalar. 
+	\item TractographyManager: Displays tractography bundles colored according to direction, fa, md or using one different color for each bundle. Bundles can be defined using a list of models joined by \emph{and} or \emph{or}, or loaded from the database. 
+	\item TraculaManager: Displays tracula bundles as surfaces.	
+	\item Others: spheres, lines, planes or other objects should be in separate managers.
 \end{itemize}
 
+Concrete viewers are created by adding the required managers and writing the code that coordinates them. Also not all of the available configurations of each manager need to be exposes. This provides flexibility to create a viewer fit for each application.
+
+
+For statistical visualization a qt widget the library provides a qt-widget that can display scatter plots, box plots, bar plots, and others. All of these implement tooltips and context menus for each data point and the ability to highlight a subject of group of subjects in the plot. Statistical visualizations can also be created using javascript libraries, specially D3. This is achieved by serving pages and data trough the Braviz web server. More details will be given in section \ref{sec_tech}.
 
 \subsection{interaction}
 
+The interaction module provides communication between applications and access to data processing functions. Communications are achieved by installing a communications client on each applications, which connects to a server usually found on the main menu application. Applications send messages trough the client, which are then relied to all running applications. When a message is received the client lets the application handle it. Currently there are a few types of messages available, but the protocol allows easy extensions
+
+\begin{itemize}
+\item Subject: Indicates applications that they should switch focus towards a particular subject
+\item Sample: Indicates applications that they should work with different sub-sample
+\item Log: Communicates the system of important user actions that should be stored into the analysis log
+\end{itemize}
+
+
+Statistical data processing is achieved by calling \emph{R} functions trough the rpy2 interface. All associated \emph{R} code should is contained in this module. Currently the available operations are restricted to fitting anova and linear models and calculating the importance of each variable towards predicting another by using a random forest model. New functions will be added to this module as they are required by applications. 
+
+Spatial data can be processed using VTK, python scientific libraries or both. Currently the module provides functions to calculate values of an image inside a surface and calculating geometric descriptors of surfaces as volume or lengths of main axes.
+
+This module also provides several Qt models, dialogs and widgets that can be reused on applications. This includes dialogs for saving and loading samples and scenarios and for selecting variables. Models are available to represent samples and structures. Finally there are convenience widgets for common applications as selecting samples or selecting images and fMRI paradigms and contrasts.
+
 \subsection{applications}
 
+
 ¿Maybe a table indicating which features are used in each application?
+
+Show variability
 
 \section{Technical Details}
 
@@ -401,10 +423,9 @@ Spatial data viewers are made from several \emph{managers} specialized for deali
 Technical details
 ------------------
 
-- organization
 - libraries
-- messaging protocol
 - data input/output
+- messaging protocol
 - transformations
 - coordinate systems
 % Dibujo esquema base de datos
