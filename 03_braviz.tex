@@ -287,7 +287,7 @@ Finally the menu, which acts as the entry point to the system, was also upgraded
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/braviz_menu.png} 
+\includegraphics[width=0.4\textwidth]{braviz_qt/braviz_menu.png} 
 \caption{\label{fig_menu_2}The menu for the new version of Braviz, notice the utilities on the bottom row.}
 \end{figure}
 
@@ -411,10 +411,41 @@ This module also provides several Qt models, dialogs and widgets that can be reu
 
 \subsection{applications}
 
+The applications that are currently part of the system are listed below, together with its main components. This will show how the variability of the system can be materialized into a wide arrange of applications. 
 
-¿Maybe a table indicating which features are used in each application?
+\begin{itemize}
 
-Show variability
+\item \emph{Roi Builder}: Lets the user define spherical ROIs using images or cortices as context. It includes a 3D viewer which can display images in 3-orthogonal planes, brain cortices, a sphere and the fiber bundles that go trough the sphere. It can provide the mean value of an image inside the current ROI. ROI locations for different subjects can be approximated by making use of registered coordinate systems.
+
+\item \emph{Linear Measure}: Lets the user make linear measures on top of an image. It provide a viewer with three orthogonal planes and a line defined on top of a certain plane.
+
+\item \emph{Logic Bundles}: Lets the user define fiber bundles by combining ROIs and segmented structures with logical operations (\emph{and}, \emph{or} and \emph{not}). It provides a 3D viewer where the bundle can be previewed together with tree orthogonal planes and brain cortices. Scalars associated with the bundle can be calculated.
+
+\item \emph{Subject Overview} (Figure \ref{fig_subj_overview_2}): Provides a fully configurable 3D viewer with images, segmented structures, fMRI contours, tractography, Tracula bundles and cortical surfaces. It can calculate scalars from bundles or segmented structures. Also provides annotations and values for the current subject on selected variables. Communicates to other applications when the current subject changes and responds to subject messages by switching to that subject.
+
+\item \emph{Sample Overview} (Figure \ref{fig_sample_overview_2}): Provides multiple 3D viewers which are associated to different subjects together with a bar plot. The configuration of each viewer is copied from one created in \emph{Subject Overview}. Viewers are arranged in a grid where columns are levels of a nominal variable and sorted from left to right based on a numerical variable. Bars are connected to the corresponding viewer. By right clicking on a subject either on a subject or bar, it is possible to communicate to other applications that they should focus on it. The applications also reacts to subject messages by highlighting the given subject.
+
+\item \emph{Explore fMRI} (Figure \ref{fig_fmri_2}): Includes a 3D viewer that shows an fMRI image and contours. At the bottom is a time-line which shows the current contrast and the bold signal associated with the current coordinates. It is possible to get this signals from multiple locations or multiple subjects. This signals can later be grouped together in order to compare patterns between groups. The application communicates subject changes and switches to a subjects when asked to by a message.
+
+\item \emph{Check Registration}: Provides a viewer with a single plane where two different images can be viewed using a checkerboard pattern. 
+
+\item \emph{Anova} (Figure \ref{fig_anova_2}): Lets the user fit Anova models based on variables in the database. Provides an statistical viewer that can show box plots, scatter plots or Anova diagnostics. By right clicking on a point in the plot the user can communicate to other applications that they should switch focus to the corresponding subject. When a subject message is received, the corresponding message will be highlighted in the plot.
+
+\item \emph{Linear Model} (Figure \ref{fig_lm_2}): Lets the user fit linear models where nominal variables with more than two levels are encoded using dummy variables. It has a statistical plot that can show scatter plots, diagnostics or regression plots. The plot can be used for communications in the same way as the one in \emph{Anova}.
+
+\item \emph{Correlations} (Figure \ref{fig_correlations}): Displays a correlation matrix with selected variables and scatter plots with correlation values. In the scatter plots subjects can be removed or added back to the analysis. The modified sample can be shared with other applications. The scatter plot also includes the communication properties of the \emph{Anova} plot.
+
+\item \emph{Parallel Coordinates} (Figure \ref{fig_parallel_2}): This application provides a D3-based parallel coordinates display with variables from the database. Filters can be applied on each axis and the resulting sample can be shared with other running applications. It is also possible to right click on a line in order communicate other applications they should focus on that subject, likewise the application will receive subject messages and highlight the indicated subject.
+
+\end{itemize}
+
+All but \emph{Parallel Coordinates} are stand alone Qt applications. However in the future we expect to have more web based applications. Also notice all of them can save and restore their state from the database. Applications with a concept of sample can save and load samples into the database. They also provide access to the sample creation dialog where samples can be modified. Sharing samples to all applications requires explicit actions in the part of the user, as otherwise this could be disturbing. On each application users can choose if they always accept received samples, always reject them, or ask every time. 
+
+Chapter \ref{chap_kmc} will show examples of how this applications are used in a real project. This will clarify the role each of them play and how instant communication can enhance analysis.
+
+%¿Maybe a table indicating which features are used in each application?
+
+%Show variability
 
 \section{Technical Details}
 
