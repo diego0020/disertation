@@ -456,6 +456,11 @@ Chapter \ref{chap_kmc} will show examples of how this applications are used in a
 
 %- libraries
 
+This section provides an overview of the technical aspects of the current Braviz implementation. This section will describe the technologies used inside the current application and give details of how data is read and stored and how communications between applications is achieved. 
+
+
+\subsection{Dependencies}
+
 One of Braviz design principles was not reinventing the wheel. Fortunately several high quality, robust and open source tools for data analysis are available. We make use of third party libraries whenever we can, and stay focused on interaction and visualization. The consequence is that Braviz has a somehow long dependencies list. 
 
 As mentioned before, the main language used for the implementation is Python. It was chosen because it lets us have a fast development cycle. The language is concise, which means less coding is required to implement a feature. Additionally because it is an interpreted language it is easier to debug, and features can be tried in the interactive console before writing long term code. Finally, several scientific, data management and visualization libraries are available, with a strong community behind them.
@@ -483,19 +488,25 @@ The full list of Braviz dependencies on python packages are
 In addition to the mentioned python libraries, Braviz makes use of the following R packages.
 
 \begin{itemize}
-\item ARM \autocite{}: Used to \emph{standardize} data before fitting the linear model.
-\item CAR \autocite{}: Used to fit the Anova model using type 3 sum of squares.
-\irem randomForest \autocite{}: Used to fit a a random forest model to the data in order to calculate which variables are more effective at predicting the outcome of a given variable.
+\item ARM \autocite{gelman_arm:_2015}: Used to \emph{standardize} data before fitting the linear model.
+\item CAR \autocite{fox_car:_2015}: Used to fit the Anova model using type 3 sum of squares.
+\irem randomForest \autocite{cutler_randomforest:_2014}: Used to fit a a random forest model to the data in order to calculate which variables are more effective at predicting the outcome of a given variable.
 \end{itemize}
 
 % Data preprocessing
+\subsection{Data Preprocessing}
 
+
+\subsection{Reading Spatial Data}
 %- data input/output
 %- transformations
 %- coordinate systems
 
+%  Dibujo esquema base de datos
+\subsection{Data Base Schema}
 
 %- messaging protocol
-%  Dibujo esquema base de datos
+\subsection{Communications Protocol}
 
 %  License
+\subsection{License}
