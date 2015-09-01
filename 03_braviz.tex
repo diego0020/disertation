@@ -451,14 +451,43 @@ Chapter \ref{chap_kmc} will show examples of how this applications are used in a
 
 \label{sec_tech} 
 
-Technical details
-------------------
+%Technical details
+%------------------
 
-- libraries
-- data input/output
-- messaging protocol
-- transformations
-- coordinate systems
-% Dibujo esquema base de datos
+%- libraries
+
+One of Braviz design principles was not reinventing the wheel. Fortunately several high quality, robust and open source tools for data analysis are available. We make use of third party libraries whenever we can, and stay focused on interaction and visualization. The consequence is that Braviz has a somehow long dependencies list. 
+
+As mentioned before, the main language used for the implementation is Python. It was chosen because it lets us have a fast development cycle. The language is concise, which means less coding is required to implement a feature. Additionally because it is an interpreted language it is easier to debug, and features can be tried in the interactive console before writing long term code. Finally, several scientific, data management and visualization libraries are available, with a strong community behind them.
+
+The full list of Braviz dependencies on python packages are
+
+\begin{itemize}
+\item numpy \autocite{van_der_walt_numpy_2011}: Python numerical library, provides high performance numerical arrays and vectorized operations between them.
+\item scipy \autocite{jones_scipy:_2001}: Python scientific library, provides algorithms for spatial data processing, statistics and input/output of matlab files.
+\item pandas \autocite{mckinney_data_2010}: Provides high performance data-frames, which are perfect for storing, exchanging and manipulating tabular data.
+\item VTK \autocite{schroeder_vtk_1998} : The visualization Toolkit, provides a framework for rendering high quality interactive 3D graphics. It is the most popular scientific visualization library, therefore by using it we increase compatibility with other tools. It is written in C, but bindings for several languages are provided.
+\item matplotlib \autocite{hunter_matplotlib:_2007} : Python plotting library. Provides a wide variety of plots that can be used interactively. 
+\item seaborn \autocite{michael_waskom_seaborn:_2015} : Provides a high level API on top of matplotlib for creating high quality statistical graphics using data-frames as input. 
+\item nibabel
+\item PyQt4
+\item rpy2 
+\item pyzmq
+\item tornado (for parallel coordinates)
+\item psutil
+\item savReaderWriter (for importing spss files)
+\item xlrd (to read excel files)
+\item XlsxWriter (to write excel files)
+\end{itemize}
+
+% Data preprocessing
+
+%- data input/output
+%- transformations
+%- coordinate systems
+
+
+%- messaging protocol
+%  Dibujo esquema base de datos
 
 
