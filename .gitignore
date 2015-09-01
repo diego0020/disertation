@@ -130,3 +130,6 @@ main.pdf
 main.pdf
 main.tps
 *.lock
+test.pdf
+test.tex
+test.*
