@@ -22,7 +22,6 @@ digraph "SchemaCrawler_Diagram" {
 
 
 
-
   /* applications -=-=-=-=-=-=-=-=-=-=-=-=-=- */
   "applications_37dca523" [
     label=<
@@ -149,6 +148,7 @@ digraph "SchemaCrawler_Diagram" {
     >
   ];
 
+  "vars_scenarios_d9e25090":"scn_id_bbcf6bfa.start":w -> "scenarios_66e8fee3":"scn_id_568a8a47.end":e [label=<> style="solid" dir="both" arrowhead="teetee" arrowtail="crowodot"];
 
 
   /* subj_comments -=-=-=-=-=-=-=-=-=-=-=-=-=- */
@@ -168,6 +168,30 @@ digraph "SchemaCrawler_Diagram" {
 		<td port='comment_b19859da.start' align='left'>comment</td>
 		<td align='left'> </td>
 		<td port='comment_b19859da.end' align='left'>TEXT</td>
+	</tr>
+      </table>
+    >
+  ];
+
+
+
+  /* vars_scenarios -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+  "vars_scenarios_d9e25090" [
+    label=<
+      <table border="1" cellborder="0" cellpadding="2" cellspacing="0" bgcolor="white" color="#999999">
+	<tr>
+		<td colspan='2' bgcolor='#F2E9CE' align='left'><b><i>vars_scenarios</i></b></td>
+		<td bgcolor='#F2E9CE' align='right'>[table]</td>
+	</tr>
+	<tr>
+		<td port='var_idx_599f7247.start' align='left'>var_idx</td>
+		<td align='left'> </td>
+		<td port='var_idx_599f7247.end' align='left'>INTEGER</td>
+	</tr>
+	<tr>
+		<td port='scn_id_bbcf6bfa.start' align='left'>scn_id</td>
+		<td align='left'> </td>
+		<td port='scn_id_bbcf6bfa.end' align='left'>INTEGER</td>
 	</tr>
       </table>
     >
