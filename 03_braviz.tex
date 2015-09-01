@@ -512,12 +512,24 @@ The scripts using for the processing of data in the KMC project are available at
 
 \subsection{Reading Spatial Data}
 
+\begin{figure}
+\includegraphics[width=\textwidth]{figures/coordinate_systems}
+\caption{\label{fig_coordinates} The different coordinate systems available in Braviz and the transforms that map between them. Blue boxes are spaces that are unique for each subject while green boxes are spaces common to the whole group. The subject coordinate system stands for the native coordinates in which the structural MRI scan is defined. Diffusion coordinates are the native coordiates of the DWI series. SPHARM are the coordinates in which spharm surface reconstructions are defined. fMRI corresponds to the space of SPM output. Talairach corresponds to the space defined by standard Talairach coordinates and Dartel corresponds to the space defined by the Dartel template. }
+\end{figure}
+
+Reading spatial data into the system is easy with the use of nibabel, scipy and vtk; but getting the coordinates right is not trivial. Each data source is defined in its own coordinate systems, and most likely it will be necessary to apply some transforms in order to translate it into the requested coordinate system. Figure \ref{fig_coordinates} shows the coordinate systems used in the current version and the tranforms that map between them. Notice that right now the subject space acts as a central link, and all transformations require going trough it. All of the links in the graph are actual transform files that were calculated at some step in processing. Affine transforms are just $4\times4$ matrices while non-linear transforms are full images where each voxel contains a displacement vector or the final coordinates of data originally located at that voxel. Fortunately VTK can handle both kinds of transforms. Another point that can't be forgotten is that in order to map an image to a different coordinate system the inverse of the corresponding transform must be used. This happens because the actual procedure consists of mapping a grid in the output space to the origin space, and sampling the image values at the different points of the mapping grid.
+
+In order to comply with the project reader API it is often necessary to read several files. This includes raw data, transforms and possibly scalars stored on separate files. Assignment of scalars to geometric structures can be done on the fly by reading the geometrical information and an image where scalars are defined, for example to return fiber bundles with FA scalars. However it is convenient to store the results of expensive operations into a cache. The \emph{readAndFilter} module provides two levels of cache. The first one stores copies of data requested by the user in memory, up to a set limit, so that if the user asks for it again it can be returned fast. The second one allows the project reader to store and retrieve data from disk. Making use of these mechanisms is key to providing an interactive experience. 
+
+The current implementation reads all the required data from disk, but this could change in the future to read data from a web service, a relational database or a key/value storage. As long as the project reader API is respected the rest of the system will not mind the change.
+
+Finally notice that some operations require knowledge about the laterality of a subject, which is stored as a variable. In this case the reader needs to access the variables database and decide if the right or left structure was requested. 
+
+The logic required to retrieve the right data is not trivial, and it is highly error prone. Keeping all of it isolated inside the project reader, makes it easier to maintain and test. The rest of the system can then relay on the project reader to get the right data, and does not require to deal with transformation or the underlying storage mechanism. 
 
 %- data input/output
 %- transformations
 %- coordinate systems
-
-
 
 \subsection{Data Base Schema}
 %  Dibujo esquema base de datos
