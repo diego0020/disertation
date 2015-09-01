@@ -469,15 +469,23 @@ The full list of Braviz dependencies on python packages are
 \item VTK \autocite{schroeder_vtk_1998} : The visualization Toolkit, provides a framework for rendering high quality interactive 3D graphics. It is the most popular scientific visualization library, therefore by using it we increase compatibility with other tools. It is written in C, but bindings for several languages are provided.
 \item matplotlib \autocite{hunter_matplotlib:_2007} : Python plotting library. Provides a wide variety of plots that can be used interactively. 
 \item seaborn \autocite{michael_waskom_seaborn:_2015} : Provides a high level API on top of matplotlib for creating high quality statistical graphics using data-frames as input. 
-\item nibabel
-\item PyQt4
-\item rpy2 
-\item pyzmq
-\item tornado (for parallel coordinates)
-\item psutil
-\item savReaderWriter (for importing spss files)
-\item xlrd (to read excel files)
-\item XlsxWriter (to write excel files)
+\item nibabel \autocite{brett_neuroimaging_2006} : Provides input and output from a large array of file formats found in the neuroimaging ecosystem, including freesurfer, and nifti.
+\item PyQt4 : Python bindings for the Qt user interface framework. 
+\item rpy2  \autocite{gautier_rpy2:_2008} : Provides communications to R \autocite{team_r:_2012} from python, allowing us to use powerful statistical processing algorithms implemented in R. 
+\item pyzmq: Python bindings for the ZeroMQ \autocite{hintjens_zeromq:_2013} protocol for communications between application using ip.
+\item tornado : A python web framework, provides a robust web server which includes a powerful implementation of web sockets. 
+\item psutil : A python utility to get attributes of running processes, including how much memory they are consuming.
+\item savReaderWriter : A python library for reading data from SPSS files.
+\item xlrd : A python library for reading data from excel files.
+\item XlsxWriter : A python library for writing data to excel files.
+\end{itemize}
+
+In addition to the mentioned python libraries, Braviz makes use of the following R packages.
+
+\begin{itemize}
+\item ARM \autocite{}: Used to \emph{standardize} data before fitting the linear model.
+\item CAR \autocite{}: Used to fit the Anova model using type 3 sum of squares.
+\irem randomForest \autocite{}: Used to fit a a random forest model to the data in order to calculate which variables are more effective at predicting the outcome of a given variable.
 \end{itemize}
 
 % Data preprocessing
@@ -490,4 +498,4 @@ The full list of Braviz dependencies on python packages are
 %- messaging protocol
 %  Dibujo esquema base de datos
 
-
+%  License
