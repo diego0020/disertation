@@ -3,7 +3,7 @@
 schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="geom.*|subjects" -only-matching -portablenames 
 
 # User
-schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="subj_samples|subjects|subj_comments|scenarios|applications" -only-matching -portablenames
+schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="subj_samples|subjects|subj_comments|scenarios|applications|vars_scenarios" -only-matching -portablenames
 
 # Variables
 schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="nom_meta|ratio_meta|var_descriptions|var_values|variables|subjects" -only-matching -portablenames
