@@ -1,2 +1,2 @@
 #! /bin/bash
-xelatex -shell-escape -interaction=batchmode main.tex
+xelatex -shell-escape -interaction=nonstopmode main.tex

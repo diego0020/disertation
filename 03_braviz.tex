@@ -275,7 +275,7 @@ The fMRI viewer from the previous iteration was upgrade to the one shown on figu
 \caption{\label{fig_fmri_2}New version of the fmri explorer, now more complex experiments can be analyzed and timelines from different locations and subjects can be saved and compared.}
 \end{figure}
 
-While most of the applications of this iteration use QT for the graphical interface, we were also interested in web based technologies. Figure \ref{fig_parallel_2} shows a parallel coordinates view of the variables in the database created with the D3 \autocite{bostock_d$^3$_2011} javascript library and running on a web browser. Each line on the visualization represents a subject, while each axis represents a variable. Even though this application is running on a web browser, it is still possible to synchronize it with the rest of the system. This means the user can right click on one of the lines and make all the other apps focus on that subject, and in the same way, a line will be highlighted when the user asks for so in any other application. The mechanisms for making this possible will be explained on section \ref{sec_tech}.
+While most of the applications of this iteration use QT for the graphical interface, we were also interested in web based technologies. Figure \ref{fig_parallel_2} shows a parallel coordinates view of the variables in the database created with the D3 \autocite{bostock_d3_2011} javascript library and running on a web browser. Each line on the visualization represents a subject, while each axis represents a variable. Even though this application is running on a web browser, it is still possible to synchronize it with the rest of the system. This means the user can right click on one of the lines and make all the other apps focus on that subject, and in the same way, a line will be highlighted when the user asks for so in any other application. The mechanisms for making this possible will be explained on section \ref{sec_tech}.
 
 \begin{figure}
 \centering
@@ -490,7 +490,7 @@ In addition to the mentioned python libraries, Braviz makes use of the following
 \begin{itemize}
 \item ARM \autocite{gelman_arm:_2015}: Used to \emph{standardize} data before fitting the linear model.
 \item CAR \autocite{fox_car:_2015}: Used to fit the Anova model using type 3 sum of squares.
-\irem randomForest \autocite{cutler_randomforest:_2014}: Used to fit a a random forest model to the data in order to calculate which variables are more effective at predicting the outcome of a given variable.
+\item randomForest \autocite{cutler_randomforest:_2014}: Used to fit a a random forest model to the data in order to calculate which variables are more effective at predicting the outcome of a given variable.
 \end{itemize}
 
 % Data preprocessing
@@ -504,7 +504,7 @@ SPM's Dartel \autocite{ashburner_fast_2007} workflow was used to generate a temp
 
 Functional MRI series were processed in SPM \autocite{friston_statistical_2006} using the anatomical MRI as reference. This included realigning images, registering to the reference, smoothing, time filtering, estimating a statistical model for each voexel and calculating the score maps for each contrast. At the end of the processing several images, in SPM normalized space are obtained together with transforms from this space to the anatomical reference space. Data from the image realign process was also analyzed, and when the amount of correction applied was larger than a threshold an alert was given. In this case the images would be visually analyzed by an expert in order to decide if they should be excluded from further  analysis.
 
-Diffusion Weighted Images were processed using the Camino Tractography toolset \autocite{cook_camino:_2006}, together with FSL \autcite{jenkinson_fsl_2012} and Dcm2Nii \autocite{rorden_mricron_2007}. The first step was converting the Dicom series to a 4D nifti image, together with two text files describing the diffusion parameters of each volume using Dcm2Nii. These files were converted to Camino format, afterwards a tensor model was fitted, and  following that, an FA image was extracted. This image was then registered to the anatomical MRI using the FLIRT tool (part of FSL). A brain mask from the anatomical image was extracted using FSL's BET. This mask together with freesurfers' white matter mask, were brought to diffusion space using flirt and the previously calculated transform. The white matter image was then used to derive seedpoints for a tractography reconstruction. The tractography results were cleaned to remove streamlines outside the brain mask, and to delete small stream lines. Finally these results were converted to VTK-format. An rgb DTI image, the FA image and a MD image were also extracted.  
+Diffusion Weighted Images were processed using the Camino Tractography toolset \autocite{cook_camino:_2006}, together with FSL \autocite{jenkinson_fsl_2012} and Dcm2Nii \autocite{rorden_mricron_2007}. The first step was converting the Dicom series to a 4D nifti image, together with two text files describing the diffusion parameters of each volume using Dcm2Nii. These files were converted to Camino format, afterwards a tensor model was fitted, and  following that, an FA image was extracted. This image was then registered to the anatomical MRI using the FLIRT tool (part of FSL). A brain mask from the anatomical image was extracted using FSL's BET. This mask together with freesurfers' white matter mask, were brought to diffusion space using flirt and the previously calculated transform. The white matter image was then used to derive seedpoints for a tractography reconstruction. The tractography results were cleaned to remove streamlines outside the brain mask, and to delete small stream lines. Finally these results were converted to VTK-format. An rgb DTI image, the FA image and a MD image were also extracted.  
 
 Diffusion weighted images were also processed using the Tracula \autocite{yendiki_fully_2009} pipeline, which is included in freesurfer. This algorithms combines a probabilistic diffusion model with anatomical priors in order to reconstruct the main brain pathways. The output of this process is an image for each bundle containing the probability of it going trough each voxel, a file containing the more likely locations of all bundles, and a series of scalar metrics for each bundle.
 
@@ -534,23 +534,25 @@ The logic required to retrieve the right data is not trivial, and it is highly e
 \subsection{Data Base Schema}
 %  Dibujo esquema base de datos
 
-Braviz relies on a database to store clinical variables and user data. Figures \ref{fig_db_variables}, \ref{fig_db_user}, \ref{fig_db_bundles} and \ref{fig_db_geom} (created with schemacrawler \autocite{}) show the schema of the current database. 
-A table called \emph{subjects} contains the ids of all subjects in the current study. This table is referenced in multiple places in order to link data to a particular subject. Notice that this ids are also used to retrieve spatial data.
-Variables information and data are separated in several tables, which allows for variables to be added or removed effortlessly. Nominal variables values are stored as numerical labels, and the actual names that are associated to them are saved in the \emph{nom_meta} table. In this way the text of the labels can be updated by the user at a single place. 
+Braviz relies on a database to store clinical variables and user data. Figures \ref{fig_db_variables}, \ref{fig_db_user}, \ref{fig_db_bundles} and \ref{fig_db_geom} (created with schemacrawler \autocite{_schemacrawler_????}) show the schema of the current database. 
+A table called \emph{subjects} contains the ids of all subjects in the current study. This table is referenced in multiple places in order to link data to a particular subject. Notice that these ids are also used to retrieve spatial data.
+Variables information and data are separated in several tables, which allows for variables to be added or removed effortlessly. Nominal variables values are stored as numerical labels, and the actual names that are associated to them are saved in the \emph{nom\_meta} table. In this way the text of the labels can be updated by the user at a single place. 
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{schemacrawler/variables.dot}
-\caption{\label{fig_db_variables}Schema of tables that store clinical variables. The \emph{variables} table contains an index of all the variables in the system, together with its name and its type. The information of each variable is complemented with descriptions stored in \emph{var_descriptions} and metadata store in \emph{nom_meta} or \emph{ratio_meta} depending on the variable type. The variables' values for each subject are stored in the \emph{var_values} table.}
+\centering
+\includegraphics[width=0.5\textwidth]{schemacrawler/variables}%
+\caption{\label{fig_db_variables}Schema of tables that store clinical variables. The \emph{variables} table contains an index of all the variables in the system, together with its name and its type. The information of each variable is complemented with descriptions stored in \emph{var\_descriptions} and metadata store in \emph{nom\_meta} or \emph{ratio\_meta} depending on the variable type. The variables' values for each subject are stored in the \emph{var\_values} table.}
 \end{figure}
 
 All applications should be able to save scenarios, i.e. their current state. This states are saved together with a name, a description and a date; so that can be used as waypoints to reconstruct an analysis session. Finally samples defined by the user are saved into a different table together with a name and a description, so that they can be used in other applications and in different times.
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{schemacrawler/user.dot}
-\caption{\label{fig_db_user}Schema of tables storing user data. The \emph{subject_comments} holds textual annotations for each subject. The \emph{applications} table contains an index of all current applications, which is used to classify scenarios belonging to each of them. The \emph{scenarios} table contains the data of each scenario. The \emph{subj_samples} contains information about sub-samples created by the user. Finally the \emph{vars_scenarios} table links scenarios and with variables in order to enhance navigation.}
+\centering
+\includegraphics[width=0.5\textwidth]{schemacrawler/user}%
+\caption{\label{fig_db_user}Schema of tables storing user data. The \emph{subject\_comments} holds textual annotations for each subject. The \emph{applications} table contains an index of all current applications, which is used to classify scenarios belonging to each of them. The \emph{scenarios} table contains the data of each scenario. The \emph{subj\_samples} contains information about sub-samples created by the user. Finally the \emph{vars\_scenarios} table links scenarios and variables in order to enhance data navigation.}
 \end{figure}
 
-Several types of fiber bundles can be defined by the user. This bundles are stored in the \emph{fiber_bundles} table. This table only includes a name for the bundle a type and binary data associated to it. The currently available types of bundles are 
+Several types of fiber bundles can be defined by the user. This bundles are stored in the \emph{fiber\_bundles} table. This table only includes a name for the bundle a type and binary data associated to it. The currently available types of bundles are 
 \begin{itemize}
 \item Named bundles: Are associated to a python function that calculates them
 \item Checkpoint tracts with and: Bundles defined as tracts that go through all structures in a list.
@@ -561,15 +563,17 @@ Notice that more bundle types can be added in the future.
 
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{schemacrawler/bundles.dot}
-\caption{\label{fig_db_bundles}}
+\centering
+\includegraphics[width=0.5\textwidth]{schemacrawler/bundles}%
+\caption{\label{fig_db_bundles} This table stores fiber bundles defined by the user. See text for description of the different types.}
 \end{figure}
 
 Finally, users can define geometric objects, which can be stored in the database and as so shared between applications and retrieved at later times. Currently spherical ROIs and lines are available. Notice that this objects are defined independently for each subject in the study. In other words, a single spherical ROI will have a different set of coordinates and radius for each subject. In this way ROIs can be used for examples to define logical bundles that can be instantiated to any subject.
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{schemacrawler/geom.dot}
-\caption{\label{fig_db_geom}}
+\centering
+\includegraphics[width=0.5\textwidth]{schemacrawler/geom}%
+\caption{\label{fig_db_geom} This tables store geometric objects defined by the user. Each subject has its own version of each object.}
 \end{figure}
 
 %- messaging protocol
