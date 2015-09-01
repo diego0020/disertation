@@ -496,6 +496,29 @@ In addition to the mentioned python libraries, Braviz makes use of the following
 % Data preprocessing
 \subsection{Data Preprocessing}
 
+In the neuro-sciences domain there are many different types of data available. For this project we chose to start with the following data sources:
+
+\begin{itemize}
+\item Anatomical MRI
+\item Functional MRI
+\item Diffusion weighted MRI
+\item Tabular data:
+\begin{itemize}
+\item TMS Results
+\item Demographic
+\item Clinical
+\item Behavioral
+\end{itemize}
+\end{itemize}
+
+Before feeding the data into the application several pre-processing steps were applied.
+Anatomical MRI was processed through the freeSurfer [fs] recon\_all application in order to obtain a segmented image and reconstructions of the cortical surfaces. The subcortical surfaces were also reconstructed using the 3D-Slicer model maker plugin [plugin]. Freesurfer also creates as part of the processing a transform from the original image coordinate system to Talairach space. Additionally a template brain and non linear registration between the anatomical images of all subjects were created using the Dartel [dartel] module in SPM. 
+
+Functional MRI series were processed in SPM [spm] using the anatomical MRI as reference. At the end of the processing we obtain several images, in SPM normalized space (MNI512\footnote{check spm space}). We also obtain transforms from this spaces to the anatomical reference space. The z-score image provides a nice overview of the coherence between bold signal and the experiment, and therefore we will use it a lot.
+
+Diffusion Weighted Images were processed using the Camino Tractography toolset [camino], together with FSL [fsl] and Dcm2Nii [dcm2nii]. Information from the processed anatomical image was also used as context. The first step was converting the Dicom series to a 4D nifti image, together with two text files describing the diffusion parameters of each volume; this was done using \texttt{dcm2nii}. This files were converted to Camino format using the command \texttt{fsl2scheme}, which is included in the camino toolset. Afterwards a tensor model was fitted using the Camino command \texttt{dtfit}. Following that, an fa image was extracted using the Camino command. This image was then registered to the anatomical MRI using the flirt tool, which is part of the FSL tool-set. A brain mask from the anatomical image was extracted using FSL's \texttt{bet}. This mask together with freesurfers white matter mask, were brought to diffusion space using flirt and the previously calculated transform. The white matter image was then used to derive seedpoints for a tractography reconstruction using camino's track command. The tractography results were cleaned to remove streamlines outside the brain mask, and to delete very small stream lines. Finally these results were converted to VTK-format using camino's \texttt{vtkstremlines}. An rgb dti image, the FA image and a MD image were also extracted.  
+
+The scripts used for data pre-processing together with the braviz source code are available in somewhere\footnote{what to do with this?}
 
 \subsection{Reading Spatial Data}
 %- data input/output
