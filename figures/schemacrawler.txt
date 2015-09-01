@@ -1,2 +1,16 @@
-schemacrawler.cmd -server="sqlite" -da
-tabase="D:\kmc400-braviz\braviz_data\tabular_data3.sqlite" -infolevel="standard" -c="graph"
+
+# Geometry
+schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="geom.*|subjects" -only-matching -portablenames 
+
+# User
+schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="subj_samples|subjects|subj_comments|scenarios|applications" -only-matching -portablenames
+
+# Variables
+schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="nom_meta|ratio_meta|var_descriptions|var_values|variables|subjects" -only-matching -portablenames
+
+# Bundles
+schemacrawler.cmd -server="sqlite" -database="D:\kmc400-braviz\braviz_data\tabular_data.sqlite" -infolevel="standard" -c="graph"  -tables="fiber_bundles" -only-matching -portablenames
+
+move C:\Users\Profesor\AppData\Local\Temp\schemacrawler.*.dot .
+
+dot -O -Tpdf bundles.dot

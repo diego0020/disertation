@@ -1,0 +1,58 @@
+digraph "SchemaCrawler_Diagram" {
+
+  graph [
+    nodesep="0.18"
+    ranksep="0.46"
+    rankdir="RL"
+    fontname="Helvetica"
+    fontsize="8"
+  ];
+  
+  node [
+    fontname="Helvetica"
+    fontsize="8"
+    shape="plaintext"
+  ];
+  
+  edge [
+    fontname="Helvetica"
+    fontsize="8"  
+    arrowsize="0.8"
+  ];
+
+
+  /* fiber_bundles -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+  "fiber_bundles_31a76fde" [
+    label=<
+      <table border="1" cellborder="0" cellpadding="2" cellspacing="0" bgcolor="white" color="#999999">
+	<tr>
+		<td colspan='2' bgcolor='#F2E9CE' align='left'><b><i>fiber_bundles</i></b></td>
+		<td bgcolor='#F2E9CE' align='right'>[table]</td>
+	</tr>
+	<tr>
+		<td port='bundle_id_61bd5fe8.start' align='left'><b><i>bundle_id</i></b></td>
+		<td align='left'> </td>
+		<td port='bundle_id_61bd5fe8.end' align='left'>INTEGER</td>
+	</tr>
+	<tr>
+		<td port='bundle_name_e7e74e18.start' align='left'>bundle_name</td>
+		<td align='left'> </td>
+		<td port='bundle_name_e7e74e18.end' align='left'>TEXT</td>
+	</tr>
+	<tr>
+		<td port='bundle_type_e7ea62c7.start' align='left'>bundle_type</td>
+		<td align='left'> </td>
+		<td port='bundle_type_e7ea62c7.end' align='left'>INTEGER</td>
+	</tr>
+	<tr>
+		<td port='bundle_data_e7e2c337.start' align='left'>bundle_data</td>
+		<td align='left'> </td>
+		<td port='bundle_data_e7e2c337.end' align='left'>TEXT</td>
+	</tr>
+      </table>
+    >
+  ];
+
+
+
+}
