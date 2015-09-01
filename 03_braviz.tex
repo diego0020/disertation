@@ -534,6 +534,44 @@ The logic required to retrieve the right data is not trivial, and it is highly e
 \subsection{Data Base Schema}
 %  Dibujo esquema base de datos
 
+Braviz relies on a database to store clinical variables and user data. Figures \ref{fig_db_variables}, \ref{fig_db_user}, \ref{fig_db_bundles} and \ref{fig_db_geom} (created with schemacrawler \autocite{}) show the schema of the current database. 
+A table called \emph{subjects} contains the ids of all subjects in the current study. This table is referenced in multiple places in order to link data to a particular subject. Notice that this ids are also used to retrieve spatial data.
+Variables information and data are separated in several tables, which allows for variables to be added or removed effortlessly. Nominal variables values are stored as numerical labels, and the actual names that are associated to them are saved in the \emph{nom_meta} table. In this way the text of the labels can be updated by the user at a single place. 
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{schemacrawler/variables.dot}
+\caption{\label{fig_db_variables}Schema of tables that store clinical variables. The \emph{variables} table contains an index of all the variables in the system, together with its name and its type. The information of each variable is complemented with descriptions stored in \emph{var_descriptions} and metadata store in \emph{nom_meta} or \emph{ratio_meta} depending on the variable type. The variables' values for each subject are stored in the \emph{var_values} table.}
+\end{figure}
+
+All applications should be able to save scenarios, i.e. their current state. This states are saved together with a name, a description and a date; so that can be used as waypoints to reconstruct an analysis session. Finally samples defined by the user are saved into a different table together with a name and a description, so that they can be used in other applications and in different times.
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{schemacrawler/user.dot}
+\caption{\label{fig_db_user}Schema of tables storing user data. The \emph{subject_comments} holds textual annotations for each subject. The \emph{applications} table contains an index of all current applications, which is used to classify scenarios belonging to each of them. The \emph{scenarios} table contains the data of each scenario. The \emph{subj_samples} contains information about sub-samples created by the user. Finally the \emph{vars_scenarios} table links scenarios and with variables in order to enhance navigation.}
+\end{figure}
+
+Several types of fiber bundles can be defined by the user. This bundles are stored in the \emph{fiber_bundles} table. This table only includes a name for the bundle a type and binary data associated to it. The currently available types of bundles are 
+\begin{itemize}
+\item Named bundles: Are associated to a python function that calculates them
+\item Checkpoint tracts with and: Bundles defined as tracts that go through all structures in a list.
+\item Checkpoint tracts with or: Bundles defined as tracts that go through any of the structures in a list.
+\item Logic Bundles: Defined using ROIs, structures and logical operations in the \emph{Logic Bundles} application.
+\end{itemize}
+Notice that more bundle types can be added in the future.
+
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{schemacrawler/bundles.dot}
+\caption{\label{fig_db_bundles}}
+\end{figure}
+
+Finally, users can define geometric objects, which can be stored in the database and as so shared between applications and retrieved at later times. Currently spherical ROIs and lines are available. Notice that this objects are defined independently for each subject in the study. In other words, a single spherical ROI will have a different set of coordinates and radius for each subject. In this way ROIs can be used for examples to define logical bundles that can be instantiated to any subject.
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{schemacrawler/geom.dot}
+\caption{\label{fig_db_geom}}
+\end{figure}
+
 %- messaging protocol
 \subsection{Communications Protocol}
 
