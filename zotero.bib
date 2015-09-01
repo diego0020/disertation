@@ -1060,6 +1060,37 @@ Overall, such patterns of cortical thickness suggest a dynamic functionally-driv
 	file = {[HTML] de nih.gov:C\:\\Users\\Profesor\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\q7jptajp.default\\zotero\\storage\\7IRMA9HA\\PMC2544629.html:text/html;Snapshot:C\:\\Users\\Profesor\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\q7jptajp.default\\zotero\\storage\\SU9KEBVT\\full.html:text/html}
 }
 
+@software{aucoin_modelmaker_2014,
+	title = {{ModelMaker}},
+	url = {http://www.slicer.org/slicerWiki/index.php/Documentation/4.4/Modules/ModelMaker},
+	abstract = {The Modelmaker is used to create 3D surface models from segmented image data, called label maps. Label maps can be the result of automated segmentation or interactive editing.
+
+More details on the algorithm can be found in References.
+Create 3D surface models from segmented data.
+
+Models are imported into Slicer under a model hierarchy node in a {MRML} scene. The model colors are set by the color table associated with the input volume (these colours will only be visible if you load the model scene file).
+
+{IO}:
+
+Specify an Input Volume that is a segmented label map volume. Create a new Models hierarchy to provide a structure to contain the return models created from the input volume.
+
+Create Multiple:
+
+If you specify a list of Labels, it will over ride any start/end label settings.
+
+If you click Generate All it will over ride the list of lables and any start/end label settings.
+
+Model Maker Parameters:
+
+You can set the number of smoothing iterations, target reduction in number of polygons (decimal percentage). Use 0 and 1 if you wish no smoothing nor decimation.
+You can set the flags to split normals or generate point normals in this pane as well.
+You can save a copy of the models after intermediate steps (marching cubes, smoothing, and decimation if not joint smoothing, otherwise just after decimation); these models are not saved in the mrml file, turn off deleting temporary files first in the python window:
+slicer.modules.modelmaker.{cliModuleLogic}().{DeleteTemporaryFilesOff}()},
+	version = {4.4},
+	author = {Aucoin, Nicole and Kikinis, Ron and Lorensen, Bill},
+	date = {2014}
+}
+
 @article{chee_cognitive_2009,
 	title = {Cognitive function and brain structure correlations in healthy elderly East Asians},
 	volume = {46},
@@ -4711,6 +4742,19 @@ using random inputs.},
 	urldate = {2015-09-01},
 	date = {2015-07-11},
 	file = {R Package Snapshot:C\:\\Users\\Profesor\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\q7jptajp.default\\zotero\\storage\\KC2EV3XF\\index.html:text/html}
+}
+
+@article{ashburner_fast_2007,
+	title = {A fast diffeomorphic image registration algorithm},
+	volume = {38},
+	url = {http://www.sciencedirect.com/science/article/pii/S1053811907005848},
+	pages = {95--113},
+	number = {1},
+	journaltitle = {Neuroimage},
+	author = {Ashburner, John},
+	urldate = {2015-09-01},
+	date = {2007},
+	file = {[PDF] de pbworks.com:C\:\\Users\\Profesor\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\q7jptajp.default\\zotero\\storage\\JSQI4278\\Ashburner - 2007 - A fast diffeomorphic image registration algorithm.pdf:application/pdf;Snapshot:C\:\\Users\\Profesor\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\q7jptajp.default\\zotero\\storage\\M5UX5DDA\\S1053811907005848.html:text/html}
 }
 
 @article{fillard_quantitative_2011,
