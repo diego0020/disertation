@@ -496,23 +496,11 @@ In addition to the mentioned python libraries, Braviz makes use of the following
 % Data preprocessing
 \subsection{Data Preprocessing}
 
-In the neuro-sciences domain there are many different types of data available. For this project we chose to start with the following data sources:
+It was mentioned before that Braviz can be adapted to several types of input data. Nevertheless for the current implementation we are using the following protocol for pre-processing spatial data.
 
-\begin{itemize}
-\item Anatomical MRI
-\item Functional MRI
-\item Diffusion weighted MRI
-\item Tabular data:
-\begin{itemize}
-\item TMS Results
-\item Demographic
-\item Clinical
-\item Behavioral
-\end{itemize}
-\end{itemize}
+Anatomical MRI was processed through the freeSurfer \autocite{dale_cortical_1999} recon\_all pipeline. This generates a segmented image and reconstructions and parcelations of the cortical surfaces. The pipeline also generates an affine transforms to the Talairach space and several scalar values for both the cortical surfaces and subcortical structures. Segmented structures were reconstructed using the 3D-Slicer model maker plugin \autocite{}. 
 
-Before feeding the data into the application several pre-processing steps were applied.
-Anatomical MRI was processed through the freeSurfer [fs] recon\_all application in order to obtain a segmented image and reconstructions of the cortical surfaces. The subcortical surfaces were also reconstructed using the 3D-Slicer model maker plugin [plugin]. Freesurfer also creates as part of the processing a transform from the original image coordinate system to Talairach space. Additionally a template brain and non linear registration between the anatomical images of all subjects were created using the Dartel [dartel] module in SPM. 
+SPM's Dartel \autocite{} workflow was used to generate a template brain based on 40 ananatomical images, as well as non-linear registration between the anatomical images of all subjects and the template. 
 
 Functional MRI series were processed in SPM [spm] using the anatomical MRI as reference. At the end of the processing we obtain several images, in SPM normalized space (MNI512\footnote{check spm space}). We also obtain transforms from this spaces to the anatomical reference space. The z-score image provides a nice overview of the coherence between bold signal and the experiment, and therefore we will use it a lot.
 
