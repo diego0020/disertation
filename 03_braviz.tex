@@ -579,5 +579,40 @@ Finally, users can define geometric objects, which can be stored in the database
 %- messaging protocol
 \subsection{Communications Protocol}
 
+A main feature of Braviz is sharing information between running applications immediately. This is achieved by exchanging messages trough tcp sockets. The Braviz menu acts as a message broker which receives messages from all running applications and relies them to the whole set of running applications. This is implemented using the ZeroMQ protocol \autocite{hintjens_zeromq:_2013}. The Menu application runs a two ZeroMQ sockets configured as \emph{PUB} (publish) and \emph{PULL}. Each application runs a \emph{SUB} (subscribe) socket which connects to the server's \emph{PUB} and a \emph{PUSH} socket which connects to the server's \emph{PULL}. Clients send message trough their \emph{PUSH} socket and listen to messages in their \emph{SUB} socket. The server receives messages from clients on its \emph{PULL} socket and broadcasts them on the \emph{PUB} socket. Only the server \emph{ip} addresses must be known for each client for the system to work. In practice this addresses (more concretely the ports) are generated when the server starts. Each time a new application is launched this addresses are passed trough in the command line. 
+
+Messages themselves contain JSON strings, which can be converted to python dictionaries by the implementations of the message client and server. The following types of messages are currently implemented.
+
+\begin{itemize}
+\item Subject: Communicate a change of the current focus subject (listing \ref{listing_subject_message})
+\item Sample: Communicates that a new sample should be considered (listing \ref{listing_sample_message})
+\item Log: Communicates important user actions. Includes application state (scenario), so that the state can be revisited (listing \ref{listing_log_message}) 
+\end{itemize}
+
+Log messages are intended to keep a more detailed log of the user actions, and therefore ease the job of reconstructing an analysis sessions. This messages will be saved into a table in the database together with a session id. A new application will provide an interface to review this history and reload the scenario associated to any step. 
+
+\begin{listing}
+\inputminted{js}{code/subject.js}
+\caption{Syntax of a subject message}
+\label{listing_subject_message}
+\end{listing}
+
+\begin{listing}
+\inputminted{js}{code/sample.js}
+\caption{Syntax of a two types of sample message}
+\label{listing_sample_message}
+\end{listing}
+
+\begin{listing}
+\inputminted{js}{code/log.js}
+\caption{Syntax of a log message}
+\label{listing_log_message}
+\end{listing}
+
+In the case of web applications the ZeroMQ client is installed on the Braviz Web Server. A web-socket connection is then established between the server and the application which is running in a web browser. Messages are transmitted from the web server to each web application trough web sockets, and messages sent by web applications trough their sockets are relied by the web server to the Braviz Menu.
+
 %  License
 \subsection{License}
+
+Braviz is currently distributed under the Lesser General Public License (LGPL) version 3. This implies that the software can be used as a library on non-open source projects; but modifications to the software itself must always remain open source. However it is important to notice that each of the libraries on which Braviz relies has its own license, and users of Braviz must also agree to them or contact the respective authors to get the libraries under a different license.
+
