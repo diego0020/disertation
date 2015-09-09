@@ -39,9 +39,90 @@ The pilot study
 
 \section{Saving Brains Project}
 
+%Teams : images, psycho, economists, medical, eyes, social workers, 
+
+
 %The saving brains project
 
-Between 2013 and 2014, with financing from Canada Grand Challenges, a sample of X subjects from the original study was retrieved. By this time the participants were between 18 and 20 years old. The study aimed at identifying if the KMC intervention had a long term effect protecting the brain against cognitive, social, and academic difficulties. Specifically, by analyzing data about  brain maturation and structure, mental functions and behavioural patterns exhibited in family, school and work. For this purpose the following data was collected
+Between 2013 and 2014, with financing from Canada Grand Challenges, a sample of X subjects from the original study was retrieved. By this time the participants were between 18 and 20 years old. The study aimed at identifying if the KMC intervention had a long term effect protecting the brain against cognitive, social, and academic difficulties. Specifically, by analyzing data about  brain maturation and structure, mental functions and behavioral patterns exhibited in family, school and work. The data collected in this project is 
+
+AGREGAR REFERENCIAS
+
+\begin{itemize}
+	\item Cognitive
+	\begin{itemize}
+		\item WASI II: Abbreviated intelligence test
+		\item TAP: Attention test
+		\item CVLT: Verbal learning test
+	\end{itemize}
+	\item Life Quality
+	\begin{enumerate}
+		\item Kidscreen: Health related quality of life questionnaire.
+		\item Life habits questionaire: ???????
+		\item Pediatric Quality of Life Inventory : ??????????
+	\end{enumerate}
+	\item Mental Health
+	\begin{enumerate}
+		\item CES-D: Depression self report
+		\item Conners: ??????????????????????		
+	\end{enumerate}
+	\item Behavior
+	\begin{enumerate}
+		\item ABCL: Behavior checklist, completed by parents and best friend
+		\item ASR: Acute stress response
+		\item Rosemberg: Self-esteem questionnaire
+		\item Apego ?????????????
+	\end{enumerate}
+	\item Neurosensorial 
+	\begin{enumerate}
+		\item Optometry: Full sight evaluation
+		\item Audiometry: Full hearing evaluation
+		\item Edimburg laterality inventory: Dominant hand for multiple tasks
+		\item Nine Holes Peg Test: Manual dexterity
+		\item Beery Visuo-Motor Integration: Assesses integration between visual and motor abilities by copying images from a booklet.
+	\end{enumerate}
+	\item Environment
+	\begin{itemize}
+		\item ?????????????????
+	\end{itemize}
+	\item Academic Performance
+	\begin{itemize}
+		\item ICFES: Results from the state high-school evaluation
+		\item School performance: Data of how the kids performed at school.
+		\item Current activity: Are the kids working or studying? If they work, what kind of work? what is the wage?
+	\end{itemize}
+	\item TMS % ¿Se aplicó a todos?
+	\begin{enumerate}
+		\item Rest motor threshold
+		\item MEP (Motor Evoked Potential) Latency
+		\item Intra-cortical inhibition
+		\item Intra-cortical facilitation
+		\item Inter-hemispheric inhibition
+	\end{enumerate}
+\end{itemize}
+
+% Hablar algo más de las variables psicológicas y clínicas como un todo
+
+
+Additionally all variables captured during the first year follow up are available, this includes
+
+\begin{enumerate}
+\item Social characteristics of parents
+\item Pregnancy characteristics 
+\item Type of birth
+\item Weight, size and cranial perimeter at birth and during follow up
+\item Hospitalization at birth and during follow up
+\item Questionnaire of mother competence
+\end{enumerate}
+
+Furthermore, kids who were born with high risk (less than 1700g.) went trough MRI scans. The protocols used were:
+
+\begin{enumerate}
+	\item Clinical T1, T2, Flair
+	\item MPRAGE
+	\item DWI
+	\item fMRI	
+\end{enumerate}
 
 % - Data dimensions
 % -- Clinical
@@ -72,6 +153,91 @@ Between 2013 and 2014, with financing from Canada Grand Challenges, a sample of 
  - Exploratory Analysis
  -- Use cases with Nathalie
  -- Examples of obvious and non obvious findings
+
+\subsection{TMS}
+%TMS details
+TMS examination was carried out using two Magstim 200 stimulators coordinated by the Magstim Bistim. Subjects were comfortably sited in a chair with the arm in a pillow. An electrode connected to a EMG was connected to the first dorsal interosseus muscle. The TMS coil was located on top of the motor area of the opposed hemisphere. Optimal location for the coil was determined by the operator by searching the location that would induce a higher response on the EMG. For this procedure the stimulator was configured at 80\% of maximum output, 
+
+
+\subsection{MRI Imaging}
+
+%Autocite reporte interno Pablo y Felipe
+
+MRI image acquisition was done at the San Ignacio University Hospital using a Phillips Achieva tree Tesla scanner with a eight channels head  antenna. Tables \ref{tab_mri_params} and \ref{tab_fmri_params} show the acquisition parameters used for each sequence. 
+\begin{table}
+	\centering
+	\footnotesize
+		\begin{tabular}{l|rrrrr}
+				Sequence&MPRAGE	&Flair	&T1 3D &DWI\\ \hline				
+				Sequence Type	&GR	&IR	&GR &SE\\ 
+				Dimensions	&3	&2	&3 &2\\
+				Slice width	&1	&5.5	&1 &2\\
+				Repetition time	&8.52	&11000	&7.76 &8610\\
+				Eco time	&4.13	&125	&3.724 &83.41\\
+				Slice spacing	&1	&6.5	&0.5 &2\\
+				Phase Encoding Steps	&251	&243	&220 &112\\
+				Echo train length	&187	&31	&220 &59\\
+				Filed of view	&74	&100	&100 &100\\
+				Reconstruction	Diameter&250	&220	&220 &224\\\hline
+				Dimension x &250	&1024 &448  &128 \\
+				Dimension y &256	&1024 &448 &128 \\
+				Dimension z &160	&23 &310 &70 \\ \hline
+				Voxel Size x	&0.97 &0.49 &0.21  &1.75 \\
+				Voxel Size y	&0.97 &0.49 &0.21 &1.75 \\
+				Voxel Size z	&1  &0.5 &6.5 &2 \\ \hline
+				Gradients   &    &    &    &    32 \\
+		\end{tabular}
+	\caption{MRI sequences acquisition parameters}
+	\label{tab_mri_params}
+\end{table}
+
+
+\begin{table}
+	\centering
+	\footnotesize
+		\begin{tabular}{l|rrrrr}
+
+	Paradigm &Attention	&Coordination	&Memory	&Grip &Fear\\ \hline
+	Sequence Type	&GR	&GR	&GR	&GR &GR\\
+	Volumes	&90	&90	&128	&125 &495\\
+	Dimensions	&2	&2	&2	&2 &2\\
+	Slice width	&3	&3	&3	&3 &3\\ \hline
+	Repetition time	&2000	&2000	&4000	&2000 &2300\\
+	Eco time	&28	&28	&28	&28 &30\\
+	Slice spacing	&3	&3	&3	&3 &3\\
+	Phase Encoding Steps	&80	&80	&80	&80 &80\\
+	Echo train length	&43	&43	&43	&43 &43\\
+	Filed of view	&100	&100	&100	&100 &100\\
+	Reconstruction	Diameter&240	&240	&240	&240 &240\\ \hline
+	Dimension x &80	&80 &80 &80 &64 \\
+	Dimension y &80	&80 &80 &80 &64 \\
+	Dimension z &40	&40 &40 &40 &32 \\ \hline
+	Voxel Size x	&3 &3 &3 &3 &3.8 \\
+	Voxel Size y	&3 &3 &3 &3 &3.8 \\
+	Voxel Size z	&3 &3 &3 &3 &3 \\
+		\end{tabular}
+	\caption{Functional MRI sequences acquisition parameters}
+	\label{tab_fmri_params}
+\end{table}
+
+Five f-MRI paradigms were used in this study: Attention, coordination, memory, grip and fear. 
+
+
+
+\subsection{Economics}
+
+The Research Group in Economics from Universidad del Rosario got involved in the project in order to analyze the education and work history of the cohort. The main question for the group was finding if the kmc intervention had effects on educational and work outcomes.  For this purpose they created a questionnaire, based on validated questions from previous studies and the National Department of Statistics (DANE). This questionnaire was applied to each participant at the end of the domiciliary visit. This instrument inquired about the schools to which the participant attended, the performance in those schools, if currently the participant was studying or working, what kind of studies were they pursuing and what kind of work were they performing. Participants were reminded that the information collected was only for research purposes and that data that could identify them would never be published. The questionnaires were tabulated by a professional at the foundation and verified by the Economics group. Finally the results were merged with the other variables of the study.
+
+Additionally participants gave their authorization to fetch the results of the last state high-school test (Saber-11) they completed. This test is applied to all students of the country when they are about to finish high-school, and it comprises sections on mathematics, language, social studies, natural sciences and English.
+
+Analysis began by taking a broad look of the effect of the intervention on key variables, as the current age and performance in Saber-11. This was done using linear regression in the Stata software. At the next stage the analysis was performed using additional variables as controls. These variables were chosen based on economics theory and previous experience of main researchers. This stage showed some apparent contradictions in the results, which were discussed with the rest of the Kangaroo team. From this discussions ideas of possible explanations and additional variables that should be taken into effect emerged. This ideas were tested against the data with positive results. 
+
+It must be noticed that the analysis was carried out mainly trough tables generated by Stata. Generating graphics in this software required additional steps, and therefore was done only to create the results.
+
+¿HUBIERA AYUDADO TENER ACCESO A BRAVIZ DESDE EL COMIENZO?
+
+
+The complete discussion of the methodology and results from the Economics team can be found in \autocite{?}
 
 
 
