@@ -495,7 +495,7 @@ In addition to the mentioned python libraries, Braviz makes use of the following
 
 % Data preprocessing
 \subsection{Data Preprocessing}
-
+\label{sec_preproc}
 It was mentioned before that Braviz can be adapted to several types of input data. Nevertheless for the current implementation we are using the following protocol for pre-processing spatial data. After data acquisition all dicom files were translated to the lab and went the following process. Raw data was also visually analyzed and problems with the acquisition were detected early. In some cases it was possible to recall the subject in order to get a new image, but in others data had to be discarded.
 
 Anatomical MRI was processed through the freeSurfer \autocite{dale_cortical_1999} recon\_all pipeline. This generates a segmented image and reconstructions and parcelations of the cortical surfaces. The pipeline also generates an affine transforms to the Talairach space and several scalar values for both the cortical surfaces and subcortical structures. Segmented structures were reconstructed using the 3D-Slicer model maker plugin \autocite{aucoin_modelmaker_2014}. 
