@@ -4,13 +4,13 @@
 
 The Kangaroo foundation has contributed significantly to the development of this project. The experts that work with the foundation have provided us information on their research methodologies. They also provided us two very interesting data-sets and were willing to test all our prototypes. In return we helped them analyze and make sense of these complex data-sets. This collaboration enriched the project and allowed the experts in the foundation to extract information from the data efficiently. This chapter will illustrate the benefits of this collaboration and show how the Braviz platform can provide value in a real study. Notice that the full methodology and results from this study can be found elsewhere \autocite{KMC400}; in this chapter only some aspects are illustrated in order to provide the context in which the tools were used.
 
-
+KMC400: 
 Charpak N., Ruiz JG., Tessier R., Hernandez JT., Uriza LF., Teillaud S. Final Report of the Project : Randomized open controlled trial on Kangaroo Mother Care Vs Traditional Care for Low Weight Birth infants. Patients-centered outcomes at the age of 18 years. 2015
 
 \section{Kangaroo Mother Care}
 
 %cual es el problema?
-Low birth weight (LBW) is a mayor cause on child mortality \autocite{wardlaw_low_2005}. On those who survive it can produce long term sequels and impairments. One of the problems that LBW infants face is that they can't control their body temperature \autocite{DONDE}, therefore it is necessary to warm them externally.
+Low birth weight (LBW) is a mayor cause of child mortality \autocite{wardlaw_low_2005}. On those who survive it can produce long term sequels and impairments \autocite{nosarti_neurodevelopmental_2010}. 
 
 Kangaroo mother care was developed by Edgar Rey in 1978 \autocite{rey_rational_1983} as an alternative to the conventional method of care for infants born with low weight \autocite{conde-agudelo_kangaroo_2003}. It was initially conceived to deal with the lack of incubators and high rate of infections. In KMC the mother is used as a source of heat to keep the child warm. In this way it is also possible to let mother and child leave the hospital earlier, and therefore keep the baby away from possible infections. There are three main components in the treatment.
 
@@ -20,17 +20,30 @@ The second component is nutrition by breast milk every two hours. The goal is to
 
 The final component is an early discharge from the hospital, with proper followup. This has the benefit of keeping the child away from infections, as well as providing an environment where strong bonds between the child and his family are more likely to form \autocite{charpak_kangaroo_2005}. 
 
-PUEDO PONER UNA FOTO DE POSICION CANGURO?
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{kmc400/221}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{kmc400/0503canguro4d}
+    \end{subfigure}
+		    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{kmc400/Inde}
+    \end{subfigure}
+		    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{kmc400/papa2}
+    \end{subfigure}
+    \caption{Examples of the Kangaroo position, copyright belongs to the Kangaroo Foundation, used with permission}\label{fig_kmc_position}
+\end{figure}
 
+KMC has gone a long way since its invention \autocite{charpak_kmc_2011} and several refinements has been developed. For instance, the kangaroo position is now started as soon as the baby is born whenever its possible. Several research has been conducted on the method which has provided a better understanding of its benefits \autocite{the_cochrane_collaboration_kangaroo_2014}.
+Kangaroo mother care has been adopted by the world health organization as a major strategy to decrease neonatal mortality in low birth weight infants. The kangaroo foundation is present in 30 countries with 60 teams. 
 
-Today KMC has been adopted by the world health organization as a major strategy to decrease neonatal mortality in low birth weight infants. Today it is practiced in XX countries .... 
-
-PREGUNTAR A NATHALIE MAS DATOS
 
 %- What is KMC
 %http://www.fundacioncanguro.co/en/quienes-somos.html
 %(preguntar a Rejean y Nathalie)
--- KMC now, in the world
 
 \section{Randomized Control Trial}
 %- The first randomized trial
@@ -54,20 +67,20 @@ During this year there were fewer deaths in the KMC group as well as fewer visit
 % - IMAGINE
 
 In 2009, thirty-nine children who were part of the original study were relocated. The sample was composed of children born at or before 33 weeks of gestational age, 21 belonged to the KMC group and 18 from the traditional group. In addition, 9 kids born at term at the same hospital were recruited. 
-The first step was doing full sight and hearing exams and, in case of need, prescribing and manufacturing glasses or hearing aides. One month was given in order to let the children adapt to glasses. Afterwards they went trough several neuropsychological tests including Wisc, VMI, and CBLT. They also went to a TMS experiment and magnetic resonance imaging (MRI), where structural T1 and T2 weighted images were captured together with DWI and six functional paradigms. 
+The first step was doing full sight and hearing exams and, in case of need, prescribing and manufacturing glasses or hearing aides. One month was given in order to let the children adapt to glasses. Afterwards they went trough several neuropsychological tests including Wisc, VMI, and CBCL. They also went to a TMS experiment and magnetic resonance imaging (MRI), where structural T1 and T2 weighted images were captured together with DWI and six functional paradigms. This data was acquired at \emph{Fundación Santa Fé de Bogotá} using a GE Sigma HD scanner of 1.5 Tesla. 
 
-¿Que se hizo con estos datos?
+%¿Que se hizo con estos datos?
 
-¿What tests?
+%¿What tests?
 
-¿Resultados imágenes?
+%¿Resultados imágenes?
 
-¿Qué se hizo con las imágenes?
+%¿Qué se hizo con las imágenes?
 
-¿Alguna otra publicacion?
+%¿Alguna otra publicacion?
 
 
-Functional images were processed with FSL and DWI images were processed using MEDINRIA. The KAB software platform described in section \ref{sec_kab} was developed to perform additional analysis on this data. This dataset was also used for testing and validating the first versions of Braviz.
+Functional images were processed with FSL and DWI images were processed using MEDINRIA. Additionally several anatomical regions were segmented and measured manually. he KAB software platform described in section \ref{sec_kab} was developed to perform additional analysis on this data. This tool was appreciated by researchers as it provided a link between quantitative data and the spatial data from which it is derived. It also created an environment in which it was possible to think visually of the relationships between TMS, white matter structure and functional MRI. This dataset was also used for testing and validating the first versions of Braviz (see section \ref{sec_iterations}).
 
 The TMS study in this pilot showed an important difference in kids that belonged to the incubator group compared to those in KMC and term \autocite{schneider_cerebral_2012} in inter-hemispheric inhibition. The latency of this inhibition also showed some interesting effects in the interaction between gender, hemisphere and group. This results indicate that KMC encourages brain plasticity and therefore reduce the effects of a preterm birth. 
 
@@ -138,7 +151,6 @@ In order to assess mental functions and behavior of subjects several neuropsycho
 	\begin{itemize}
 		\item Kidscreen: Health related quality of life questionnaire.
 		\item Life habits questionnaire
-		\item Pediatric Quality of Life Inventory 
 		\item IPPA; Inventory of parents and peers attachment
 	\end{itemize}
 	\item Mental Health
@@ -272,12 +284,11 @@ MRI image acquisition was done at the San Ignacio University Hospital using a Ph
 	\label{tab_fmri_params}
 \end{table}
 
-Five f-MRI paradigms were used in this study: Attention, coordination, memory, grip and fear. Because each participant could only remain inside the scanner for a limited time, not all paradigms could be applied to all subjects. Two groups were created, the first one went trough grip, coordination, attention and memory; while the second one trough grip, coordination and fear. 
+Five f-MRI paradigms were used in this study: Attention, coordination, memory, grip and fear. These paradigms were selected because previous studies have shown that preterm kids have motor, attention, memory and emotion management alterations \autocite{nosarti_neurodevelopmental_2010}. Because each participant could only remain inside the scanner for a limited time, not all paradigms could be applied to all subjects. Two groups were created, the first one went trough grip, coordination, attention and memory; while the second one trough grip, coordination and fear. 
 
 The grip paradigm had a block design where subjects were asked to apply pressure with thumb on the side of the index finger, and in this way activating the first dorsal interosseus muscle, the muscle targeted in the TMS test. The coordination paradigm also had a block design but this time the task was opening and closing one or both hands following the pictures presented in the screen. The attention used a block design as well, in this case the subject would be presented with seven points on the screen, and they were instructed to follow the tree red points that blink. Afterwards all points would become black and start moving around the screen. At the end the initial points would become red again and the participant would be asked if they arrived to the same final position. 
 The memory paradigm was composed of two stages, both in block designs. During the first stage participants were shown couples of words and asked to memorize them. During the second stage participants were presented with a word they have seen before, and two other words. They were asked to identify from the two options, which word was seen before with together with the first word.
 
-¿POR QUE SE HICIERON ESTOS PARADIGMAS?
 
 The fear conditioning paradigm \autocite{FRANCOISES} was event related and divided in two stages. In the first stage participants were randomly presented with two woman faces. Additionally half of the time one of the faces was shown, it was accompanied by a loud scream.  During the second stage  both faces were shown again randomly, but this time there would not be any scream. After the presentation of each face at both stages participants would have to respond using a qualitative scale how anxious they were feeling.
 \smallskip
