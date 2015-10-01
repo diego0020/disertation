@@ -16,15 +16,21 @@ In order to better assess the benefits and limitations of the proposed approach,
 % ¿qué oportunidades?
 % ¿hacia dónde vamos?
 
-\section{Work with potential users}
+\section{End users' involvement}
 
-An important part of the requirements analysis for the project was carried out at CHUL in Quebec, Canada. Specifically, the Axes Neurosciences group was a significant contributor. This group researches the functioning of the nervous system in healthy and pathilogical conditions. One of the methods used is performing experiments on large numbers of participants. During these experiments they collect data from each participant using neuro-psychological tests, measurements of muscle strength and movement, neuro-image and TMS tests. 
+An important part of the requirements analysis for the project was carried out at CHUL in Quebec, Canada. Specifically, the Axes Neurosciences group was a significant contributor. This group researches the functioning of the nervous system in healthy and pathological conditions. One of the methods used is performing experiments on large numbers of participants. During these experiments they collect data from each participant using neuro-psychological tests, measurements of muscle strength and movement, neuro-image and TMS tests. This center is located inside the Laval Universiy Hospital (CHUL) in Quebec.
+
+Single or double TMS was being used for measuring the quality of nerve fibers, and repetitive TMS was being used as therapy on muscles \footnote{Maybe cite Veronique's paper as an example}. Data from TMS experiments was captured using EEG equipment and the \emph{Lab Chart} software. These signals were then post processed in the same software and scalar measures were extracted. These measurements were then copied to an excel table where they were combined with subject data and other collected variables; for example the feeling of pain, the strength of a muscle, or the time taken for completing a nine hole peg test. Afterward the excel table would be re-organized and fed into statistical software. The main statistical software used at this stage were \emph{Statistica} and \emph{Prism}. Recently the lab acquired a license for \emph{Aabel}, which some researchers like better as it provides very good explanations of the meaning and methods of each analysis. Also the manual is rich with statistical theory and examples. The tool also provides interactive graphs which can be used for exploratory analysis. Notice that some of the software is proprietary and there were limited licenses, therefore it was common for researchers to have to move data trough different machines using usb drives. Internet was not an option as the hospital network is very restrictive.
+
+%Description of the lab, software used, prism, aabel, statistica, labchart, excel, 
+
+Can I add some pictures from Cyril lab ?
 
 % Knwoldedge depends on the hypotheses, and the hypotheses on the technology available for testing the questions raised. 
  
-%Description of the lab, software used, prism, aabel, statistica, labchart, excel, 
 % Cyril's team
 % Cyril's TMS publication
+
 %The tms applications
 
 One of the interests of the group was analyzing relationships between TMS outcomes and white matter structure as portrayed by DWI and tractography. The particular TMS experiment tested the connections from the primary motor cortex to the hand muscles, and between the motor cortices at both hemipsheres (see \autocite{schneider_cerebral_2012}). For this purpose an specific application was designed, it showed the values of the TMS outcome together with visualizations of the relevant fiber bundles. Screen-shots of the finished application can be seen on figures \ref{fig_tms_1} and \ref{fig_tms_2}). 
@@ -63,20 +69,44 @@ Another round of feedback produced the version shown in figure \ref{fig_tms_2}. 
 
 This tool allowed experts to .................\footnote{Help Cyril}.
 
+
 % Veronique Manip
 % finding correlations
 
-% Anna Belle Manip
+Another common task found in several of the current experiments was finding correlations between dependent variables. This process was usually done by testing each pair of variables at a time, but \emph{Aabel} provided a correlation matrix. This idea was nice, but it could be improved. In a group with several young researchers\footnote{Vero, Hugo, LD} an application for testing correlations was designed. The result of this effort is the \emph{Correlations} application shown in figure \ref{fig_correlations}. This application is now included in the Braviz set, but can also be used as a stand-alone application (available at \url{https://github.com/diego0020/correlation_viewer}). In the stand-alone mode the application loads data from an excel file where each row is a subject and each column a variable. The tool interface is divided in three. The first component is a list of variables, each of them with a check-box; it is used to add or remove variables from the analysis. Next is a correlation matrix which encodes in colors the degree of correlation between each pair of variables. And finally, when the user clicks on a square of the matrix the corresponding scatter plot is shown together with the $r$ and $p$ values from the Pearson correlation. An important feature is that individual points can be removed from analysis by clicking on them in the scatter plot. This feature was added because commonly there are extreme cases which give the impression of a high correlation, however this effect disappears when the point is removed. The application was refined trough several feedback sessions in the group, and several bugs were discovered and corrected.  This tool is now currently used in this lab\footnote{maybe ask hugo, v and ld from some experineces}.
 
+The \emph{Anova} and \emph{Linear Model} applications (see figures \ref{fig_anova_2} and \ref{fig_lm_2}) were also inspired but the current research questions and workflows in this team. Most of the time they have a treatment variable, several confounders, and outcomes; and the objective is assessing if the treatment has any effects after controlling for confounders. This is usually done using ANOVA or two way ANOVA if before and after data is available. The two way ANOVA feature has not been implemented in the main Braviz tool, but is in the list of wanted features \footnote{what else can be said here?}. 
+
+% Anna Belle Manip
 % Hugo Manip
 % 
+% ANOVA - LM
 
 % Alyssa
 
-KMC
-	Marin
-	Rejean
-	Nathalie
+A pediatrician\footnote{Alyssa} who worked at the hospital provided her opinion of the system from the clinical point of view. She thought that such a tool would be very useful in order to talk the kid's parents, and better explain any findings. Also if the sample from the current study showed positive results in a similar case, this evidence could be shared with parents to reassure them. It would be also helpful to have all data from a given subject as well as reference data in order to understand the factors that affect a prognosis. 
+
+%insights from cyril's interview
+% Visuals are very important. 
+
+In a follow up interview with the head of the lab (Cyril\footnote{Should Cyril be named explicitly?}) he gave us his impressions about the complete system. First of all he was concerned about how new users could get up to speed. He proposed that the first screen should guide the user. What should he do first? There should be a tutorial, and it should be enough so that the user can beyond intuitively. Additionally, he expressed that the user should never be puzzled by the tool itself. This means that the main format should be consistent. There should not be any surprises. The tool should also provide some guidance on relevant data for specific questions. 
+
+As a possible application, he stated that the tool should help in understanding subjects which are not part of the original sample. Given a new subject, it should help me find similar subjects in the sample. It would be specially useful if there are no images of the new subject but the images of existing subjects with similar characteristics are available. 
+
+He also emphasized that this system should be targeted to multiple users expert in multiple domains. The point was not transforming each user into an expert in everything, but to help experts work together and provide a full picture of each subject. With current technologies data from different domains are out of reach, because tools are not compatible, it's hard to understand, and the links between domains are not evident. This causes subjects to be divided into different dimensions. To counter this it is necessary to use a common language that makes links easier to see. By looking at each subject as a whole the tool humanizes research. In this way Braviz could also be very valuable in teaching. 
+
+The tool should let users be very efficient at their work and never make them waste time. It should also be very accurate, as any mistake would cause experts to loose trust in the tool, and all benefits would be lost. No one would want to use a tool that produces results that must be double checked.
+
+He agreed with the user centered approach, and remarked that tools should for end-users should be designed by those end-users, but engineers would always be required.
+
+A final remark was that \emph{knowledge depends on the hypotheses, and the hypotheses on the technology available for testing the questions raised}. 
+
+
+%%
+%KMC
+%	Marin
+%	Rejean
+%	Nathalie
 
 % Video Conference from Iowa
 
