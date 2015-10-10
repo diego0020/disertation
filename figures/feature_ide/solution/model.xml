@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="4">
+		<struct>
+			<and mandatory="true" name="BravizApplication">
+				<alt mandatory="true" name="userInterface">
+					<feature mandatory="true" name="CommandLine"/>
+					<or mandatory="true" name="Web">
+						<feature mandatory="true" name="D3"/>
+						<feature mandatory="true" name="Bootstrap"/>
+						<feature mandatory="true" name="three"/>
+					</or>
+					<or mandatory="true" name="DesktopGUI">
+						<feature mandatory="true" name="MatplotLib"/>
+						<feature mandatory="true" name="VTK"/>
+						<feature mandatory="true" name="QtModels"/>
+						<or mandatory="true" name="ReusableQtComponents">
+							<feature mandatory="true" name="SampleManager"/>
+							<feature mandatory="true" name="ImageManager"/>
+							<feature mandatory="true" name="ContextPanel"/>
+							<feature mandatory="true" name="VariableSelectDialog"/>
+						</or>
+					</or>
+				</alt>
+				<or mandatory="true" name="DataSources">
+					<or abstract="true" mandatory="true" name="Tabular">
+						<feature mandatory="true" name="Variables"/>
+						<feature mandatory="true" name="Samples"/>
+						<feature mandatory="true" name="Annotations"/>
+					</or>
+					<or abstract="true" mandatory="true" name="Spatial">
+						<feature mandatory="true" name="Images"/>
+						<or mandatory="true" name="PolyData">
+							<feature mandatory="true" name="Segmentations"/>
+							<feature mandatory="true" name="Tractography"/>
+							<feature mandatory="true" name="Surfaces"/>
+							<feature mandatory="true" name="Contours"/>
+						</or>
+					</or>
+				</or>
+				<or name="Processing">
+					<or abstract="true" mandatory="true" name="Geometric">
+						<feature mandatory="true" name="VTKFilters"/>
+						<feature mandatory="true" name="Scipy_Numpy"/>
+					</or>
+					<or abstract="true" mandatory="true" name="Statistical">
+						<feature mandatory="true" name="R"/>
+						<feature mandatory="true" name="Scipy"/>
+					</or>
+					<or abstract="true" mandatory="true" name="Manual">
+						<feature mandatory="true" name="SphericalRoi"/>
+						<feature mandatory="true" name="LinearMeasure"/>
+						<feature mandatory="true" name="ManualSegmentation"/>
+					</or>
+				</or>
+				<or abstract="true" name="Workflow">
+					<feature mandatory="true" name="SaveRestore"/>
+					<feature mandatory="true" name="Logging"/>
+					<feature mandatory="true" name="Communications"/>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Statistical</var>
+					<var>Tabular</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Geometric</var>
+					<var>Spatial</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>SampleManager</var>
+					<var>Samples</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="0">
+		<struct>
+			<and coordinates="690, -85" mandatory="true" name="Application">
+				<or coordinates="190, 130" name="InteractiveVisualization">
+					<and coordinates="58, 201" mandatory="true" name="SpatialVis">
+						<or abstract="true" coordinates="-45, 251" mandatory="true" name="Dimensions">
+							<feature coordinates="-50, 301" mandatory="true" name="Two"/>
+							<feature coordinates="-12, 301" mandatory="true" name="Three"/>
+						</or>
+						<or abstract="true" coordinates="120, 251" mandatory="true" name="GeometricObjects">
+							<feature coordinates="34, 301" mandatory="true" name="Images"/>
+							<feature coordinates="86, 301" mandatory="true" name="Surfaces"/>
+							<feature coordinates="147, 301" mandatory="true" name="Tractography"/>
+							<feature coordinates="230, 301" mandatory="true" name="Segmentation"/>
+						</or>
+					</and>
+					<or coordinates="467, 245" mandatory="true" name="NonSpatialVis">
+						<feature coordinates="311, 301" mandatory="true" name="Bars"/>
+						<feature coordinates="351, 301" mandatory="true" name="Scatter"/>
+						<feature coordinates="403, 301" mandatory="true" name="Histogram"/>
+						<feature coordinates="469, 301" mandatory="true" name="BoxPlot"/>
+						<feature coordinates="523, 301" mandatory="true" name="Spider"/>
+						<feature coordinates="571, 301" mandatory="true" name="TimeLine"/>
+						<feature coordinates="631, 301" mandatory="true" name="ParallelCoordinates"/>
+					</or>
+				</or>
+				<or coordinates="577, 18" name="Workflow">
+					<feature coordinates="502, 68" mandatory="true" name="SaveRestore"/>
+					<feature coordinates="583, 68" mandatory="true" name="Log"/>
+					<and abstract="true" coordinates="618, 68" mandatory="true" name="Communications">
+						<or abstract="true" coordinates="553, 117" name="Send">
+							<feature coordinates="402, 167" mandatory="true" name="SendSample"/>
+							<feature coordinates="479, 167" mandatory="true" name="SendSubject"/>
+							<feature coordinates="557, 167" mandatory="true" name="SendVisualization"/>
+							<feature coordinates="662, 167" mandatory="true" name="SendVariables"/>
+						</or>
+						<or abstract="true" coordinates="766, 170" name="Receive">
+							<feature coordinates="593, 220" mandatory="true" name="ReceiveSample"/>
+							<feature coordinates="685, 220" mandatory="true" name="ReceiveSubject"/>
+							<feature coordinates="778, 220" mandatory="true" name="ReceiveVisualization"/>
+							<feature coordinates="895, 220" mandatory="true" name="ReceiveVariables"/>
+						</or>
+					</and>
+				</or>
+				<alt abstract="true" coordinates="782, 31" name="Interface">
+					<feature coordinates="745, 78" mandatory="true" name="Graphical"/>
+					<feature coordinates="806, 78" mandatory="true" name="CommandLine"/>
+				</alt>
+				<or coordinates="982, 26" name="Processing">
+					<or abstract="true" coordinates="928, 89" mandatory="true" name="ManualAssist">
+						<feature coordinates="826, 169" mandatory="true" name="DefineRegions"/>
+						<feature coordinates="914, 169" mandatory="true" name="ManualMeasure"/>
+						<feature coordinates="1009, 169" mandatory="true" name="ManualSegmentation"/>
+					</or>
+					<or abstract="true" coordinates="1129, 177" mandatory="true" name="Automatic">
+						<or abstract="true" coordinates="1002, 254" mandatory="true" name="GeometricalProc">
+							<feature coordinates="887, 298" mandatory="true" name="Filter"/>
+							<feature coordinates="928, 298" mandatory="true" name="Reconstruct"/>
+							<feature coordinates="1005, 298" mandatory="true" name="Isosurfaces"/>
+							<feature coordinates="1080, 298" mandatory="true" name="Transform"/>
+						</or>
+						<or abstract="true" coordinates="1263, 248" mandatory="true" name="StatisticalProc">
+							<feature coordinates="1147, 298" mandatory="true" name="LinearModels"/>
+							<feature coordinates="1229, 298" mandatory="true" name="Classification"/>
+							<feature coordinates="1310, 298" mandatory="true" name="Clustering"/>
+							<feature coordinates="1376, 298" mandatory="true" name="NonParametric"/>
+						</or>
+					</or>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule coordinates="670, 349">
+				<imp>
+					<var>InteractiveVisualization</var>
+					<var>Graphical</var>
+				</imp>
+			</rule>
+			<rule coordinates="687, 363">
+				<imp>
+					<var>ManualAssist</var>
+					<var>SpatialVis</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
