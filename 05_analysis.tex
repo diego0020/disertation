@@ -73,7 +73,13 @@ This tool allowed experts to .................\footnote{Help Cyril}.
 % Veronique Manip
 % finding correlations
 
-Another common task found in several of the current experiments was finding correlations between dependent variables. This process was usually done by testing each pair of variables at a time, but \emph{Aabel} provided a correlation matrix. This idea was nice, but it could be improved. In a group with several young researchers\footnote{Vero, Hugo, LD} an application for testing correlations was designed. The result of this effort is the \emph{Correlations} application shown in figure \ref{fig_correlations}. This application is now included in the Braviz set, but can also be used as a stand-alone application (available at \url{https://github.com/diego0020/correlation_viewer}). In the stand-alone mode the application loads data from an excel file where each row is a subject and each column a variable. The tool interface is divided in three. The first component is a list of variables, each of them with a check-box; it is used to add or remove variables from the analysis. Next is a correlation matrix which encodes in colors the degree of correlation between each pair of variables. And finally, when the user clicks on a square of the matrix the corresponding scatter plot is shown together with the $r$ and $p$ values from the Pearson correlation. An important feature is that individual points can be removed from analysis by clicking on them in the scatter plot. This feature was added because commonly there are extreme cases which give the impression of a high correlation, however this effect disappears when the point is removed. The application was refined trough several feedback sessions in the group, and several bugs were discovered and corrected.  This tool is now currently used in this lab\footnote{maybe ask hugo, v and ld from some experineces}.
+Another common task found in several of the current experiments was finding correlations between dependent variables. This process was usually done by testing each pair of variables at a time, but \emph{Aabel} provided a correlation matrix. This idea was nice, but it could be improved. In a group with several young researchers\footnote{Vero, Hugo, LD} an application for testing correlations was designed. The result of this effort is the \emph{Correlations} application shown in figure \ref{fig_correlations}. This application is now included in the Braviz set, but can also be used as a stand-alone application (available at \url{https://github.com/diego0020/correlation_viewer}). In the stand-alone mode the application loads data from an excel file where each row is a subject and each column a variable. The tool interface is divided in three. The first component is a list of variables, each of them with a check-box; it is used to add or remove variables from the analysis. Next is a correlation matrix which encodes in colors the degree of correlation between each pair of variables. And finally, when the user clicks on a square of the matrix the corresponding scatter plot is shown together with the $r$ and $p$ values from the Pearson correlation. An important feature is that individual points can be removed from analysis by clicking on them in the scatter plot. This feature was added because commonly there are extreme cases which give the impression of a high correlation, however this effect disappears when the point is removed. The application was refined trough several feedback sessions in the group, and several bugs were discovered and corrected.  This tool is now currently used in this lab\footnote{maybe ask hugo, v and ld from some experineces}. Below is a testimony from one of the researchers \footnote{hugo}.
+
+\begin{quote}
+During the last year, I had the chance to test the new computer program named CorrelationViewer. This program allows visualizing correlations between multiple series of variables. For instance, in my last study, I tested several outcomes that improved after a treatment. I used CorrelationViewer to determine whether my outcomes changes could be related to each other. An interesting feature is the colour scale allowing a quick recognition of the outcomes related altogether. Indeed, this colour scale (gradient red to gradient blue) informs firstly about the direction of the correlation (positive vs. negative). Also, the possibility to visualize easily each linear regression by clicking directly on the wanted correlation is important and practical. You can look at the correlation distribution and whether few participants drive the relation. Above the graph, the p and r stats allow me to determine rapidly whether this graph is pertinent in my research project. Finally, another interesting feature is the possibility to click on a point in the graph and to exclude it from the relation. In this case, new p and r stats are automatically calculated. It allows spotting and excluding easily potential outliers from the project.
+
+With CorrelationViewer, I spent less time to handle the data from one program to the other and I could detect easily and quickly the outcomes correlated altogether. It is an easy and practical tool to use when I do my stats. 
+\end{quote}
 
 The \emph{Anova} and \emph{Linear Model} applications (see figures \ref{fig_anova_2} and \ref{fig_lm_2}) were also inspired but the current research questions and workflows in this team. Most of the time they have a treatment variable, several confounders, and outcomes; and the objective is assessing if the treatment has any effects after controlling for confounders. This is usually done using ANOVA or two way ANOVA if before and after data is available. The two way ANOVA feature has not been implemented in the main Braviz tool, but is in the list of wanted features \footnote{what else can be said here?}. 
 
@@ -214,11 +220,15 @@ Ana Maria
 \section{Building Applications}
 
 Consequence of the model
+
+Show how the model is instantiated on each application
+
+Planned applications
+
 Reusable components
 Process, stages
 metrics: time, lines of code
 Other developers: David, Yoyis
-
 
 \section{Discussion}
 
