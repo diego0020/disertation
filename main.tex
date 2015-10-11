@@ -1,14 +1,29 @@
 \documentclass[12pt]{report}
 %\pdfminorversion=5
+\usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage[backend=biber]{biblatex}
+\usepackage{longtable}
 \usepackage{subcaption}
 \usepackage[chapter, breaklines]{minted}
 \graphicspath{{figures/}}
 \usepackage{xcolor}
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 \setminted{breaklines,bgcolor=bg}
+%\usepackage{booktabs}
+\usepackage{amsfonts} 
+
+\usepackage{adjustbox}
+\usepackage{array}
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{45}{1em}}}% no optional argument here, please!
+
 
 %more space between rows in tables
 \renewcommand{\arraystretch}{1.5}
