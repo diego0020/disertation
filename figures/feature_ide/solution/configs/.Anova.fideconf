@@ -31,7 +31,7 @@
 21Processing
 22Geometric
 22VTKFilters
-22Scipy_Numpy
+22ScipyNumpy
 21Statistical
 12R
 22Scipy
@@ -41,5 +41,5 @@
 22ManualSegmentation
 11Workflow
 12SaveRestore
+11Communications
 12Logging
-12Communications

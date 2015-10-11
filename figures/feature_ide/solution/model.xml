@@ -40,7 +40,7 @@
 				<or abstract="true" name="Processing">
 					<or abstract="true" mandatory="true" name="Geometric">
 						<feature mandatory="true" name="VTKFilters"/>
-						<feature mandatory="true" name="Scipy_Numpy"/>
+						<feature mandatory="true" name="ScipyNumpy"/>
 					</or>
 					<or abstract="true" mandatory="true" name="Statistical">
 						<feature mandatory="true" name="R"/>
@@ -54,8 +54,9 @@
 				</or>
 				<or abstract="true" name="Workflow">
 					<feature mandatory="true" name="SaveRestore"/>
-					<feature mandatory="true" name="Logging"/>
-					<feature mandatory="true" name="Communications"/>
+					<and mandatory="true" name="Communications">
+						<feature name="Logging"/>
+					</and>
 				</or>
 			</and>
 		</struct>

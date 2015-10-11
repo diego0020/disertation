@@ -17,9 +17,9 @@
 22ContextPanel
 22VariableSelectDialog
 11DataSources
-21Tabular
-22Variables
-21Samples
+11Tabular
+12Variables
+11Samples
 22Annotations
 11Spatial
 12Images
@@ -31,7 +31,7 @@
 22Processing
 22Geometric
 22VTKFilters
-22Scipy_Numpy
+22ScipyNumpy
 22Statistical
 22R
 22Scipy
@@ -41,5 +41,5 @@
 22ManualSegmentation
 11Workflow
 12SaveRestore
+11Communications
 12Logging
-12Communications

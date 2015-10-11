@@ -3,7 +3,7 @@
 11BravizApplication
 11userInterface
 20CommandLine
-21Web
+11Web
 12D3
 22Bootstrap
 22three
@@ -17,7 +17,7 @@
 20ContextPanel
 20VariableSelectDialog
 11DataSources
-21Tabular
+11Tabular
 12Variables
 12Samples
 22Annotations
@@ -31,7 +31,7 @@
 22Processing
 22Geometric
 22VTKFilters
-22Scipy_Numpy
+22ScipyNumpy
 22Statistical
 22R
 22Scipy
@@ -40,6 +40,6 @@
 22LinearMeasure
 22ManualSegmentation
 11Workflow
-22SaveRestore
+12SaveRestore
+11Communications
 12Logging
-12Communications
