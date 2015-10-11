@@ -227,13 +227,12 @@ Ana Maria
 
 The process used to build applications for the Braviz suite is based on the feature model described in chapter \ref{chap_model}. This model presents the commonalities and variability inside the set of applications. The Braviz library provides a set of reusable components that can be used to streamline the construction of new applications. The model of figure \ref{fig_feature_problem} describes the design space at the problem level. It is independent of an application and is best used to design new applications at a high level. This model should be used in the early stages of application design. 
 
-The model represented in figure \ref{tab_features_solution} is a low level model, coupled with the current implementation. It should be used after the problem space model in order to define the best option to implement the required set of features. 
+The model represented in figure \ref{fig_feature_solution} is a low level model, coupled with the current implementation. It should be used after the problem space model in order to define the best option to implement the required set of features. 
 
 \begin{table}
 \scriptsize
 \input{figures/feature_ide/problem/table}	
-\label{tab_features_problem}
-\caption{Configurations of the current applications in relation to the problem space feature model( see figure \ref{fig_features_problem}).}
+\caption{\label{tab_features_problem} Configurations of the current applications in relation to the problem space feature model( see figure \ref{fig_feature_problem}).}
 \end{table}
 
 Table \ref{tab_features_problem} shows the features from the problem space model used in the applications available in the current version. Applications are sorted from left to right based on their categories. First are the applications that allow users to generate new data based on images, followed by the applications designed to explore spatial data, then those designed to explore tabular data and perform statistical analyzes and finally some command line utilities that can be used to prepare data for analysis. Some of the features are not yet used in any applications, but they will probably be needed in future developments. Specifically there is evidence of the need to integrate more advanced statistical and machine learning functions to aid in the analysis. 
@@ -241,9 +240,10 @@ Table \ref{tab_features_problem} shows the features from the problem space model
 \begin{table}
 \scriptsize
 \input{figures/feature_ide/solution/table}	
-\label{tab_features_solution}
-\caption{Configurations of the current applications in the solution space feature model( see figure \ref{fig_features_solution}).}
+\caption{ \label{tab_features_solution} Configurations of the current applications in the solution space feature model( see figure \ref{fig_feature_solution}).}
 \end{table}
+
+
 Moving to the solution space model, the set of features used in each applications looks as shown in table \ref{tab_features_problem}. The order of applications is the same. It can be seen that there is still a large room to explore the design space of web based interfaces. All applications are encouraged to implement workflow features so that they can play nicely with the rest of the system, and the table shows this has been the case. It can also be seen that most applications are able to deal with custom samples, which permits analyzes targeted at a certain group.
 
 Configuring each application based on these models forces the designer to explicitly think about which features should be on each application and take structural decisions before starting to code. The models are implemented in feature IDE \autocite{thum_featureide:_2014}. This package provides a tool for selecting and validating new configurations. By conforming to the model, and making use of the common components provided by the library, it is possible to build new applications targeted at specific analysis tasks that can be integrated into the whole system.
