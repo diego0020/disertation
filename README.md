@@ -3,4 +3,5 @@
 ## Debt
 
   - Another kmc400 use case
-  - user tests with Ana
+  - User tests with Ana
+  - Illustrate the process of building a new application using the model?
