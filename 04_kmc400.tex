@@ -228,8 +228,10 @@ MRI image acquisition was done at the San Ignacio University Hospital using a Ph
 \begin{table}
 	\centering
 	\footnotesize
-		\begin{tabular}{l|rrrrr}
-				Sequence&MPRAGE	&Flair	&T1 3D &DWI\\ \hline				
+		\begin{tabular}{lrrrrr}
+				\toprule
+				Sequence&MPRAGE	&Flair	&T1 3D &DWI\\ 
+				\midrule
 				Sequence Type	&GR	&IR	&GR &SE\\ 
 				Dimensions	&3	&2	&3 &2\\
 				Slice width	&1	&5.5	&1 &2\\
@@ -239,14 +241,15 @@ MRI image acquisition was done at the San Ignacio University Hospital using a Ph
 				Phase Encoding Steps	&251	&243	&220 &112\\
 				Echo train length	&187	&31	&220 &59\\
 				Filed of view	&74	&100	&100 &100\\
-				Reconstruction	Diameter&250	&220	&220 &224\\\hline
+				Reconstruction	Diameter&250	&220	&220 &224\\ \addlinespace
 				Dimension x &250	&1024 &448  &128 \\
 				Dimension y &256	&1024 &448 &128 \\
-				Dimension z &160	&23 &310 &70 \\ \hline
+				Dimension z &160	&23 &310 &70 \\ \addlinespace
 				Voxel Size x	&0.97 &0.49 &0.21  &1.75 \\
 				Voxel Size y	&0.97 &0.49 &0.21 &1.75 \\
-				Voxel Size z	&1  &0.5 &6.5 &2 \\ \hline
+				Voxel Size z	&1  &0.5 &6.5 &2 \\ \addlinespace
 				Gradients   &    &    &    &    32 \\
+				\bottomrule
 		\end{tabular}
 	\caption{MRI sequences acquisition parameters}
 	\label{tab_mri_params}
@@ -256,26 +259,28 @@ MRI image acquisition was done at the San Ignacio University Hospital using a Ph
 \begin{table}
 	\centering
 	\footnotesize
-		\begin{tabular}{l|rrrrr}
-
-	Paradigm &Attention	&Coordination	&Memory	&Grip &Fear\\ \hline
+		\begin{tabular}{lrrrrr}
+	\toprule
+	Paradigm &Attention	&Coordination	&Memory	&Grip &Fear\\ 
+	\midrule
 	Sequence Type	&GR	&GR	&GR	&GR &GR\\
 	Volumes	&90	&90	&128	&125 &495\\
 	Dimensions	&2	&2	&2	&2 &2\\
-	Slice width	&3	&3	&3	&3 &3\\ \hline
+	Slice width	&3	&3	&3	&3 &3\\ \addlinespace
 	Repetition time	&2000	&2000	&4000	&2000 &2300\\
 	Eco time	&28	&28	&28	&28 &30\\
 	Slice spacing	&3	&3	&3	&3 &3\\
 	Phase Encoding Steps	&80	&80	&80	&80 &80\\
 	Echo train length	&43	&43	&43	&43 &43\\
 	Filed of view	&100	&100	&100	&100 &100\\
-	Reconstruction	Diameter&240	&240	&240	&240 &240\\ \hline
+	Reconstruction	Diameter&240	&240	&240	&240 &240\\ \addlinespace
 	Dimension x &80	&80 &80 &80 &64 \\
 	Dimension y &80	&80 &80 &80 &64 \\
-	Dimension z &40	&40 &40 &40 &32 \\ \hline
+	Dimension z &40	&40 &40 &40 &32 \\ \addlinespace
 	Voxel Size x	&3 &3 &3 &3 &3.8 \\
 	Voxel Size y	&3 &3 &3 &3 &3.8 \\
 	Voxel Size z	&3 &3 &3 &3 &3 \\
+	\bottomrule
 		\end{tabular}
 	\caption{Functional MRI sequences acquisition parameters}
 	\label{tab_fmri_params}
