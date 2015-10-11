@@ -55,8 +55,7 @@
 					</or>
 					<or abstract="true" coordinates="1129, 177" mandatory="true" name="Automatic">
 						<or abstract="true" coordinates="1002, 254" mandatory="true" name="GeometricalProc">
-							<feature coordinates="887, 298" mandatory="true" name="Filter"/>
-							<feature coordinates="928, 298" mandatory="true" name="Reconstruct"/>
+							<feature coordinates="963, 297" mandatory="true" name="Filter"/>
 							<feature coordinates="1005, 298" mandatory="true" name="Isosurfaces"/>
 							<feature coordinates="1080, 298" mandatory="true" name="Transform"/>
 						</or>

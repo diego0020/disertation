@@ -11,7 +11,7 @@
 22Surfaces
 22Tractography
 22Segmentation
-21NonSpatialVis
+11NonSpatialVis
 22Bars
 12Scatter
 22Histogram
@@ -23,7 +23,7 @@
 22SaveRestore
 22Log
 21Communications
-11Send
+21Send
 12SendSample
 12SendSubject
 22SendVisualization
@@ -32,9 +32,9 @@
 12ReceiveSample
 12ReceiveSubject
 22ReceiveVisualization
-22ReceiveVariables
+12ReceiveVariables
 21Interface
-21Graphical
+11Graphical
 20CommandLine
 21Processing
 22ManualAssist
@@ -44,7 +44,6 @@
 21Automatic
 22GeometricalProc
 22Filter
-22Reconstruct
 22Isosurfaces
 22Transform
 21StatisticalProc

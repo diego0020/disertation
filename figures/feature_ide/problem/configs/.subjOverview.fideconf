@@ -26,7 +26,7 @@
 21Send
 12SendSample
 12SendSubject
-22SendVisualization
+12SendVisualization
 22SendVariables
 21Receive
 12ReceiveSample
@@ -44,7 +44,6 @@
 21Automatic
 21GeometricalProc
 12Filter
-12Reconstruct
 12Isosurfaces
 12Transform
 22StatisticalProc
