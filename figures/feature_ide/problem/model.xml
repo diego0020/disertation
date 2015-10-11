@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 	<featureModel chosenLayoutAlgorithm="0">
 		<struct>
-			<and coordinates="690, -85" mandatory="true" name="Application">
-				<or coordinates="190, 130" name="InteractiveVisualization">
+			<and abstract="true" coordinates="690, -85" mandatory="true" name="Application">
+				<or abstract="true" coordinates="190, 130" name="InteractiveVisualization">
 					<and coordinates="58, 201" mandatory="true" name="SpatialVis">
 						<or abstract="true" coordinates="-45, 251" mandatory="true" name="Dimensions">
 							<feature coordinates="-50, 301" mandatory="true" name="Two"/>
@@ -25,7 +25,7 @@
 						<feature coordinates="631, 301" mandatory="true" name="ParallelCoordinates"/>
 					</or>
 				</or>
-				<or coordinates="577, 18" name="Workflow">
+				<or abstract="true" coordinates="577, 18" name="Workflow">
 					<feature coordinates="502, 68" mandatory="true" name="SaveRestore"/>
 					<feature coordinates="583, 68" mandatory="true" name="Log"/>
 					<and abstract="true" coordinates="618, 68" mandatory="true" name="Communications">
@@ -47,7 +47,7 @@
 					<feature coordinates="745, 78" mandatory="true" name="Graphical"/>
 					<feature coordinates="806, 78" mandatory="true" name="CommandLine"/>
 				</alt>
-				<or coordinates="982, 26" name="Processing">
+				<or abstract="true" coordinates="982, 26" name="Processing">
 					<or abstract="true" coordinates="928, 89" mandatory="true" name="ManualAssist">
 						<feature coordinates="826, 169" mandatory="true" name="DefineRegions"/>
 						<feature coordinates="914, 169" mandatory="true" name="ManualMeasure"/>
