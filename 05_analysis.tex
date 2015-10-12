@@ -2,7 +2,7 @@
 
 %¿cómo estabamos al principio?
 
-When this project started we had access to numerous image analysis and visualization tools (see chapter \ref{chap_related}). However these tools are designed to work with specific data types, and thus integrating data from different sources required significant work. Additionally most of these tools have a step learning curve, which is appropriate for image experts but leaves them out of reach for users from other domains. Experts from domains different to radiology required to go trough the radiologist or an engineer in order to access image data. Moreover clinical data was always on separate files, which meant it was necessary to switch application in order to get context information about a subject. Typical image based analysis involved extracting scalar features from images, which were later added to a table, and then analyzed in statistical software together with clinical data. This analysis was usually completed using tables. Generating plots required additional steps and was done only for communication purposes. The risk of this approach was that outliers or pathological data could go undetected. 
+At the start of this project severa image analysis and visualization tools (see chapter \ref{chap_related}) were available. However these tools are designed to work with specific data types, and thus integrating data from different sources required significant work. Additionally most of these tools have a step learning curve, which is appropriate for image experts but leaves them out of reach for users from other domains. Experts from domains different to radiology required to go trough the radiologist or an engineer in order to access image data. Moreover clinical data was always on separate files, which meant it was necessary to switch application in order to get context information about a subject. Typical image based analysis involved extracting scalar features from images, which were later added to a table, and then analyzed in statistical software together with clinical data. This analysis was usually completed using tables. Generating plots required additional steps and was done only for communication purposes. The risk of this approach was that outliers or pathological data could go undetected. 
 
 The current project was conceived to address these issues. Using the proposed tools it is possible to access image data instantaneously,  for image experts, but also for experts from different domains. In addition these images are showed with context and they can be linked to additional information of a given subject. Scalar features extracted from image data can be visually analyzed together with clinical data. In this way outliers immediately draw attention, can be identified and analyzed in more detail. Experts from all domains can access spatial data, think about it, and propose analyzes. In contrast, before most analyzes involving spatial data were proposed by image experts and limited to existing tools. These analyzes will still need the help of image experts for performing the required calculations and interpreting the results; and possibly from engineers if new tools need to be developed. By making data available to the whole team, this way of thinking becomes possible.    
 
@@ -10,7 +10,7 @@ The current project was conceived to address these issues. Using the proposed to
 % ¿de los datos?
 % ¿de los usuarios?
 % ¿de las necesidades?
-In order to better assess the benefits and limitations of the proposed approach, we conducted several interviews with potential users, applied surveys, and did a group session. These activities and their results will be explained in this chapter. Additionally it will be explained how the model from Chapter \ref{chap_model} can be used to generate applications requested by users.	
+In order to better assess the benefits and limitations of the proposed approach, we conducted several interviews with potential users, applied surveys, and did a group session. These activities and their results will be explained in this chapter. Additionally it will show how the model from Chapter \ref{chap_model} is reflected in the system's applications.	
 
 % ¿qué problemas nuevos han surgido?
 % ¿qué oportunidades?
@@ -248,7 +248,6 @@ Moving to the solution space model, the set of features used in each application
 
 Configuring each application based on these models forces the designer to explicitly think about which features should be on each application and take structural decisions before starting to code. The models are implemented in feature IDE \autocite{thum_featureide:_2014}. This package provides a tool for selecting and validating new configurations. By conforming to the model, and making use of the common components provided by the library, it is possible to build new applications targeted at specific analysis tasks that can be integrated into the whole system.
 
-
 %Show how the model is instantiated on each application
 
 %Planned applications
@@ -260,12 +259,27 @@ Configuring each application based on these models forces the designer to explic
 
 \section{Discussion}
 
-What features are the most useful?
-What is feasible now that wasn't at the start?
-What features are missing?
-What limitations have come to light?
+% user centered design
+Visual analytics tools permit different ways of working with the data. They provide more freedom to users and let them follow their instinct and curiosity to efficiently explore different paths. In order to achieve efficiency tools need to adapt to users. They should be designed to fit into their workflow and environment, and they should use language and interactions that are natural to them. In order achieve this goal end users should be involved in the design and implementation process at all time. The user centered design methodology used in Braviz development allowed it to become a tool that adapts to the need of researchers. This chapter showed how user feedback was considered at every stage. Each time it provided valuable input about missing features, inadequate language or interactions, and opportunities to add new functionality. It is clear that collaboration from domain experts is mandatory for a project such as this one to succeed.
 
-Can these techniques be used on other domains?
+%Visualization benefits
+An objective of the platform was providing access to rich visualizations of data on demand. This was meant to let users know all the time where data came from and to investigate anomalies. This has allowed researchers to quickly find errors in data and correct them, and to find interesting subjects which deserve a closer look. With traditional tools such cases could have gone undetected. Nevertheless, several researchers are used to working with data tables and are very proficient at reading them. These users prefer using the data representation they know rather than learning new representations. The proposed system is designed to work well with external tools. Data can be easily exported and imported, which can allow these users to integrate the tool into their current workflow and therefore get the benefits from both worlds.
 
+%Interdisciplinary work
+The project was conceived as a tool where researchers from multiple specialties could meet and work together. Up to know it has been successful in bringing experts from the neuro-images community closer to pediatricians, psychologists and economists. In this way each member of the team is able to make a better use of each others work. Communication is also more efficient as everybody has access to the whole data and therefore can match words with visualizations. However the team tends to develop their own language and conventions, for example for naming variables. This creates a barrier for researchers from outside the team when they which to access the data. 
+
+%Need for a long term study
+This chapter provides evidence of the need and usefulness of visual analytics in brain data research. However the true benefits of such tools will only be seen in the long term. It is expected that this kind of tools will become standard in large brain research projects. The need for such tools will be more relevant as the size of available data grows and as research teams become more interdisciplinary and distributed.  
+
+%Model and architecture
+The architecture and model presented provide a robust and flexible framework that can be used to generate tools tailored at different analysis tasks. By using the components from the common library developers can focus on meeting the user needs. Therefore time and energy is concentrated on providing the best tool for the analysis task instead of solving technical details. Technical challenges will also arise when new applications are conceived, but these challenges should be solved in such a way that they can be reused. Nevertheless the current model provides room for a wide range of applications that can adapt to different situations. Designing new applications using the model ensures that they will integrate well with the rest of the system. An integrated set of applications provides several times more  possibilities to explore data and find interesting patterns and features. 
+
+%What features are the most useful?
+%What is feasible now that wasn't at the start?
+%What features are missing?
+%What limitations have come to light?
+
+%Can these techniques be used on other domains?
+The techniques illustrated by this project are not specific to research in brain images. Feature models are a main component of software product lines, a technique that aims to produce software specific for each application while relying on a common set of reusable assets. User centered design is also a recognized technique for building applications that adapt to users. Visual analytics principles can also be applied to every area that has to explore large sets of data looking for the unknown. Therefore there exist several opportunities to apply these techniques to other domains in order to produce sets of integrated applications that can help group of experts increase their comprehension of the data and the underlying systems. 
 
 
