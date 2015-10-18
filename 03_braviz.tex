@@ -1,4 +1,3 @@
-
 The ideas reflected in the previous chapters were implemented into a software platform called Braviz. This software is licensed under a LGPL license and its source code and documentation can be found online at \url{http://diego0020.github.io/braviz} . As suggested by user centered design, the software was the result of several iterations. The architecture of the software reflects the model described in chapter \ref{chap_model}. Details of these aspects will be given in the following. Finally we will describe some of the more technical details of the software.
 
 \section{Iterations}
@@ -17,7 +16,7 @@ The development of the platform went trough several prototypes that were tested 
 \label{sec_kab}
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/kab_figura1.png} 
+\includegraphics[width=0.9\textwidth]{historic/kab_figura1.png}
 \caption{\label{fig_kab}The main interface of KAB}
 \end{figure}
 
@@ -36,7 +35,7 @@ The first prototype built by our group was called KAB \autocite{castro_kab:_2012
 \item Automatic generation of reports
 \end{itemize}
 
-Integrating information from different sources was the major contribution of the tool. Traditionally each type of data was analyzed on its own, using dedicated tools, and integrating information in this way was beyond brain experts. This tool was implemented based on the BBTK framework \autocite{hoyos_creatools:_2012} developed by Creatis. 
+Integrating information from different sources was the major contribution of the tool. Traditionally each type of data was analyzed on its own, using dedicated tools, and integrating information in this way was beyond brain experts. This tool was implemented based on the BBTK framework \autocite{hoyos_creatools:_2012} developed by Creatis.
 
 Specialists appreciated the ability to integrate several kinds of data and ask questions that involved relationships between them. During the development of the application specialists started asking questions about symmetries in the brain, and therefore the option of reflecting a ROI to the other hemisphere was added. Specialists also expressed the need of linking the coordinate system of the tool to a known atlas.
 
@@ -62,7 +61,7 @@ For the first round of prototypes after KAB, we focused on creating tools with a
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/Titanic_B.png} 
+\includegraphics[width=0.9\textwidth]{historic/Titanic_B.png}
 \caption{\label{fig_titanic}Prototype integrating tabular and image data}
 \end{figure}
 
@@ -79,7 +78,7 @@ Most of the prototypes created at this stage were only used internally to test d
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/Titanic.png} 
+\includegraphics[width=0.9\textwidth]{historic/Titanic.png}
 \caption{\label{fig_titanic_2}The prototype could be configured to show several images and to color fibers in different ways.}
 \end{figure}
 
@@ -99,13 +98,13 @@ Analyzing groups of subjects and comparing subjects became the priority for the 
 %- Braviz/tk
 %-- sample applications
 
-For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python. In the following we will describe some of the applications developed at this stage. 
+For the next cycle we dropped the BBTK platform as we found out it was limiting too much our design space. The platform enforced an execution model that kept everything updated. This was great for small applications, that were meant to run for just a couple of minutes. However for large applications that could run for hours we required more control of when the different modules would execute. BBTK relied on VTK for all visualization tasks, and therefor we decided to start developing directly on VTK. However it was still very important to us to have quick development cycles, and we were willing to sacrifice some performance to get it, therefore we switched our main developing language to python. In the following we will describe some of the applications developed at this stage.
 
-We were exploring how to bring into the applications of more sophisticated processing tools. FreeSurfer specially grabbed our attention as it provided information from an ATLAS, and provided a way to identify the different regions of the brain using common names. This was very important to experts as it allowed them to compare their finding to those of other groups, and those in the literature. Figure \ref{fig_surf_1} shows one of the prototypes which allowed experts to visualize FreeSurfer surface parcellations. This application has a 3D viewer on the right side and a control panel on the left side. The bottom part of this panel lets the user select the different FreeSurfer surfaces and scalars, while the top of the panel lets him show a subject. Notice that it is now possible to change the subject in the middle of a session, and by doing so, it is also easier to compare the same view for multiple subjects. This was one of the main goals at this stage. 
+We were exploring how to bring into the applications of more sophisticated processing tools. FreeSurfer specially grabbed our attention as it provided information from an ATLAS, and provided a way to identify the different regions of the brain using common names. This was very important to experts as it allowed them to compare their finding to those of other groups, and those in the literature. Figure \ref{fig_surf_1} shows one of the prototypes which allowed experts to visualize FreeSurfer surface parcellations. This application has a 3D viewer on the right side and a control panel on the left side. The bottom part of this panel lets the user select the different FreeSurfer surfaces and scalars, while the top of the panel lets him show a subject. Notice that it is now possible to change the subject in the middle of a session, and by doing so, it is also easier to compare the same view for multiple subjects. This was one of the main goals at this stage.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/surf1.png} 
+\includegraphics[width=0.9\textwidth]{historic/surf1.png}
 \caption{\label{fig_surf_1}A freesurfer surface inside Braviz}
 \end{figure}
 
@@ -113,13 +112,13 @@ The FreeSurfer segmentations also provided us a repeatable way of selecting fibe
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/cc_in_context.png} 
+\includegraphics[width=0.9\textwidth]{historic/cc_in_context.png}
 \caption{\label{fig_cc_ctx_1}Fibers of the corpus callosum with segmentation and anatomical image as context}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/fibers_in_context.png} 
+\includegraphics[width=0.9\textwidth]{historic/fibers_in_context.png}
 \caption{\label{fig_fibers_ctx}Fibers could be selected using freesurfer segmentation. Vtk widgets could be used to make measurements.
 Additionally statistics of each bundle were also available.}
 \end{figure}
@@ -128,15 +127,15 @@ An application for viewing two subjects at the same time and comparing them was 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/compare.png} 
+\includegraphics[width=0.9\textwidth]{historic/compare.png}
 \caption{\label{fig_compare_1}Comparing the motor tract of two subjects}
 \end{figure}
 
-At this point the interest in fMRI was increasing, but some of the researchers who were not expert on this technique were having problems interpreting this data correctly. Figure \ref{fig_fmri_1} shows an application created to make the nature of fMRI explicit. The application shows the T-score image in the 3D view, but also shows the corresponding time signal at each voxel, together with the experiment design. In this way users could better understand that a higher score meant a larger relationship between the BOLD signal an the paradigm. 
+At this point the interest in fMRI was increasing, but some of the researchers who were not expert on this technique were having problems interpreting this data correctly. Figure \ref{fig_fmri_1} shows an application created to make the nature of fMRI explicit. The application shows the T-score image in the 3D view, but also shows the corresponding time signal at each voxel, together with the experiment design. In this way users could better understand that a higher score meant a larger relationship between the BOLD signal an the paradigm.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/rejean2.png} 
+\includegraphics[width=0.9\textwidth]{historic/rejean2.png}
 \caption{\label{fig_fmri_1}This prototypes make the time dimension of fMRI explicit, therefore helping non-experts understand its meaning and make better interpretations}
 \end{figure}
 
@@ -144,7 +143,7 @@ We wanted to let researchers search for patterns between clinical variables and 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/grid_and_scatter.png} 
+\includegraphics[width=0.9\textwidth]{historic/grid_and_scatter.png}
 \caption{\label{fig_grid}Corpus Callosums of several subjects organized on a grid and colored with respect to clinical variables.
 A scatter plot of these variables is shown at the bottom left}
 \end{figure}
@@ -153,22 +152,22 @@ Another proposal for showing relationships between structures and clinical varia
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/mini_star.png} 
+\includegraphics[width=0.9\textwidth]{historic/mini_star.png}
 \caption{\label{fig_star_1}This application allowed comparing several structures and variables between groups of subjects.}
 \end{figure}
 
 The application shown in figure \ref{fig_tms_1} was developed for a very specific task: analyzing the relationship between TMS metrics with fibers. The application shows at the left a list of tms variables organized in a tree, a selection between dominant and non-dominant hemisphere, and the option to add males or females to the sample. In this case the application would know if a given subject is right handed or left handed, and display the values for the dominant or non-dominant hemisphere. At the bottom of the screen the values for the whole sample would be shown with the current subject on the right. The picture at the top of the screen would display the motor fibers where the current metric only involved one hemisphere, and the corpus callosum (see figure \ref{fig_tms_2}) where the current metric involved both hemispheres. The user could click on a bar on the bottom display and select that subject.
-It was also possible to show aggregated measures for the three groups on the bottom display as seen in figure  \ref{fig_tms_2}. By doing this the expert could quickly evaluate the relationship between the visual appearance of tractography and values of tms metrics. 
+It was also possible to show aggregated measures for the three groups on the bottom display as seen in figure  \ref{fig_tms_2}. By doing this the expert could quickly evaluate the relationship between the visual appearance of tractography and values of tms metrics.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/mini_tms.png} 
+\includegraphics[width=0.9\textwidth]{historic/mini_tms.png}
 \caption{\label{fig_tms_1}An application tailored at analyzing TMS variables relationship with tractography}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/tms_2.png} 
+\includegraphics[width=0.9\textwidth]{historic/tms_2.png}
 \caption{\label{fig_tms_2}Another view of the TMS applications, this time showing the fibers of the corpus callosum.}
 \end{figure}
 
@@ -176,7 +175,7 @@ Finally, we created a menu in order to group all applications and provide users 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{historic/braviz_menu.png} 
+\includegraphics[width=0.9\textwidth]{historic/braviz_menu.png}
 \caption{\label{fig_menu_1}A menu was provided to give an overview of the available applications and provide simple access.}
 \end{figure}
 
@@ -198,7 +197,7 @@ As it can be seen the interest in the analysis of clinical values was increasing
 %- Braviz Qt
 %-- sample applications
 
-The first version of Braviz provided a robust infrastructure for displaying spatial data on multiple coordinate systems, however its ability to handle clinical variable was still limited. From the last iteration we realized that in order to efficiently use the data we needed some analytics on the variables. We also required a better infrastructure to store and manipulate this variables. Another limitation of the previous prototype was that work could not be saved or restored. Measurements derived from segmented structures or fibers were separated from clinical variables. Finally, all of the applications operated independently without any connection. This version of Braviz addresses those limitations. 
+The first version of Braviz provided a robust infrastructure for displaying spatial data on multiple coordinate systems, however its ability to handle clinical variable was still limited. From the last iteration we realized that in order to efficiently use the data we needed some analytics on the variables. We also required a better infrastructure to store and manipulate this variables. Another limitation of the previous prototype was that work could not be saved or restored. Measurements derived from segmented structures or fibers were separated from clinical variables. Finally, all of the applications operated independently without any connection. This version of Braviz addresses those limitations.
 
 In order to store and manage clinical variables and those derived from spatial data a database was integrated in the system. This database is also used to let user store and retrieve data. Details of the database will be given on section \ref{sec_tech}. Applications were coordinated by sharing the same database, and by passing messages between them. The model described in chapter \ref{chap_model} was mature by this moment, and was the basis for this implementation. Section \ref{sec_arch} will provide a closer look at how the model is realized into this platform, but first we will take a look at some of the features of this version.
 
@@ -217,13 +216,13 @@ We took all of the different data viewers of the previous iteration and combined
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/subj_overview_full.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/subj_overview_full.png}
 \caption{\label{fig_subj_overview_2}The new subject viewer integrates all of the data-types from previous version on the same application, therefore allowing all types of combinations.}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/subj_viewer_mosaic.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/subj_viewer_mosaic.png}
 \caption{\label{fig_subj_viewer_mosaic}Examples of visualizations that can be achieved with the new subject viewer.}
 \end{figure}
 
@@ -231,15 +230,15 @@ The application shown in figure \ref{fig_sample_overview_2}, called \emph{sample
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/sample_overview.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/sample_overview.png}
 \caption{\label{fig_sample_overview_2}Multiple subjects can be visualized at the same time in small multiples, a nominal variables is used for rows and a numerical value for left to right order.}
 \end{figure}
 
-In order to select variables in all of the applications, dialogs similar to the one shown on figure \ref{fig_var_select}. This dialog shows a list of variables that can be filtered, and for each variable provides a description, a type and a plot. In the case of nominal variables the labels for each level are also shown, while on numerical value the expected range of the variable and the optimal value is shown. Notice that this information can be modified by the user. 
+In order to select variables in all of the applications, dialogs similar to the one shown on figure \ref{fig_var_select}. This dialog shows a list of variables that can be filtered, and for each variable provides a description, a type and a plot. In the case of nominal variables the labels for each level are also shown, while on numerical value the expected range of the variable and the optimal value is shown. Notice that this information can be modified by the user.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/var_select.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/var_select.png}
 \caption{\label{fig_var_select}The standard dialog for selecting variables, notice the middle panel contains information about the variable while the right plot provides an overview.}
 \end{figure}
 
@@ -247,15 +246,15 @@ The database of variables is a central component of this version, and as such we
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/anova.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/anova.png}
 \caption{\label{fig_anova_2}Anova analyzes on the variables in the database can be performed and visualized on this application. Data-points in the plots are coordinated to all other open applications.}
 \end{figure}
 
-Figure \ref{fig_lm_2} shows a similar application tuned for linear regressions. In this nominal variables are encoded using dummy variables, and the effects of each variable can be analyzed in the presence of the other variables. 
+Figure \ref{fig_lm_2} shows a similar application tuned for linear regressions. In this nominal variables are encoded using dummy variables, and the effects of each variable can be analyzed in the presence of the other variables.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/linear_model.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/linear_model.png}
 \caption{\label{fig_lm_2}An application for fitting linear models on the variables on the database, the effect of one variable after correcting for the others can be visualized. Notice the highlighted subject in the plot.}
 \end{figure}
 
@@ -263,15 +262,15 @@ Finding correlations between variables is a common task for researchers, and thu
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/correlations.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/correlations.png}
 \caption{\label{fig_correlations}With this application it is straightforward to analyze correlations between variables.}
 \end{figure}
 
-The fMRI viewer from the previous iteration was upgrade to the one shown on figure \ref{fig_fmri_2}. This new version now loads complex experiment designs and contrasts directly from SPM files, which gives instantaneously an intuition of experiment structure, and makes mistakes evident. The new application also lets the user select multiple timelines at the same time, group them together, and make comparisons between groups. 
+The fMRI viewer from the previous iteration was upgrade to the one shown on figure \ref{fig_fmri_2}. This new version now loads complex experiment designs and contrasts directly from SPM files, which gives instantaneously an intuition of experiment structure, and makes mistakes evident. The new application also lets the user select multiple timelines at the same time, group them together, and make comparisons between groups.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/fmri.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/fmri.png}
 \caption{\label{fig_fmri_2}New version of the fmri explorer, now more complex experiments can be analyzed and timelines from different locations and subjects can be saved and compared.}
 \end{figure}
 
@@ -279,7 +278,7 @@ While most of the applications of this iteration use QT for the graphical interf
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{braviz_qt/parallel.png} 
+\includegraphics[width=0.9\textwidth]{braviz_qt/parallel.png}
 \caption{\label{fig_parallel_2}A parallel coordinates view of the variables in the database. Notice this visualization runs on a web browser.}
 \end{figure}
 
@@ -287,7 +286,7 @@ Finally the menu, which acts as the entry point to the system, was also upgraded
 
 \begin{figure}
 \centering
-\includegraphics[width=0.4\textwidth]{braviz_qt/braviz_menu.png} 
+\includegraphics[width=0.4\textwidth]{braviz_qt/braviz_menu.png}
 \caption{\label{fig_menu_2}The menu for the new version of Braviz, notice the utilities on the bottom row.}
 \end{figure}
 
@@ -308,9 +307,9 @@ Finally the menu, which acts as the entry point to the system, was also upgraded
 %- database
 
 
-Trough the user centered design process described in the previous section we arrived to the model described on chapter \ref{chap_model}. The proposal consists of a family of applications, each providing interfaces, visualizations and interaction mechanisms suited for specific tasks. However all applications share the same data and can communicate with other running applications. While they will be different from the user point of view, on the inside they share several operations, therefore it makes sense for them to share significant amounts of code. Another important requirement was that the whole system should adapt to different data storage mechanisms. 
+Trough the user centered design process described in the previous section we arrived to the model described on chapter \ref{chap_model}. The proposal consists of a family of applications, each providing interfaces, visualizations and interaction mechanisms suited for specific tasks. However all applications share the same data and can communicate with other running applications. While they will be different from the user point of view, on the inside they share several operations, therefore it makes sense for them to share significant amounts of code. Another important requirement was that the whole system should adapt to different data storage mechanisms.
 
-The proposed architecture to implement these features is shown in figure \ref{fig_archi}. At the top of the diagram are the concrete applications. All of them make use of a library which provides all common braviz functionalities. Notice that each application can use a different subset of features from this library, as specified in figure \ref{fig_feature_solution}. In order to made the platform flexible, and adaptable to different data storage solutions, all data access operations are isolated trough the "`Project Reader"' layer. The current implementation uses files stored in disk, but we had used this layer to adapt to two different disk layouts. In the future this layer could be used to read spatial data from a database or web service. 
+The proposed architecture to implement these features is shown in figure \ref{fig_archi}. At the top of the diagram are the concrete applications. All of them make use of a library which provides all common braviz functionalities. Notice that each application can use a different subset of features from this library, as specified in figure \ref{fig_feature_solution}. In order to made the platform flexible, and adaptable to different data storage solutions, all data access operations are isolated trough the "`Project Reader"' layer. The current implementation uses files stored in disk, but we had used this layer to adapt to two different disk layouts. In the future this layer could be used to read spatial data from a database or web service.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{braviz/appArchitecture}%
@@ -329,7 +328,7 @@ The library itself is divided into three modules
 
 \subsection{Read and Filter}
 
-The \emph{readAndFilter} modules is in charge of providing the right data for all the other components. This mainly corresponds to the \emph{Data Sources} feature in\ref{fig_feature_solution}, and some basic \emph{Geometric Processing} operations, mainly related to data filtering and coordinate space transformation. 
+The \emph{readAndFilter} modules is in charge of providing the right data for all the other components. This mainly corresponds to the \emph{Data Sources} feature in\ref{fig_feature_solution}, and some basic \emph{Geometric Processing} operations, mainly related to data filtering and coordinate space transformation.
 
 Spatial data is exposed to the top layers via a declarative API; where the type of data, subject, coordinate system, and other parameters appropriate for the data type are passed to a function. Inside the function loads and applies all the required transformations. Each project reader must implement this API and must do the concrete operations required in the specific data-set to return the requested objects. Some examples of a call to this function can be seen in listing \ref{listing_read_and_filter_api}.
 
@@ -339,9 +338,9 @@ Spatial data is exposed to the top layers via a declarative API; where the type 
 \label{listing_read_and_filter_api}
 \end{listing}
 
-The complete documentation can be found on the Braviz website. Notice that changing the coordinate system or the current subject is trivial if variables are used as arguments in all queries. Readers can also implement caching mechanisms in order to improve performance of future queries.  
+The complete documentation can be found on the Braviz website. Notice that changing the coordinate system or the current subject is trivial if variables are used as arguments in all queries. Readers can also implement caching mechanisms in order to improve performance of future queries.
 
-Notice that it is possible to request specific sets of fibers by setting way-points in the query. This mechanism only supports getting bundles of fibers that cross several way-points or which cross any of them. More complex bundles can be requested by implementing specific functions inside the project reader, or by reading its description from the database. 
+Notice that it is possible to request specific sets of fibers by setting way-points in the query. This mechanism only supports getting bundles of fibers that cross several way-points or which cross any of them. More complex bundles can be requested by implementing specific functions inside the project reader, or by reading its description from the database.
 
 The types of data available for each project is not always the same. For this reason this method must also be able to inform applications which kinds of data are available. For this purpose most data types include an index parameter as can be seen on listing \ref{listing_read_and_filter_indices}.
 
@@ -355,7 +354,7 @@ Applications and functions from other modules may assume that this function exis
 
 Project readers themselves are likely to share several operations. For this reason the module provides reusable functions wrapping input and output, format changes, transformations between coordinate systems and computation of scalars.
 
-The spatial data repository should not be writable by the Braviz system. In this way users won't fear altering their raw data while using Braviz, and the platform will be easier to use together with other systems. However there should be another location where the results from expensive operations can be stored in a persistent cache. 
+The spatial data repository should not be writable by the Braviz system. In this way users won't fear altering their raw data while using Braviz, and the platform will be easier to use together with other systems. However there should be another location where the results from expensive operations can be stored in a persistent cache.
 
 Complementing this source of spatial data is a database which contains several objects which can be manipulated by end users. This include
 
@@ -373,17 +372,17 @@ The concrete way in which these objects are stored depends on the project, but a
 
 \subsection{visualization}
 
-The visualization module provides reusable interactive visualizations. These are divided in two families: spatial data viewers based on VTK and statistical data viewer based on Matplotlib or D3. 
+The visualization module provides reusable interactive visualizations. These are divided in two families: spatial data viewers based on VTK and statistical data viewer based on Matplotlib or D3.
 
-Spatial data viewers are made from several \emph{managers} specialized for dealing with each of the different data types. All managers draw to the same renderer, but each of them keeps the objects associated to specific kinds of data. In order for the full viewer to behave correctly it is important to keep all managers in the same coordinate system and the same subject. The currently available managers are 
+Spatial data viewers are made from several \emph{managers} specialized for dealing with each of the different data types. All managers draw to the same renderer, but each of them keeps the objects associated to specific kinds of data. In order for the full viewer to behave correctly it is important to keep all managers in the same coordinate system and the same subject. The currently available managers are
 
 \begin{itemize}
 	\item ImageManager: Displays an image in a plane. The user can click on the image to get the values and coordinates of the current voxel. The manager keeps track of the current image modality, orientation and slice.
 	\item FmriContours: Displays contoures for fMRI statistical maps. The manager keeps track of the paradigm and contrast, and the level of the template. A custom lookup-table can be used to color the contours.
 	\item Model Manager: Displays segmented structures. Keeps tracks of the available models and the currently selected models. Can also return scalar values associated to the current models, and allows specifying models by laterality ("`dominand or non-dominant"') or side ("`left"' or "`right"').
-	\item SurfaceManager: Displays freeSurfer surface reconstructions and its associated scalars. As the model manager it can handle subject laterality. Users can click on top of the cortical surfaces and get the value of the associated scalar. 
-	\item TractographyManager: Displays tractography bundles colored according to direction, fa, md or using one different color for each bundle. Bundles can be defined using a list of models joined by \emph{and} or \emph{or}, or loaded from the database. 
-	\item TraculaManager: Displays tracula bundles as surfaces.	
+	\item SurfaceManager: Displays freeSurfer surface reconstructions and its associated scalars. As the model manager it can handle subject laterality. Users can click on top of the cortical surfaces and get the value of the associated scalar.
+	\item TractographyManager: Displays tractography bundles colored according to direction, fa, md or using one different color for each bundle. Bundles can be defined using a list of models joined by \emph{and} or \emph{or}, or loaded from the database.
+	\item TraculaManager: Displays tracula bundles as surfaces.
 	\item Others: spheres, lines, planes or other objects should be in separate managers.
 \end{itemize}
 
@@ -403,7 +402,7 @@ The interaction module provides communication between applications and access to
 \end{itemize}
 
 
-Statistical data processing is achieved by calling \emph{R} functions trough the rpy2 interface. All associated \emph{R} code should is contained in this module. Currently the available operations are restricted to fitting anova and linear models and calculating the importance of each variable towards predicting another by using a random forest model. New functions will be added to this module as they are required by applications. 
+Statistical data processing is achieved by calling \emph{R} functions trough the rpy2 interface. All associated \emph{R} code should is contained in this module. Currently the available operations are restricted to fitting anova and linear models and calculating the importance of each variable towards predicting another by using a random forest model. New functions will be added to this module as they are required by applications.
 
 Spatial data can be processed using VTK, python scientific libraries or both. Currently the module provides functions to calculate values of an image inside a surface and calculating geometric descriptors of surfaces as volume or lengths of main axes.
 
@@ -411,7 +410,7 @@ This module also provides several Qt models, dialogs and widgets that can be reu
 
 \subsection{applications}
 
-The applications that are currently part of the system are listed below, together with its main components. This will show how the variability of the system can be materialized into a wide arrange of applications. 
+The applications that are currently part of the system are listed below, together with its main components. This will show how the variability of the system can be materialized into a wide arrange of applications.
 
 \begin{itemize}
 
@@ -427,7 +426,7 @@ The applications that are currently part of the system are listed below, togethe
 
 \item \emph{Explore fMRI} (Figure \ref{fig_fmri_2}): Includes a 3D viewer that shows an fMRI image and contours. At the bottom is a time-line which shows the current contrast and the bold signal associated with the current coordinates. It is possible to get this signals from multiple locations or multiple subjects. This signals can later be grouped together in order to compare patterns between groups. The application communicates subject changes and switches to a subjects when asked to by a message.
 
-\item \emph{Check Registration}: Provides a viewer with a single plane where two different images can be viewed using a checkerboard pattern. 
+\item \emph{Check Registration}: Provides a viewer with a single plane where two different images can be viewed using a checkerboard pattern.
 
 \item \emph{Anova} (Figure \ref{fig_anova_2}): Lets the user fit Anova models based on variables in the database. Provides an statistical viewer that can show box plots, scatter plots or Anova diagnostics. By right clicking on a point in the plot the user can communicate to other applications that they should switch focus to the corresponding subject. When a subject message is received, the corresponding message will be highlighted in the plot.
 
@@ -439,7 +438,7 @@ The applications that are currently part of the system are listed below, togethe
 
 \end{itemize}
 
-All but \emph{Parallel Coordinates} are stand alone Qt applications. However in the future we expect to have more web based applications. Also notice all of them can save and restore their state from the database. Applications with a concept of sample can save and load samples into the database. They also provide access to the sample creation dialog where samples can be modified. Sharing samples to all applications requires explicit actions in the part of the user, as otherwise this could be disturbing. On each application users can choose if they always accept received samples, always reject them, or ask every time. 
+All but \emph{Parallel Coordinates} are stand alone Qt applications. However in the future we expect to have more web based applications. Also notice all of them can save and restore their state from the database. Applications with a concept of sample can save and load samples into the database. They also provide access to the sample creation dialog where samples can be modified. Sharing samples to all applications requires explicit actions in the part of the user, as otherwise this could be disturbing. On each application users can choose if they always accept received samples, always reject them, or ask every time.
 
 Chapter \ref{chap_kmc} will show examples of how this applications are used in a real project. This will clarify the role each of them play and how instant communication can enhance analysis.
 
@@ -449,19 +448,19 @@ Chapter \ref{chap_kmc} will show examples of how this applications are used in a
 
 \section{Technical Details}
 
-\label{sec_tech} 
+\label{sec_tech}
 
 %Technical details
 %------------------
 
 %- libraries
 
-This section provides an overview of the technical aspects of the current Braviz implementation. This section will describe the technologies used inside the current application and give details of how data is read and stored and how communications between applications is achieved. 
+This section provides an overview of the technical aspects of the current Braviz implementation. This section will describe the technologies used inside the current application and give details of how data is read and stored and how communications between applications is achieved.
 
 
 \subsection{Dependencies}
 
-One of Braviz design principles was not reinventing the wheel. Fortunately several high quality, robust and open source tools for data analysis are available. We make use of third party libraries whenever we can, and stay focused on interaction and visualization. The consequence is that Braviz has a somehow long dependencies list. 
+One of Braviz design principles was not reinventing the wheel. Fortunately several high quality, robust and open source tools for data analysis are available. We make use of third party libraries whenever we can, and stay focused on interaction and visualization. The consequence is that Braviz has a somehow long dependencies list.
 
 As mentioned before, the main language used for the implementation is Python. It was chosen because it lets us have a fast development cycle. The language is concise, which means less coding is required to implement a feature. Additionally because it is an interpreted language it is easier to debug, and features can be tried in the interactive console before writing long term code. Finally, several scientific, data management and visualization libraries are available, with a strong community behind them.
 
@@ -472,13 +471,13 @@ The full list of Braviz dependencies on python packages are
 \item scipy \autocite{jones_scipy:_2001}: Python scientific library, provides algorithms for spatial data processing, statistics and input/output of matlab files.
 \item pandas \autocite{mckinney_data_2010}: Provides high performance data-frames, which are perfect for storing, exchanging and manipulating tabular data.
 \item VTK \autocite{schroeder_vtk_1998} : The visualization Toolkit, provides a framework for rendering high quality interactive 3D graphics. It is the most popular scientific visualization library, therefore by using it we increase compatibility with other tools. It is written in C, but bindings for several languages are provided.
-\item matplotlib \autocite{hunter_matplotlib:_2007} : Python plotting library. Provides a wide variety of plots that can be used interactively. 
-\item seaborn \autocite{michael_waskom_seaborn:_2015} : Provides a high level API on top of matplotlib for creating high quality statistical graphics using data-frames as input. 
+\item matplotlib \autocite{hunter_matplotlib:_2007} : Python plotting library. Provides a wide variety of plots that can be used interactively.
+\item seaborn \autocite{michael_waskom_seaborn:_2015} : Provides a high level API on top of matplotlib for creating high quality statistical graphics using data-frames as input.
 \item nibabel \autocite{brett_neuroimaging_2006} : Provides input and output from a large array of file formats found in the neuroimaging ecosystem, including freesurfer, and nifti.
-\item PyQt4 : Python bindings for the Qt user interface framework. 
-\item rpy2  \autocite{gautier_rpy2:_2008} : Provides communications to R \autocite{team_r:_2012} from python, allowing us to use powerful statistical processing algorithms implemented in R. 
+\item PyQt4 : Python bindings for the Qt user interface framework.
+\item rpy2  \autocite{gautier_rpy2:_2008} : Provides communications to R \autocite{team_r:_2012} from python, allowing us to use powerful statistical processing algorithms implemented in R.
 \item pyzmq: Python bindings for the ZeroMQ \autocite{hintjens_zeromq:_2013} protocol for communications between application using ip.
-\item tornado : A python web framework, provides a robust web server which includes a powerful implementation of web sockets. 
+\item tornado : A python web framework, provides a robust web server which includes a powerful implementation of web sockets.
 \item psutil : A python utility to get attributes of running processes, including how much memory they are consuming.
 \item savReaderWriter : A python library for reading data from SPSS files.
 \item xlrd : A python library for reading data from excel files.
@@ -498,13 +497,13 @@ In addition to the mentioned python libraries, Braviz makes use of the following
 \label{sec_preproc}
 It was mentioned before that Braviz can be adapted to several types of input data. Nevertheless for the current implementation we are using the following protocol for pre-processing spatial data. After data acquisition all dicom files were translated to the lab and went the following process. Raw data was also visually analyzed and problems with the acquisition were detected early. In some cases it was possible to recall the subject in order to get a new image, but in others data had to be discarded.
 
-Anatomical MRI was processed through the freeSurfer \autocite{dale_cortical_1999} recon\_all pipeline. This generates a segmented image and reconstructions and parcelations of the cortical surfaces. The pipeline also generates an affine transforms to the Talairach space and several scalar values for both the cortical surfaces and subcortical structures. Segmented structures were reconstructed using the 3D-Slicer model maker plugin \autocite{aucoin_modelmaker_2014}. 
+Anatomical MRI was processed through the freeSurfer \autocite{dale_cortical_1999} recon\_all pipeline. This generates a segmented image and reconstructions and parcelations of the cortical surfaces. The pipeline also generates an affine transforms to the Talairach space and several scalar values for both the cortical surfaces and subcortical structures. Segmented structures were reconstructed using the 3D-Slicer model maker plugin \autocite{aucoin_modelmaker_2014}.
 
-SPM's Dartel \autocite{ashburner_fast_2007} workflow was used to generate a template brain based on 40 ananatomical images, as well as non-linear registration between the anatomical images of all subjects and the template. 
+SPM's Dartel \autocite{ashburner_fast_2007} workflow was used to generate a template brain based on 40 ananatomical images, as well as non-linear registration between the anatomical images of all subjects and the template.
 
 Functional MRI series were processed in SPM \autocite{friston_statistical_2006} using the anatomical MRI as reference. This included realigning images, registering to the reference, smoothing, time filtering, estimating a statistical model for each voexel and calculating the score maps for each contrast. At the end of the processing several images, in SPM normalized space are obtained together with transforms from this space to the anatomical reference space. Data from the image realign process was also analyzed, and when the amount of correction applied was larger than a threshold an alert was given. In this case the images would be visually analyzed by an expert in order to decide if they should be excluded from further  analysis.
 
-Diffusion Weighted Images were processed using the Camino Tractography toolset \autocite{cook_camino:_2006}, together with FSL \autocite{jenkinson_fsl_2012} and Dcm2Nii \autocite{rorden_mricron_2007}. The first step was converting the Dicom series to a 4D nifti image, together with two text files describing the diffusion parameters of each volume using Dcm2Nii. These files were converted to Camino format, afterwards a tensor model was fitted, and  following that, an FA image was extracted. This image was then registered to the anatomical MRI using the FLIRT tool (part of FSL). A brain mask from the anatomical image was extracted using FSL's BET. This mask together with freesurfers' white matter mask, were brought to diffusion space using flirt and the previously calculated transform. The white matter image was then used to derive seedpoints for a tractography reconstruction. The tractography results were cleaned to remove streamlines outside the brain mask, and to delete small stream lines. Finally these results were converted to VTK-format. An rgb DTI image, the FA image and a MD image were also extracted.  
+Diffusion Weighted Images were processed using the Camino Tractography toolset \autocite{cook_camino:_2006}, together with FSL \autocite{jenkinson_fsl_2012} and Dcm2Nii \autocite{rorden_mricron_2007}. The first step was converting the Dicom series to a 4D nifti image, together with two text files describing the diffusion parameters of each volume using Dcm2Nii. These files were converted to Camino format, afterwards a tensor model was fitted, and  following that, an FA image was extracted. This image was then registered to the anatomical MRI using the FLIRT tool (part of FSL). A brain mask from the anatomical image was extracted using FSL's BET. This mask together with freesurfers' white matter mask, were brought to diffusion space using flirt and the previously calculated transform. The white matter image was then used to derive seedpoints for a tractography reconstruction. The tractography results were cleaned to remove streamlines outside the brain mask, and to delete small stream lines. Finally these results were converted to VTK-format. An rgb DTI image, the FA image and a MD image were also extracted.
 
 Diffusion weighted images were also processed using the Tracula \autocite{yendiki_fully_2009} pipeline, which is included in freesurfer. This algorithms combines a probabilistic diffusion model with anatomical priors in order to reconstruct the main brain pathways. The output of this process is an image for each bundle containing the probability of it going trough each voxel, a file containing the more likely locations of all bundles, and a series of scalar metrics for each bundle.
 
@@ -519,13 +518,13 @@ The scripts using for the processing of data in the KMC project are available at
 
 Reading spatial data into the system is easy with the use of nibabel, scipy and vtk; but getting the coordinates right is not trivial. Each data source is defined in its own coordinate systems, and most likely it will be necessary to apply some transforms in order to translate it into the requested coordinate system. Figure \ref{fig_coordinates} shows the coordinate systems used in the current version and the tranforms that map between them. Notice that right now the subject space acts as a central link, and all transformations require going trough it. All of the links in the graph are actual transform files that were calculated at some step in processing. Affine transforms are just $4\times4$ matrices while non-linear transforms are full images where each voxel contains a displacement vector or the final coordinates of data originally located at that voxel. Fortunately VTK can handle both kinds of transforms. Another point that can't be forgotten is that in order to map an image to a different coordinate system the inverse of the corresponding transform must be used. This happens because the actual procedure consists of mapping a grid in the output space to the origin space, and sampling the image values at the different points of the mapping grid.
 
-In order to comply with the project reader API it is often necessary to read several files. This includes raw data, transforms and possibly scalars stored on separate files. Assignment of scalars to geometric structures can be done on the fly by reading the geometrical information and an image where scalars are defined, for example to return fiber bundles with FA scalars. However it is convenient to store the results of expensive operations into a cache. The \emph{readAndFilter} module provides two levels of cache. The first one stores copies of data requested by the user in memory, up to a set limit, so that if the user asks for it again it can be returned fast. The second one allows the project reader to store and retrieve data from disk. Making use of these mechanisms is key to providing an interactive experience. 
+In order to comply with the project reader API it is often necessary to read several files. This includes raw data, transforms and possibly scalars stored on separate files. Assignment of scalars to geometric structures can be done on the fly by reading the geometrical information and an image where scalars are defined, for example to return fiber bundles with FA scalars. However it is convenient to store the results of expensive operations into a cache. The \emph{readAndFilter} module provides two levels of cache. The first one stores copies of data requested by the user in memory, up to a set limit, so that if the user asks for it again it can be returned fast. The second one allows the project reader to store and retrieve data from disk. Making use of these mechanisms is key to providing an interactive experience.
 
 The current implementation reads all the required data from disk, but this could change in the future to read data from a web service, a relational database or a key/value storage. As long as the project reader API is respected the rest of the system will not mind the change.
 
-Finally notice that some operations require knowledge about the laterality of a subject, which is stored as a variable. In this case the reader needs to access the variables database and decide if the right or left structure was requested. 
+Finally notice that some operations require knowledge about the laterality of a subject, which is stored as a variable. In this case the reader needs to access the variables database and decide if the right or left structure was requested.
 
-The logic required to retrieve the right data is not trivial, and it is highly error prone. Keeping all of it isolated inside the project reader, makes it easier to maintain and test. The rest of the system can then relay on the project reader to get the right data, and does not require to deal with transformation or the underlying storage mechanism. 
+The logic required to retrieve the right data is not trivial, and it is highly error prone. Keeping all of it isolated inside the project reader, makes it easier to maintain and test. The rest of the system can then relay on the project reader to get the right data, and does not require to deal with transformation or the underlying storage mechanism.
 
 %- data input/output
 %- transformations
@@ -534,9 +533,9 @@ The logic required to retrieve the right data is not trivial, and it is highly e
 \subsection{Data Base Schema}
 %  Dibujo esquema base de datos
 
-Braviz relies on a database to store clinical variables and user data. Figures \ref{fig_db_variables}, \ref{fig_db_user}, \ref{fig_db_bundles} and \ref{fig_db_geom} (created with schemacrawler \autocite{_schemacrawler_????}) show the schema of the current database. 
+Braviz relies on a database to store clinical variables and user data. Figures \ref{fig_db_variables}, \ref{fig_db_user}, \ref{fig_db_bundles} and \ref{fig_db_geom} (created with schemacrawler \autocite{_schemacrawler_????}) show the schema of the current database.
 A table called \emph{subjects} contains the ids of all subjects in the current study. This table is referenced in multiple places in order to link data to a particular subject. Notice that these ids are also used to retrieve spatial data.
-Variables information and data are separated in several tables, which allows for variables to be added or removed effortlessly. Nominal variables values are stored as numerical labels, and the actual names that are associated to them are saved in the \emph{nom\_meta} table. In this way the text of the labels can be updated by the user at a single place. 
+Variables information and data are separated in several tables, which allows for variables to be added or removed effortlessly. Nominal variables values are stored as numerical labels, and the actual names that are associated to them are saved in the \emph{nom\_meta} table. In this way the text of the labels can be updated by the user at a single place.
 
 \begin{figure}
 \centering
@@ -552,7 +551,7 @@ All applications should be able to save scenarios, i.e. their current state. Thi
 \caption{\label{fig_db_user}Schema of tables storing user data. The \emph{subject\_comments} holds textual annotations for each subject. The \emph{applications} table contains an index of all current applications, which is used to classify scenarios belonging to each of them. The \emph{scenarios} table contains the data of each scenario. The \emph{subj\_samples} contains information about sub-samples created by the user. Finally the \emph{vars\_scenarios} table links scenarios and variables in order to enhance data navigation.}
 \end{figure}
 
-Several types of fiber bundles can be defined by the user. This bundles are stored in the \emph{fiber\_bundles} table. This table only includes a name for the bundle a type and binary data associated to it. The currently available types of bundles are 
+Several types of fiber bundles can be defined by the user. This bundles are stored in the \emph{fiber\_bundles} table. This table only includes a name for the bundle a type and binary data associated to it. The currently available types of bundles are
 \begin{itemize}
 \item Named bundles: Are associated to a python function that calculates them
 \item Checkpoint tracts with and: Bundles defined as tracts that go through all structures in a list.
@@ -579,17 +578,17 @@ Finally, users can define geometric objects, which can be stored in the database
 %- messaging protocol
 \subsection{Communications Protocol}
 
-A main feature of Braviz is sharing information between running applications immediately. This is achieved by exchanging messages trough tcp sockets. The Braviz menu acts as a message broker which receives messages from all running applications and relies them to the whole set of running applications. This is implemented using the ZeroMQ protocol \autocite{hintjens_zeromq:_2013}. The Menu application runs a two ZeroMQ sockets configured as \emph{PUB} (publish) and \emph{PULL}. Each application runs a \emph{SUB} (subscribe) socket which connects to the server's \emph{PUB} and a \emph{PUSH} socket which connects to the server's \emph{PULL}. Clients send message trough their \emph{PUSH} socket and listen to messages in their \emph{SUB} socket. The server receives messages from clients on its \emph{PULL} socket and broadcasts them on the \emph{PUB} socket. Only the server \emph{ip} addresses must be known for each client for the system to work. In practice this addresses (more concretely the ports) are generated when the server starts. Each time a new application is launched this addresses are passed trough in the command line. 
+A main feature of Braviz is sharing information between running applications immediately. This is achieved by exchanging messages trough tcp sockets. The Braviz menu acts as a message broker which receives messages from all running applications and relies them to the whole set of running applications. This is implemented using the ZeroMQ protocol \autocite{hintjens_zeromq:_2013}. The Menu application runs a two ZeroMQ sockets configured as \emph{PUB} (publish) and \emph{PULL}. Each application runs a \emph{SUB} (subscribe) socket which connects to the server's \emph{PUB} and a \emph{PUSH} socket which connects to the server's \emph{PULL}. Clients send message trough their \emph{PUSH} socket and listen to messages in their \emph{SUB} socket. The server receives messages from clients on its \emph{PULL} socket and broadcasts them on the \emph{PUB} socket. Only the server \emph{ip} addresses must be known for each client for the system to work. In practice this addresses (more concretely the ports) are generated when the server starts. Each time a new application is launched this addresses are passed trough in the command line.
 
 Messages themselves contain JSON strings, which can be converted to python dictionaries by the implementations of the message client and server. The following types of messages are currently implemented.
 
 \begin{itemize}
 \item Subject: Communicate a change of the current focus subject (listing \ref{listing_subject_message})
 \item Sample: Communicates that a new sample should be considered (listing \ref{listing_sample_message})
-\item Log: Communicates important user actions. Includes application state (scenario), so that the state can be revisited (listing \ref{listing_log_message}) 
+\item Log: Communicates important user actions. Includes application state (scenario), so that the state can be revisited (listing \ref{listing_log_message})
 \end{itemize}
 
-Log messages are intended to keep a more detailed log of the user actions, and therefore ease the job of reconstructing an analysis sessions. This messages will be saved into a table in the database together with a session id. A new application will provide an interface to review this history and reload the scenario associated to any step. 
+Log messages are intended to keep a more detailed log of the user actions, and therefore ease the job of reconstructing an analysis sessions. This messages will be saved into a table in the database together with a session id. A new application will provide an interface to review this history and reload the scenario associated to any step.
 
 \begin{listing}
 \inputminted{js}{code/subject.js}
@@ -615,4 +614,3 @@ In the case of web applications the ZeroMQ client is installed on the Braviz Web
 \subsection{License}
 
 Braviz is currently distributed under the Lesser General Public License (LGPL) version 3. This implies that the software can be used as a library on non-open source projects; but modifications to the software itself must always remain open source. However it is important to notice that each of the libraries on which Braviz relies has its own license, and users of Braviz must also agree to them or contact the respective authors to get the libraries under a different license.
-
