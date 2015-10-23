@@ -41,38 +41,61 @@ It can also be seen that the proposed system supports and encourages exploratory
 %- Improving data sharing
 %- Improving collaboration
 
+Chapters \ref{chap_kmc400} and \ref{chap_analysis} showed that Braviz adapts to experts' workflow and that it is a valuable tool for exploratory analysis. Some of the applications that make up Braviz are more useful to some experts, and others are more used by other experts. But it has been shown that the applications complement each other and that they can be used together during the analysis. The reason why several applications can work as a coordinated system, is that they are all based on the model described in chapter \ref{chap_model}. The model recognizes the fact that there should be specific applications for specific tasks. Each application should be simple to use, but several applications can be used at different stages of a more complex task. The model also encourages implementing features that will make the applications appropriates for work inside the integrated environment. Punctually applications should keep a record of important user actions, they should communicate with other applications in the system and allow the user to save and restore the work at any point. 
+
+Each application is focused on an specific analysis task, therefore the interface is designed to explicitly support this task and don't overwhelm the user with options. These small applications are straightforward to use, and thus users don't need extensive training to start to work. The result is that researchers can be very efficient at these tasks. The user centered design method is used to detect the tasks that are usually bottlenecks in the expert's workflow and therefore the end result is an overall increase in efficiency at exploratory data analysis. 
+
+Even though each application is different, they all share a common base. This allows applications to share data between each other. Several users of the system can therefore collaborate by using data or objects created by each other in any of the applications that make up the system. 
 
 %- Adapt to different users / projects / scenarios
 %- Understanding of the design space
 %- Thinking of possible solutions
+The feature model in problem space (Figure \ref{fig_feature_problem}), which is the basis for each implementation, allow designers to effectively assess the necessities of each user and translate them into a configuration for a new application. In this way the system can be adapted to the needs of different users in a short amount of time. Additionally the architecture of the system with an unique point for reading operations lets developers adjust the whole system to different data formats and layouts only by modifying this single module. 
 
 %- Faster coherent implementation, better maintainability
 %- Development time, time to market
 %- Solve/maintain common problems only once 
+Concrete applications are configured using the feature model from Figure \ref{fig_feature_solution}. This model lets designer discover which components can be reused and which ones need to be added. It also guarantees that that the new application will adapt well to the other applications that are part of the system. By reusing components across the different applications, difficult technical challenges can be addressed in detail a single time, and the whole set of applications will benefit from the changes. Developers can trust in these components, and focus their efforts on designing the visualization and the user interfaces, which are the parts of the application that make the most important difference for end users. Recall that the focus of the system is providing an efficient channel for users to work together with data and processing algorithms in a computer, following the visual analytics principles. Therefore designers should reuse third party processing algorithms, both for statistical and spatial data, whenever this is possible. By using these techniques the developing cycles are reduced and therefore there can be more interaction rounds with end-users which will lead to a design that better fits their needs.
 
 %- Based on Braviz
 
 \section{Future Work}
 
 %- Evaluation
+This work presented evidence of the benefits of a visual analytics system in brain research, as well as the benefits of a domain model in the development of such system. However there is still need for additional evaluation in order to better assess the strengths and limitations of the proposal. Evaluating visual analytics systems is a difficult problem (\autocite{cook_illuminating_2005, shneiderman_strategies_2006,lam_seven_2011} ). Controlled laboratory experiments can be used to test concrete details of a visualization, but testing the whole system requires long term experiments which were out of the scope of this project. However it will be interesting to acquire this kind of evidence in the future in order to continue improving the application.
+
 %- Better understanding of thought processes
 	%-- Of experts workflow
 	%-- Of collaborative research
 	%-- Of extracting value from data
-	%-- Of 
+Visual analytics application rely on understanding human cognition and sense making. The current prototype integrates several of the recommendations from experts in visual perception, but it can still benefit from a better understanding of the sense making processes that go on in the experts' brain during exploratory research. As the understanding of these processes improve, it should be integrated into the model and used to further increase the efficiency of researchers.
 
 %Challenges
 %- Software
-%-- Model evolution
 %-- Integrating more data
-%-- Massification
-%-- Maintainance
-%-- Testing
+%-- More analyzes
+%-- More statistics
+
+The proposed software could also benefit from additional data types and corresponding visualization. In particular there is interest in integrating EEG and MEG data. In the past years analyzing fMRI data as networks has raised in popularity, specially when resting state fMRI is considered. Therefore there is an opportunity available for integrating this kind of analyzis in the system. Additionally there is a need to support comparisons and analyzes involving groups of subjects, for example second level fMRI. Several users have also requested additional statistical tests, specifically non parametric tests, analysis of ordinal variables and multiple measures ANOVA. All of these should be analyzed and designed carefully in order to keep the system easy to use. Probably different projects will need only as subset of the available applications, which would provide an additional level of configuration.
+%-- Additional tests
 %-- Web,
 %-- Cloud,
+Web based visualizations are becoming the norm for data analysis. This has the advantage that it is possible to reach directly a wide array of users using different devices. No installations are required, and there is no need to do extensive modifications to support phones, tablets of different operating systems. These applications can run in any modern web browser. However there are also benefits of having native applications, as a more direct control of resources, more options to interact and arguably better performance. Nevertheless it is worth exploring if it is worth migrating to a full web environment, and re-evaluate this decisions as web technology advances.
+
+The current architecture has data, communications, processing and logging running on the client machine. This machine also runs a web server to which other devices can communicate, but most calculations are still performed on the server. Another approach would be to move data and processing to a cloud, and have users run on their machines only the front-end (web or native). This would be simpler for users as they would not require large machines and they could work from anywhere, but it would require a large investment on the other side. The storage and processing nodes on the cloud would also need to be adjusted depending on the number of users. One possibility would be to implement the system on a on-demand cloud server as Google cloud, Amazon or Open Shaft. In this case it would also be required to deal with privacy and security issues. It is necessary to take a careful look at this proposal and decide if it is convenient or not.
+
+%-- Massification
+%-- Maintainance
+%-- Model evolution
+%-- Testing
+Right now our proposal is been actively used by a small community. This group of users need to grow in the future, which requires investment on communication, and support. The installation process and documentation require significant improvements. There is also a need to provide support to new users and provide fixes to issues that arise with a larger user base. Robust mechanisms for evolving the system without breaking it for existing users should also be implemented. A crucial part of this would be to have a good set of automatic tests. It would also be desired to have several developers contributing in the future, but this also has to be organized and managed.
 
 %- Data sharing, open science
+% -policy
+The value of solutions for exploratory analysis, such as the one presented in this project, will increase as more data becomes publicly available. However this requires important changes in the culture and policy behind research. The current system is highly competitive and does not encourage collaboration between teams. Also there are not many incentives for exploring old data-sets, repeating experiments with new data or sharing data and methods with others. 
 
 %- Clinical?
+Another questions that needs to be addressed in the future is if there are clinical applications of this proposal. If so, which ones are there, and what needs to be done in order to support them.
 %- Other domains
 %- Health, Cities, Industry, Economics
+Finally, it should be explored if the proposal of multiple small applications with a large common base can be applied to visual analysis in other domains. Some examples could be analysis of transactions in banking systems, city planning, or public health.  
