@@ -6,5 +6,5 @@ echo cairosvg \"$0\" -o $pdf_name;
 cairosvg "$0" -o "$pdf_name";
 }
 export -f convert_to_pdf
-find . -name "*.svg" -execdir bash -c convert_to_pdf {} \;
+find ../figures -name "*.svg" -execdir bash -c convert_to_pdf {} \;
 

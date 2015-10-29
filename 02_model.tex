@@ -93,12 +93,12 @@ As mentioned in chapter \ref{chap_intro} the goal to use data collected in these
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.9\textwidth}
+\begin{subfigure}[b]{\textwidth}
 \includegraphics[width=\textwidth]{domain/TraditionalExperiment}
 \caption{The Scientific Method workflow}	
 \end{subfigure}
 
-\begin{subfigure}[b]{0.9\textwidth}
+\begin{subfigure}[b]{\textwidth}
 \includegraphics[width=\textwidth]{domain/DataDriven}	
 \caption{The Data Driven workflow}	
 \end{subfigure}
@@ -279,7 +279,7 @@ Visualization is the basis of exploratory analysis, and therefore it will likely
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{domain/UseCaseGeneral}
+\includegraphics[width=0.7\textwidth]{domain/UseCaseGeneral}
 \caption{The high level use cases of the system. It should allow each specialist to explore, share and review. Notice one expert may review the results from another member of the team.\label{fig_use_case_general}}
 \end{figure}
 
@@ -291,7 +291,7 @@ Visualization is the basis of exploratory analysis, and therefore it will likely
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{domain/UseCaseShare}
+\includegraphics[width=0.6\textwidth]{domain/UseCaseShare}
 \caption{Activities that support reviewing and sharing.\label{fig_use_case_share}}
 \end{figure}
 
@@ -361,8 +361,10 @@ The domain described above requires applications tailored for specific tasks and
 The \emph{Main Menu} process behaves as the master of the session. A single database containing all data and is accessible by all applications. Any derived data is sent to this same database. This shared database is the first mechanism for coordination between applications, but more fluid integration can be achieved by sharing state information across the system. For this purpose all applications connect to the \emph{Main Menu}. A delegate of this central application keeps track of important changes done on the other applications and saves them into a dedicated log database. This log allows future retrieval and reconstruction of the analysis session.
 
 \begin{figure}
+
+\end{figure}
 \centering
-\includegraphics[width=0.95\textwidth]{braviz/BravizDeploy}
+\includegraphics[width=\textwidth]{braviz/BravizDeploy}
 \caption{\label{fig_deployment} Deployment diagram of the proposed solution. At the left is the main process, which includes the communication server and logger, to the right there are web-based applications that run on a web server as well as desktop applications each one running on its own process. Notices that all of them share the same database.}
 \end{figure}
  
