@@ -366,7 +366,7 @@ The \emph{Roi Builder} application was created to streamline the placement of RO
 \label{fig_thalamus_fibers}
 \end{figure}
 
-After positioning the spherical region on one subject, the application could approximate the equivalent location for the rest of the sample by using the available linear or non linear registration. These locations would afterwards need to be revised and adjusted by the expert, but the interface was built to make this process as efficient as possible. All actions can be completed using hot-keys, including changing subjects, therefore the user interactions are limited to moving the mouse around a small area and hitting keys on the keyboard.
+After positioning the spherical region on one subject, the application could approximate the equivalent location for the rest of the sample by using the available linear and non linear registration. These locations would afterwards need to be revised and adjusted by the expert, but the interface was built to make this process as efficient as possible. All actions can be completed using hot-keys, including changing subjects, therefore the user interactions are limited to moving the mouse around a small area and hitting keys on the keyboard.
 
 Figure \ref{fig_fronto_occipital} shows how the fronto occipital tract can be isolated using two spherical ROIs. This tract is a long association way  important for visual memory. Two different subjects are shown, with different number of fibers on this tract. Both of them were born at X weeks of gestation and with weights close to X; however the one with the less dense tracts suffers from a neuro-sensorial alteration.
 
@@ -380,13 +380,23 @@ The superior longitudinal fasciculus can be isolated by placing a single ROI in 
 \label{fig_long_fasc}
 \end{figure}
 
-The \emph{Logic Bundles} application can be used to define bundles using segmented structures and ROIs as waypoints. Figure \ref{} shows the fibers between the amygdala and the hippocampus, which is part of the Papez circuit. 
+ROIs can also be used to measure FA, MD, T-score from a functional paradigm or any the value of any other image inside it. This was used in the study to measure diffusion characteristics at several points of interest, which are known to be at risk in preterm babies. These points were
 
+\begin{itemize}
+\item Optic Chiasm
+\item Optic tract back of the chiasm at both sides
+\item Corona radiata
+\item Left and right tapetum
+\item Left and right lateral geniculate nuclei
+\item Posterior Thalamus
+\end{itemize}
+These values were used in statistical analyses throughout the study, both inside Braviz itself, and exported to the main SPSS database.
+
+The \emph{Logic Bundles} application can be used to define bundles using segmented structures and ROIs as waypoints. Figure \ref{} shows the fibers between the amygdala and the hippocampus, which is part of the Papez circuit. 
 
 \begin{figure}
 \label{fig_papez}
 \end{figure} 
-
 
 %sharing, presentations
 
