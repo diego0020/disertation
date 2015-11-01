@@ -352,11 +352,40 @@ Verifying image data is also simple using tools from Braviz. The setup we used t
 %fibers analysis
 \subsubsection{Fiber Bundles Creation}
 
-As the project advanced, questions related to different pathways in the brain started to emerge. In order to answer these questions it was necessary to isolate in the tractography the involved bundles. Some of these could be defined using structures segmented by freeSurfer, and therefore could be easily extracted for all subjects. However some of them required more precise location of waypoints. For this purpose the \emph{Roi Builder} application was created. With this application an expert could specify the precise location for a region of interest in a single subject taken any of the available images as context or cortical reconstructions. He could also receive instant feedback on the bundle of fibers that crossed the specific region. After positioning the spherical region on one subject, the application could approximate the equivalent location for the rest of the sample by using the available linear or non linear registration. These locations would afterwards need to be revised and adjusted by the expert, but the interface was built to make this process as efficient as possible.
+As the project advanced, questions related to different pathways in the brain started to emerge. In order to answer these questions it was necessary to isolate in the tractography the involved bundles. Some of these could be defined using structures segmented by freeSurfer, and therefore could be easily extracted for all subjects. However some of them required more precise location of regions of interest. 
 
-The \emph{Logic Bundles} application provided even more freedom in defining custom fiber bundles. In this application the expert can use logical operations to define a bundle using several waypoints. These can be freeSurfer segmented structures or regions of interest created in other application. There can be mandatory waypoints, alternative waypoints and waypoints that must be avoided. 
+The \emph{Roi Builder} application was created to streamline the placement of ROIs for each subject. With this application an expert can specify the precise location for a region of interest in a single subject. Diffusion, structural and functional images, and results from segmentation can be used as basis for this localization. By having all images together in the same space, the correct location for the ROI can be better determined. Figure \ref{fig_thalamus_seed} shows how the lateral thalamic region can be seeded using three different images.  This application also permits using additional region of interests to better isolate an specific group of fibers. In Figure \ref{fig_thalamus_fibers} the bundles from the lateral thalamus to the medial cerebral peduncle are isolated by using two different spherical ROIs. This fibers are interesting because .... \footnote{ask marin}
 
-Finally, after the bundles were defined, the system could be used to automatically extract scalar values from them. 
+\begin{figure}
+\label{fig_thalamus_seed}
+\end{figure}
+
+
+
+\begin{figure}
+\label{fig_thalamus_fibers}
+\end{figure}
+
+After positioning the spherical region on one subject, the application could approximate the equivalent location for the rest of the sample by using the available linear or non linear registration. These locations would afterwards need to be revised and adjusted by the expert, but the interface was built to make this process as efficient as possible. All actions can be completed using hot-keys, including changing subjects, therefore the user interactions are limited to moving the mouse around a small area and hitting keys on the keyboard.
+
+Figure \ref{fig_fronto_occipital} shows how the fronto occipital tract can be isolated using two spherical ROIs. This tract is a long association way  important for visual memory. Two different subjects are shown, with different number of fibers on this tract. Both of them were born at X weeks of gestation and with weights close to X; however the one with the less dense tracts suffers from a neuro-sensorial alteration.
+
+\begin{figure}
+\label{fig_fronto_occipital}
+\end{figure}
+
+The superior longitudinal fasciculus can be isolated by placing a single ROI in the coronal plane. Figure \ref{fig_long_fasc} shows the result of this operation and a comparison to the equivalent bundle identified by Tracula. 
+
+\begin{figure}
+\label{fig_long_fasc}
+\end{figure}
+
+The \emph{Logic Bundles} application can be used to define bundles using segmented structures and ROIs as waypoints. Figure \ref{} shows the fibers between the amygdala and the hippocampus, which is part of the Papez circuit. 
+
+
+\begin{figure}
+\label{fig_papez}
+\end{figure} 
 
 
 %sharing, presentations
@@ -391,9 +420,6 @@ Figure \ref{fig_anova_example} shows the plot of an ANOVA analysis between the v
 	\label{fig_asymetric_caudate_detail}
 \end{figure}
 
-\subsubsection{Custom fiber bundles}
-
-Braviz implements several tools for enhancing the exploration of tractography data. This tools allow researchers to define, visualize and measure custom fiber bundles. Structural MRI images, diffusion images, segmentations and cortical surfaces can be used to place ROI interest used to seed tractography. By having all images together in the same space, the correct location for the ROI can be better determined. 
 
  
 
