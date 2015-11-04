@@ -1,8 +1,8 @@
 
-Structure
+%Structure
 
-Exploratory Analysis + Large datasets  = Visual Analytics
-+ Image Brain Data => Visual Analysis of Brain Data
+%Exploratory Analysis + Large datasets  = Visual Analytics
+%+ Image Brain Data => Visual Analysis of Brain Data
 
 \section{Exploratory Analysis}
 
@@ -26,7 +26,7 @@ Confirmatory statistical tools are useful for looking if data supports a particu
 Exploratory data analysis is a methodology for learning and understanding data without the need for previous hypotheses or questions. It seeks to let data talk, and let the researcher understand what the data is showing about the world. Exploratory analysis techniques include descriptive statistics, but the most productive methods are based on data visualization \autocite{tukey_exploratory_1977}. If information is presented correctly, the human eye can instantaneously perceive patterns, trends, and oddities. However, usually one does not know in advance what is this correct way to represent the data, and therefore usually exploratory analysis requires trying different representations. ``Examples of interesting results are anomalies (data that not behave consistent with expectations), clusters (data that has sufficiently similar behavior that may indicate the presence of a particular phenomenon), or trends (data that is changing in a manner that can be characterized and thus used for predictive models)'' \autocite{ward_interactive_2010}.
 These kind of analyzes can raise hypotheses, which should be tested using tools from confirmatory analysis. Therefore both methods complement each other.
 
-It is well known that the amount of data available for analysis is growing every day. Large amounts of data are available through social networks and government open data initiatives. Also several large research efforts are making the acquired data publicly available (For example the alzheimer's disease neuroimage initiative \autocite{jack_alzheimers_2008}, and the human connectome project\autocite{marcus_human_2013}). These data sets provide an opportunity and a need for large scale exploratory analysis. ``Secondary use of large and open data sets provides researcher with an opportunity o address high-impact questions that would otherwise be prohibitively expensive and time consuming'' \autocite{viangteeravat_giving_2014}. At a smaller scale, research groups are now able to acquire more data from more subjects. This data is often used in confirmatory analysis, and afterwards many groups are making the data available for exploratory research. 
+It is well known that the amount of data available for analysis is growing every day. Large amounts of data are available through social networks and government open data initiatives. Also several research efforts are making the acquired data publicly available (For example the alzheimer's disease neuroimage initiative \autocite{jack_alzheimers_2008}, and the human connectome project\autocite{marcus_human_2013}). These data sets provide an opportunity and a need for exploratory analysis. ``Secondary use of large and open data sets provides researcher with an opportunity o address high-impact questions that would otherwise be prohibitively expensive and time consuming'' \autocite{viangteeravat_giving_2014}. At a smaller scale, research groups are now able to acquire more data from more subjects. This data is often used in confirmatory analysis, and afterwards many groups are making the data available for exploratory research. 
 
 \section{Visual Analytics}
 
@@ -49,9 +49,10 @@ people sense, reason, and respond. This understanding is essential if we are to 
 tools, systems, and processes that complement the strengths and compensate for the
 weaknesses of the human beings involved.'' \autocite{cook_illuminating_2005}
 
-This efficient interaction between human experts and computers is achieved through the use of rich interactive visualizations and fluid interfaces. The human visual system is recognized as the most efficient channel for transferring information from the computer to the expert's mind, and at the same time it is a natural pattern finding machine. Computer systems supporting visual analytics must be able to manipulate large amounts of data rapidly in order to keep up with the human expert. Processes that take a long time should provide intermediate visualizations and give the expert the chance to steer them or cancel them if they notice they are not going in the right direction. Results obtained through expert interaction are immediately understandable, while those obtained by machine learning require an important interpretation effort \ref{stahl_overview_2013}.
+This efficient interaction between human experts and computers is achieved through the use of rich interactive visualizations and fluid interfaces. The human visual system is recognized as the most efficient channel for transferring information from the computer to the expert's mind, and at the same time it is a natural pattern finding machine. Computer systems supporting visual analytics must be able to manipulate data rapidly in order to keep up with the human expert. Processes that take a long time should provide intermediate visualizations and give the expert the chance to steer them or cancel them if they notice they are not going in the right direction. Results obtained through expert interaction are immediately understandable, while those obtained by machine learning require an important interpretation effort \ref{stahl_overview_2013}.
 
-Daniel Keim presents the visual analytics process as several iterations of data transformations, automatic data mining, model refinement, data mapping to visual representations, model building, model visualization, and user interaction \autocite{keim_mastering_2010} (see figure \ref{fig_workflows}-b). This thesis is focused on the area of data visualization and user interaction to support visual analytics on data from brain studies. Data transformation and data mining will be done using third party tools.
+Daniel Keim presents the visual analytics process as several iterations of data transformations, automatic data mining, model refinement, data mapping to visual representations, model building, model visualization, and user interaction \autocite{keim_mastering_2010} (see figure \ref{fig_workflows}-b). Visual analytics system give human experts access to powerful data-mining, statistics and data transformations algorithms which can work on large amounts of data. All of these operations should be exposed through a user interface rich with data visualizations. Because analysis will likely get interrupted, or it can switch to a different analyst, there should be mechanisms to annotate data and progress, in such a way that the next session can start quickly. 
+
 
 The discipline of visual analytics is still young, and there are still several challenges that need to be solved, specially towards making it available for the general public\autocite{kwon_visual_2011}. Since the book by Jim Cook there has been significant interest in visual analytics research \autocite{chen_illuminated_2012}, and more tools have become available. Likewise, there has also been important developments on all the areas that support visual analytics. At the same time there is an increased interest from governments and organizations to extract value from data. All these indicated that visual analytics will continue growing and become a big player in business, government and research.
 
@@ -84,8 +85,6 @@ Several design patterns for visualization applications focused on the interactio
 
 A review of visualization techniques can be found in \autocite{heer_tour_2010}. It emphasizes that visualizations should consider the natural strengths of the human visual system to see trends, patterns and identify outliers. \autocite{heer_interactive_2012} complements this review with techniques for interactive visualization. It is recommended to provide several linked views of the data, and allow connection between them. Systems should also work at the same speed as human reasoning does (fast). It is important to provide mechanisms to filter data and see more details of interesting data points. It is also convenient to include basic statistical functions to avoid making the user change to a different program, which would cause a disruption on the workflow. Likewise, maintaining a history of the analysis allows specialists to review the steps that lead to a certain point, and to go back and take detours in the data analysis. Having the option to undo all actions allows the specialist to take more risks and therefore move faster in the analysis. This history works better if it can be annotated to reflect what was going on in the specialists mind at different points. These mechanisms can also foster collaboration and sharing of information between members of a group. Communication between members of the group is more efficient if all members have access to the same visualization, even if they are physically at different places.
 
-
-
 %\autocite{fayyad_information_2002}	Information visualization in data mining and knowledge discovery (en la biblioteca, pg 9 revisión biblio)
 
 %\autocite{spence_information_2007} provides an overview of the challenges and strategies present in interactive visualization settings.
@@ -93,22 +92,31 @@ A review of visualization techniques can be found in \autocite{heer_tour_2010}. 
 %\autocite{card_structure_1997}	more examples of interactive visualizations. 	
 
 %Research on the theoretical aspects of data visualization \autocite{purchase_theoretical_2008} tries to better understand the factors that determine if a visualization is effective, and in this way predict which visualizations would be the most effective for a certain task and user.
-	
+
+
 
 \subsection{Visual Analytics Examples From Other Domains}
 
-Data acquisition and visualization methods have rapidly evolved in the past years \autocite{botha_individual_2012}.
+%Document Analysis: Inspire \autocite{hetzler_analysis_2004}, Theme River \autocite{themerivertm:_2002}
+%Science policy: \autocite{mcinerny_information_2014}
 
-Examples : 
-Document Analysis: Inspire \autocite{hetzler_analysis_2004}, Atlas TI, Theme River \autocite{themerivertm:_2002}
-Military: Strategic airlift \autocite{soban_visual_2011},
-Chemical Industry: \autocite{stahl_overview_2013}
-Multi-attribute ranking LineUP \autocite{gratzl_lineup:_2013}
-Public Health: \autocite{sedig_challenge_2014}
-Science policy: \autocite{mcinerny_information_2014}
-Electricity consumption \autocite{janetzko_anomaly_2014}
+The concepts of visual analytics can be applied on any domain that requires analyzing making sense of data. 
+In \autocite{soban_visual_2011} a system to support the decision of whether or not it was worth to invest in aircraft modernization. The tool allows simulation of several scenarios using upgraded or non upgraded version of the aircraft, and presents several performance indicators in each case. It is also an example of how visual analytics can be used in a military setting.
+
+A system for monitoring and detecting anomalies in the electric power consumption of a builiding is described in \autocite{janetzko_anomaly_2014}. The system includes a dedicated algorithm for detecting and scoring anomalies integrated with several visualizations of consumption time-lines.
+
+Two applications of visual analytics in a chemical process industry are described in \autocite{stahl_overview_2013}. Data from plant operations must be displayed to different users in different ways and different levels of details, as each user has different responsibilities. In parallel, the research team needs to analyze a large number of variables from historical production data and laboratory experiments in order to find ways of improving the performance of the plant.
+
+An interesting tool for visualizing and analyzing complex ranking system is presented in \autocite{gratzl_lineup:_2013}. This tool deals with rankings which are created by several measurements. The system displays the ranking under the current formula, but most importantly, it shows how any modification to the formula would affect the ranking.
+
+Public health analysts must analyze large amounts of heterogeneous data through large spans of time, in look for patterns and to understand the effects of interventions. This presents a perfect oportunity for applying visual analytics. \autocite{sedig_challenge_2014} describes the stake holders and tasks in public health that could benefit from visual analytics as well as several current applications. For example, to analyze and understand patterns in outbreaks of \emph{foodborne vibriosis} integrating data from four different systems.
+
+As a final example, PEAX \autocite{hinterberg_peax:_2014} is a system designed for exploring relationships between phenotypes and genetic patterns associated to heart disease. The system is fed with the BORG database, which contains data from 59 subjects who were diagnosed a heart disease and randomly assigned to three different treatments. They were monitored during one year and went through biopsies at three different moments, from which gene expression was measured (around 34 000 human mRNAs and about 7800 miRNAs). 
+It lets researchers define phenotypes using binary decision trees, and see the expression of a given gene in each group as boxplots, it also provides mechanisms to help the user select interesting gene candidates for the analysis.
+
 
 \subsection{Evaluation in Visual Analytics}
+
 
 Hard problem
 Different techniques
@@ -117,8 +125,7 @@ Different stages
 \autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. It goes from low level algorithm design where measuring computational performance is the correct approach, to domain problem characterization where validation consists on observing adoption rates and interviewing target users.
 
 Los del test con Ana
-Schneidermann.... long term in depth...
-
+Schneidermann.... long term in depth...	
 
 \section{Tools for Visual Analysis of Tabular Data}
 
@@ -151,6 +158,7 @@ d3
 
 Basics of images, voxels, coordinates, scalars
 
+Data acquisition and visualization methods have rapidly evolved in the past years \autocite{botha_individual_2012}.
 
 \subsection{Registration}
 
