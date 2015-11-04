@@ -1,26 +1,25 @@
 
-\section{Visual Analytics}
-\begin{itemize}
-	\item Illuminating the path
-	\item Vismaster (Daniel Kein)	
-	\item Ware
-	\item D. Cook, Hadley
-	\item Tukey
-	\item Tufte	
-\end{itemize}	
+\section{Exploratory Analysis}
 
-The work by Tufte \autocite{tufte_visual_1983} emphasizes that data should be the center of all visualizations, and additional elements should be kept at a minimum. Labels in axes should correspond to the values of the data, instead of arbitrary \emph{round} numbers. Graphical elements and decorations that don't add anything to the understanding of the data (ducks) should be avoided. It is also important to keep in mind how the human brain perceives elements, and therefore avoid unnatural representations. For example, one should not map values to volumes in a paper or a computer screen. He also introduces small multiples displays as a way of efficiently comparing multidimensional data. In this representations full displays of each point are represented are displayed next to each other, all at the same scale and with the same set of visual parameters. This allows users to focus directly on the data, and don't worry about individual representation characteristics of each image.
+Tukey
+Wickham : let data surprise us
+Human Brain Project
+Connectome
+Open Data
+Hypothesis Generation
 
 ``Finding the question is often most important than finding the answer''\autocite{tukey_we_1980}.
-
-
 
 ``Secondary use of large and open data sets provides researcher with an opportunity o address high-impact questions that would otherwise be prohibitively expensive and time consuming'' \autocite{viangteeravat_giving_2014}
 
 
-\autocite{wickham_practical_2008}
 
-Interactive data visualization requires to integrate knowledge from databases, machine learning, and statistics with perceptual psychology and human computer interaction among others \autocite{ward_interactive_2010}.
+\section{Visual Analytics}
+
+
+
+Jim Cook
+Keim
 
 
 The visual analytics term was coined in Illuminating the Path \autocite{cook_illuminating_2005}, a report by Jim Cook, where he outlines the importance of these techniques for national safety, and gives recommendations of 	where research should focus. ``The science of visual analytics must be built on a deep understanding of how
@@ -28,32 +27,37 @@ people sense, reason, and respond. This understanding is essential if we are to 
 tools, systems, and processes that complement the strengths and compensate for the
 weaknesses of the human beings involved.''
 
-	
+
+\autocite{keim_visual_2008} "For informed decisions, it is indispensable to include humans in the data analysis process to combine flexibility, creativity, and background knowledge with the enormous storage capacity and the computational power of today’s computers." Includes several examples of VA applications.
+
+\autocite{chen_illuminated_2012} shows the impact of Jim Cook book's in the research community during the next years, with a significant number in visual analytics related invistigations.
+
+\autocite{chul_kwon_visual_2011} presents some common problems new users face with visual analytics systems based on a user study, and propose some mechanisms to mitigate them.
+
+\subsection{Interactive Visualization}
+
+An extensive discussion of the benefits of visual analytics beyond fully automated knowledge discovery can be found in \ref{stahl_overview_2013}. In particular results obtained through expert interaction are immediately understandable, while those obtained by machine learning require an important interpretation effort. It also emphasizes that during visual analytics data is continuously transformed, and new derived data is constantly generated.
+
+Interactive data visualization requires to integrate knowledge from databases, machine learning, and statistics with perceptual psychology and human computer interaction among others \autocite{ward_interactive_2010}.
+
 In \autocite{ware_information_2004} Colin Ware reviews perception issues affecting how images are understood in the brain. It also explains how interaction can be used to think about data. It insists on that "the cognitive impact of the interface should be minimized, so that thinking is about the problem and not the interface". The eye can move jump instantly from one position to another, while moving a mouse requires time. Switching to another windows by moving the eyes is much faster and easy than by using the mouse.
-	
+
+		
 In \autocite{ware_visual_2013}, Ware exposes several design patterns for visualization applications, focusing on the interaction between the computer system and the human cognitive capabilities. He represents the system a machine where objects can be moved from the expert's working memory to the computer memory and viceverza. In a similar way problems can be solved by visual pattern search using the expert's visual system or by using the processor in the computer. Also moving the eye to a different area of the screen (or a different screen) is much faster than changing the visualization in the computer.
 The objective is to make the best possible use of this resources for the given application. 
 %Some interesting patterns for this thesis are reasoning with hybrid of visual display and mental imaginery, drill down-close with hierarchical application, cognitive reconstruction, pattern integration across views using brushing, and pattern comparisons in large information space. 
-	
+
+
 \autocite{fayyad_information_2002}	Information visualization in data mining and knowledge discovery (en la biblioteca, pg 9 revisión biblio)
 
-
-
-
 \autocite{spence_information_2007} provides an overview of the challenges and strategies present in interactive visualization settings.
-
-\autocite{keim_visual_2008} "For informed decisions, it is indispensable to include humans in the data analysis process to combine flexibility, creativity, and background knowledge with the enormous storage capacity and the computational power of today’s computers." Includes several examples of VA applications.
 	
 \autocite{card_structure_1997}	distinguishes between the graphs using for sharing knowledge (publishing) and those used for discovering knowledge (exploration). 
+
 
 Research on the theoretical aspects of data visualization \autocite{purchase_theoretical_2008} tries to better understand the factors that determine if a visualization is effective, and in this way predict which visualizations would be the most effective for a certain task and user.
 	
 
-\autocite{chen_illuminated_2012} shows the impact of Jim Cook book's in the research community during the next years, with a significant number in visual analytics related invistigations.
-	
-	
-\autocite{chul_kwon_visual_2011} presents some common problems new users face with visual analytics systems based on a user study, and propose some mechanisms to mitigate them.
-	
 A review of common interactive techniques can be found in \autocite{heer_interactive_2012}. It is recommended to provide several linked views of the data, and allow connection between them. Systems should also work at the same speed as human reasoning does (fast). It is important to provide mechanisms to filter data and see more details of interesting data points. It is also convenient to include basic statistical functions to avoid making the user change to a different program, which would cause a disruption on the workflow. Likewise, maintaining a history of the analysis allows specialists to review the steps that lead to a certain point, and to go back and take detours in the data analysis. Having the option to undo all actions allows the specialist to take more risks and therefore move faster in the analysis. This history works better if it can be annotated to reflect what was going on in the specialists mind at different points. These mechanisms can also foster collaboration and sharing of information between members of a group. Communication between members of the group is more efficient if all members have access to the same visualization, even if they are physically at different places.
 
 A similar review of visualization techniques can be found in \autocite{heer_tour_2010}. It emphasizes that visualizations should consider the natural strengths of the human visual system to see trends, patterns and identify outliers.
@@ -62,8 +66,20 @@ A similar review of visualization techniques can be found in \autocite{heer_tour
 
 \autocite{yi_toward_2007} provides a taxonomy of user intentions when analyzing data trough interactive visualizations, where such systems are characterized by the fact that information from the system to the user is much larger than from the user to the system. The proposed taxonomy seeks to be descriptive (captures most user intentions, and permits easy classification of new techniques), evaluative (can help to analyze if a system is helping the user) and generative (can help in the design of new systems). The intentions included in the are the basis for the enumeration of analysis tasks in chapter \ref{chap_model}.
 
-An extensive discussion of the benefits of visual analytics beyond fully automated knowledge discovery can be found in \ref{stahl_overview_2013}. In particular results obtained through expert interaction are immediately understandable, while those obtained by machine learning require an important interpretation effort. It also emphasizes that during visual analytics data is continuously transformed, and new derived data is constantly generated.
 
+The work by Tufte \autocite{tufte_visual_1983} emphasizes that data should be the center of all visualizations, and additional elements should be kept at a minimum. Labels in axes should correspond to the values of the data, instead of arbitrary \emph{round} numbers. Graphical elements and decorations that don't add anything to the understanding of the data (ducks) should be avoided. It is also important to keep in mind how the human brain perceives elements, and therefore avoid unnatural representations. For example, one should not map values to volumes in a paper or a computer screen. He also introduces small multiples displays as a way of efficiently comparing multidimensional data. In this representations full displays of each point are represented are displayed next to each other, all at the same scale and with the same set of visual parameters. This allows users to focus directly on the data, and don't worry about individual representation characteristics of each image.
+
+
+\subsection{Evaluation in Visual Analytics}
+
+\autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. It goes from low level algorithm design where measuring computational performance is the correct approach, to domain problem characterization where validation consists on observing adoption rates and interviewing target users.
+
+Los del test con Ana
+Schneidermann.... long term in depth...
+
+\subsection{Visual Analytics Examples From Other Domains}
+
+Data acquisition and visualization methods have rapidly evolved in the past years \autocite{botha_individual_2012}.
 
 Examples : 
 Document Analysis: Inspire \autocite{hetzler_analysis_2004}, Atlas TI, Theme River \autocite{themerivertm:_2002}
@@ -74,59 +90,67 @@ Public Health: \autocite{sedig_challenge_2014}
 Science policy: \autocite{mcinerny_information_2014}
 Electricity consumption \autocite{janetzko_anomaly_2014}
 
-Validation, evaluation
+\section{Tools for Visual Analysis of Tabular Data}
+
+R  / stata  / python
+prism / spss / stata
+ggobi
+ggplot \autocite{wickham_practical_2008}
+ggvis
+shiny
+deducer
+tableau
+aabel
+d3
+
+\begin{table}
+	\centering
+		\begin{tabular}
+			
+		\end{tabular}
+	\label{tab_related_tabular_applications}
+\end{table}
+
+\section{Neuro-Image Analysis Techniques}
+
+\subsection{Registration}
+
+FSL
+ANTs
+SPM-Dartel
 
 
-\autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. It goes from low level algorithm design where measuring computational performance is the correct approach, to domain problem characterization where validation consists on observing adoption rates and interviewing target users.
+Comparing two different brains is a challenging task, specially in the cortex where the pattern of folding between two subjects can be substantially different \autocite{toga_new_2002}.
 
+\subsection{Structural Images}
 
-\section{Analysis and Visualization Tools}
+SPM
+FreeSurfer
 
-Data acquisition and visualization methods have rapidly evolved in the past years \autocite{botha_individual_2012}.
+Segmentation
 
-Se debe hacer una tabla mostrando las características de cada una,
-Luego se debe hacer un feature diagram.
+Segmentation of hippocampus, robust in presence of pathology \autocite{kim_robust_2011}.
 
-Dividir por categorias
-- tractografia
-- funcional
-- formas
-- segmentacion
-- registro
-- visualizacion
+Shape analysis
+
+SPHARM
 
 \autocite{hermann_visual_2014} propose a system to interactively explore shape variations between a structure from different subjects or at different times. The system provides three different visualizations at different levels of detail. The first view shows the overall pattern across the structure, the second one allows the user to focus on a substructure and see how changes on it are related to the rest of the structure, and the final one lets the user interactively modify the structure by dragging a  point and see how the rest of the structure would be modified. 
 
-\subsection{Analysis and Visualization of Brain Spatial Data}
-\begin{itemize}
-	\item 3D-Slicer
-	\item FreeView (from freesurfer)
-	\item FreeSurfer TK view
-	\item FSL-view
-	\item BrainVisa
-	\item Osirix
-	\item ParaView
-	\item ImageJ
-	\item SPM
-	\item Matlab
-	\item ITK-snap
-	\item MRI-cron
-	\item SPHARM
-	\item Shape analysis	
-	\item TBSS
-	\item Invizian
-	\item Brain Visa
-	\item Ants
-	\item Nipy
-	\item ITK
-	\item VTK
-	\item Camino
-\end{itemize}
+\subsection{Functional Magnetic Resonance}
 
-
-Processing:
+SPM
+FSL
+AFNI
 
 BrainVoyager \autocite{goebel_brainvoyagerpast_2012} is a commercial package for high performance processing of functional, diffusion and structural brain data. Its algorithms are optimized for producing fast results (some even realtime), by using all of the available hardware. It includes a scripting language for analyzing bulks of images, and it is also incorporating the newest techniques as Multi-Voxel pattern analysis, a machine learning technique for inferring the state of the mind based on data from functional imaging and a previous training. By doing this analysis in real time it can be used for brain computer interfaces. 
+
+\subsection{Diffusion Weighted Images}
+
+CAMINO
+DIFFUSION TOOLKIT
+TRACULA
+
 
 
 Several software packages are available for processing diffusion weighted images \autocite{hasan_review_2011}
@@ -134,28 +158,22 @@ Several software packages are available for processing diffusion weighted images
 Reconstructing fibers that cross each other, or fold in tight angles is a hard problem \autocite{fillard_quantitative_2011}, and specially tensor based methods are not able to deal with them \autocite{tournier_diffusion_2011}.
 
 
-Registration:
-
-Comparing two different brains is a challenging task, specially in the cortex where the pattern of folding between two subjects can be substantially different \autocite{toga_new_2002}.
-
-
-Fibers:
-
 \autocite{blaas_fast_2005} presents a method for isolating fiber bundles by defining several regions of interest. Internally bundles are organized in a KD-Tree which permits interactive selection.
 
 \autocite{goodlett_group_2008} proposes a method for performing statistical analysis of white matter, by constructing a representative fiber bundle of the population understudy, mapping it back to the diffusion image of each subject and sampling scalar values from it. In this way statistics can be performed along the tract, with scalars taken equivalent locations on each subject.
 
 \autocite{colby_along-tract_2011} proposes analyzing scalar values along the fiber, instead of extracting just one number that represents the whole bundle, this allows finding patterns that relate to specific pieces of a white matter way.
 
+
 TBSS \autocite{smith_tract-based_2006} is another approach for analysis of diffusion data. Its main characteristics is that images from different subjects are co-registered based on the structure of white matter. 
 
-Clustering:
+\subsubsection{Tractography Clustering}
 
 \autocite{song_zhang_identifying_2008} explore two methods for clustering fiber bundles, in the first one fibers are assigned to the same cluster if they are sufficiently close, while the second one tries to optimize a global measure of separation between clusters.
 
 \autocite{guevara_automatic_2012} presents a method for clustering the main pathways on massive tractography datasets based on an atlas composed of common pathways in a group of subjects, and manually labeled by experts. This atlas can afterwards be used to isolate these bundles on new brains.
 
-Networks:
+\subsubsection{Connectivity Networks}
 
 \autocite{rubinov_complex_2010} presents several methods for building networks from MRI data, and how graph theory metrics can be applied and interpreted in such networks.
 
@@ -165,43 +183,29 @@ In \autocite{richiardi_decoding_2011} a system for decoding the state of the bra
 
 \autocite{alper_weighted_2013} studies visual techniques for comparing two weighted brain networks. The tool is based on a research of analysis tasks common in brain network research. At the end two visualizations are recommended based on a user study; one of them is very good for small networks while the other performs better in networks with many nodes and edges.
 
-Surfaces:
+\subsection{Spatial Data Visualization}
+
+3D Slicer
+FreeView / TkView
+BrainVisa
+Osirix / PACS 
+VTK / PARAVIEW
+MRICRON / ITKSNAP
 
 
 
-\begin{table}
-	\centering
-		\begin{tabular}
-			
-		\end{tabular}
-	\label{tab_related_applications}
-\end{table}
+%---------------------------------------------------------------
 
 
-Segmentation of hippocampus, robust in presence of pathology \autocite{kim_robust_2011}.
+%-------------------------------------------------------------------
+%In \autocite{paus_mapping_2005} a meta study about brain development is presented. It makes the point that by looking at different modalities of information in an integrated way is useful for making better assessments of intersubjects variance. He also mentions the potential from alliances between image experts with social scientists, geneticists and mental health professionals.
+
+%\autocite{lenroot_brain_2006} analyzes the development of adolescents brain based on about 4000 scans of 2000 subjects. It makes use of manual and automatic techniques for registration and segmentation.
+
+%\autocite{konrad_vbmdti_2012} presents a study that integrates local diffusion and structural features from the Broca area to results in a verbal intelligence test. In their discussion they mention that it is hard to specify the direction of this relation, this is, if a the structural difference causes a difference in performance, or if learning of verbal skill causes a change at the structural level. 
 
 
-\subsection{Statistical Analysis and Visualization}
-For statistical data analysis, to which we refer to as variables, the most common applications are
-\begin{itemize}
-	\item Excel
-	\item SPSS
-	\item Matlab
-	\item R
-	\item ggobi
-	\item ggplot
-	\item Shiny
-	\item Deducer
-	\item Tableau
-	\item SAS
-	\item Stata
-	\item Prism
-	\item AABel
-	\item D3
-\end{itemize}
-
-
-\section{Other Similar Tools}
+\section{Visual Analytics for Brain Images}
 
 \autocite{bezgin_matching_2009} presents a tool for exploring data of the macaque brain. It uses an onthology and an atlas to query spatial features and connectivity, and connects to the \emph{cocomac} database which contains data from several studies. "Comparison between studies provide more meaningful insights than each study alone".
 
@@ -211,11 +215,10 @@ IRaster \autocite{somerville_iraster:_2010}  is a tool for visualization and ana
 
 Invizian \autocite{bowman_query-based_2011, bowman_visual_2012, van_horn_graphical_2013} provides a representation of multiple brain scans in a "Feature Similarity Space", where all brain surfaces are located in a 3d space in such a way that \emph{similar} brains are nearby. The similarity metric can be defined used several scalar features calculated from each brain. The system also integrates with ggobi to combine the spatial analysis with interactive analysis of scalar data.
 
-\section{Brain studies}
-
-In \autocite{paus_mapping_2005} a meta study about brain development is presented. It makes the point that by looking at different modalities of information in an integrated way is useful for making better assessments of intersubjects variance. He also mentions the potential from alliances between image experts with social scientists, geneticists and mental health professionals.
-
-\autocite{lenroot_brain_2006} analyzes the development of adolescents brain based on about 4000 scans of 2000 subjects. It makes use of manual and automatic techniques for registration and segmentation.
-
-\autocite{konrad_vbmdti_2012} presents a study that integrates local diffusion and structural features from the Broca area to results in a verbal intelligence test. In their discussion they mention that it is hard to specify the direction of this relation, this is, if a the structural difference causes a difference in performance, or if learning of verbal skill causes a change at the structural level. 
-
+\begin{table}
+	\centering
+		\begin{tabular}
+			
+		\end{tabular}
+	\label{tab_related_brain_applications}
+\end{table}
