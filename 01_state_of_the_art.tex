@@ -6,63 +6,67 @@ Exploratory Analysis + Large datasets  = Visual Analytics
 
 \section{Exploratory Analysis}
 
-Difference from confirmatory analysis
-We need both
-Hypothesis generation
-Main elements of exploratory analysis
-Visualization plays an important role
-Pertinent today, data explosion, open data
-
-Tukey
-Wickham : let data surprise us
-Human Brain Project
-Connectome
-Open Data
-Hypothesis Generation
-
-``Finding the question is often most important than finding the answer''\autocite{tukey_we_1980}.
-
-``Secondary use of large and open data sets provides researcher with an opportunity o address high-impact questions that would otherwise be prohibitively expensive and time consuming'' \autocite{viangteeravat_giving_2014}
+%Difference from confirmatory analysis
+%We need both
+%Hypothesis generation
+%Main elements of exploratory analysis
+%Visualization plays an important role
+%Pertinent today, data explosion, open data
+%
+%Tukey
+%Wickham : let data surprise us
+%Human Brain Project
+%Connectome
+%Open Data
+%Hypothesis Generation
 
 
+Confirmatory statistical tools are useful for looking if data supports a particular a hypothesis or fits to a particular pattern.  During confirmatory analysis researchers look at data in a systematic way in order to find answers to questions raised based on previous knowledge. This methods can answer these questions, but it does not leave any room for surprises or for finding the unexpected. Also, sometimes researchers are faced to data sets from which few is known in advance. Analyzing a data set without a clear question or hypothesis requires a completely different approach. ``Finding the question is often most important than finding the answer''\autocite{tukey_we_1980}.
+
+Exploratory data analysis is a methodology for learning and understanding data without the need for previous hypotheses or questions. It seeks to let data talk, and let the researcher understand what the data is showing about the world. Exploratory analysis techniques include descriptive statistics, but the most productive methods are based on data visualization \autocite{tukey_exploratory_1977}. If information is presented correctly, the human eye can instantaneously perceive patterns, trends, and oddities. However, usually one does not know in advance what is this correct way to represent the data, and therefore usually exploratory analysis requires trying different representations. The results from this kind of analyzes are often new questions and new hypotheses, which should be answered using tools from confirmatory analysis. Therefore both methods complement each other.
+
+It is well known that the amount of data available for analysis is growing every day. Large amounts of data are available through social networks and government open data initiatives. Also several large research efforts are making the acquired data publicly available (For example the alzheimer's disease neuroimage initiative \autocite{jack_alzheimers_2008}, and the human connectome project\autocite{marcus_human_2013}). These data sets provide an opportunity and a need for large scale exploratory analysis. ``Secondary use of large and open data sets provides researcher with an opportunity o address high-impact questions that would otherwise be prohibitively expensive and time consuming'' \autocite{viangteeravat_giving_2014}. At a smaller scale, research groups are now able to acquire more data from more subjects. This data is often used in confirmatory analysis, and afterwards many groups are making the data available for exploratory research. 
 
 \section{Visual Analytics}
 
-What it is?
-Why?
-Data 
-Data acquisition + transformation
-Humans and computers
-Automatic Analysis and Visual Analysis
+%What it is?
+%Why?
+%Data 
+%Data acquisition + transformation
+%Humans and computers
+%Automatic Analysis and Visual Analysis
+%
+%Jim Cook
+%Keim
 
+Visual Analytics emerged as a response to the challenge of making sense of large amounts of heterogeneous data. The term was coined by Jim Cook, who proposed a research agenda on the field in the book Illuminating the Path \autocite{cook_illuminating_2005}. This discipline is located at an intersection between data management, data mining, scientific and information visualization, perception and cognition, and human computer interaction \autocite{keim_visual_2008}; and its main contribution is that it recognizes human domain experts as the most important actor in extracting meaning from data.
+``It is indispensable to include humans in the data analysis process to combine flexibility, creativity, and background knowledge with the enormous storage capacity and the computational power of today’s computers.'' \autocite{keim_visual_2008}
 
-Jim Cook
-Keim
-
-
-The visual analytics term was coined in Illuminating the Path \autocite{cook_illuminating_2005}, a report by Jim Cook, where he outlines the importance of these techniques for national safety, and gives recommendations of 	where research should focus. ``The science of visual analytics must be built on a deep understanding of how
+The core of visual analytics is creating environments where human experts can work efficiently with high performance computers.
+``The science of visual analytics must be built on a deep understanding of how
 people sense, reason, and respond. This understanding is essential if we are to create
 tools, systems, and processes that complement the strengths and compensate for the
-weaknesses of the human beings involved.''
+weaknesses of the human beings involved.'' \autocite{cook_illuminating_2005}
 
+This efficient interaction between human experts and computers is achieved through the use of rich interactive visualizations and fluid interfaces. The human visual system is recognized as the most efficient channel for transferring information from the computer to the expert's mind, and at the same time it is a natural pattern finding machine. Computer systems supporting visual analytics must be able to manipulate large amounts of data rapidly in order to keep up with the human expert. Processes that take a long time should provide intermediate visualizations and give the expert the chance to steer them or cancel them if they notice they are not going in the right direction. Results obtained through expert interaction are immediately understandable, while those obtained by machine learning require an important interpretation effort \ref{stahl_overview_2013}.
 
-\autocite{keim_visual_2008} "For informed decisions, it is indispensable to include humans in the data analysis process to combine flexibility, creativity, and background knowledge with the enormous storage capacity and the computational power of today’s computers." Includes several examples of VA applications.
+Daniel Keim presents the visual analytics process as several iterations of data transformations, automatic data mining, model refinement, data mapping to visual representations, model building, model visualization, and user interaction \autocite{keim_mastering_2010} (see figure \ref{fig_workflows}-b). This thesis is focused on the area of data visualization and user interaction to support visual analytics on data from brain studies. Data transformation and data mining will be done using third party tools.
 
-\autocite{chen_illuminated_2012} shows the impact of Jim Cook book's in the research community during the next years, with a significant number in visual analytics related invistigations.
+The discipline of visual analytics is still young, and there are still several challenges that need to be solved, specially towards making it available for the general public\autocite{kwon_visual_2011}. Since the book by Jim Cook there has been significant interest in visual analytics research \autocite{chen_illuminated_2012}, and more tools have become available. Likewise, there has also been important developments on all the areas that support visual analytics. At the same time there is an increased interest from governments and organizations to extract value from data. All these indicated that visual analytics will continue growing and become a big player in business, government and research.
 
-\autocite{chul_kwon_visual_2011} presents some common problems new users face with visual analytics systems based on a user study, and propose some mechanisms to mitigate them.
 
 \subsection{Interactive Visualization}
 
-Difference from standard visualization
-Perception
-Clean / easy to grasp
-Interaction
+%Difference from standard visualization
+%Perception
+%Clean / easy to grasp
+%Interaction
+Interactive visualizations are one of the main supporting elements of visual analytics. Bertin 
+\autocite{bertin_graphics_1981} introduces two different types of graphics, ones used for communicating information, and others used for graphical processing. This thesis will be focused on the second type, but notice that Jim Cook recognized information dissemination as an important component in visual analytics \autocite{cook_illuminating_2005}.
 
+In this context graphics are used as a way of thinking about data. 
 
-An extensive discussion of the benefits of visual analytics beyond fully automated knowledge discovery can be found in \ref{stahl_overview_2013}. In particular results obtained through expert interaction are immediately understandable, while those obtained by machine learning require an important interpretation effort. It also emphasizes that during visual analytics data is continuously transformed, and new derived data is constantly generated.
-
-Interactive data visualization requires to integrate knowledge from databases, machine learning, and statistics with perceptual psychology and human computer interaction among others \autocite{ward_interactive_2010}.
+\autocite{card_structure_1997}	more examples of interactive visualizations. 
 
 In \autocite{ware_information_2004} Colin Ware reviews perception issues affecting how images are understood in the brain. It also explains how interaction can be used to think about data. It insists on that "the cognitive impact of the interface should be minimized, so that thinking is about the problem and not the interface". The eye can move jump instantly from one position to another, while moving a mouse requires time. Switching to another windows by moving the eyes is much faster and easy than by using the mouse.
 
@@ -72,12 +76,17 @@ The objective is to make the best possible use of this resources for the given a
 %Some interesting patterns for this thesis are reasoning with hybrid of visual display and mental imaginery, drill down-close with hierarchical application, cognitive reconstruction, pattern integration across views using brushing, and pattern comparisons in large information space. 
 
 
-\autocite{fayyad_information_2002}	Information visualization in data mining and knowledge discovery (en la biblioteca, pg 9 revisión biblio)
+
+Interactive data visualization requires to integrate knowledge from databases, machine learning, and statistics with perceptual psychology and human computer interaction among others \autocite{ward_interactive_2010}.
+
+
+
+
+
+%\autocite{fayyad_information_2002}	Information visualization in data mining and knowledge discovery (en la biblioteca, pg 9 revisión biblio)
 
 \autocite{spence_information_2007} provides an overview of the challenges and strategies present in interactive visualization settings.
 	
-\autocite{card_structure_1997}	distinguishes between the graphs using for sharing knowledge (publishing) and those used for discovering knowledge (exploration). 
-
 
 Research on the theoretical aspects of data visualization \autocite{purchase_theoretical_2008} tries to better understand the factors that determine if a visualization is effective, and in this way predict which visualizations would be the most effective for a certain task and user.
 	
