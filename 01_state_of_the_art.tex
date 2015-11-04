@@ -23,7 +23,8 @@ Exploratory Analysis + Large datasets  = Visual Analytics
 
 Confirmatory statistical tools are useful for looking if data supports a particular a hypothesis or fits to a particular pattern.  During confirmatory analysis researchers look at data in a systematic way in order to find answers to questions raised based on previous knowledge. This methods can answer these questions, but it does not leave any room for surprises or for finding the unexpected. Also, sometimes researchers are faced to data sets from which few is known in advance. Analyzing a data set without a clear question or hypothesis requires a completely different approach. ``Finding the question is often most important than finding the answer''\autocite{tukey_we_1980}.
 
-Exploratory data analysis is a methodology for learning and understanding data without the need for previous hypotheses or questions. It seeks to let data talk, and let the researcher understand what the data is showing about the world. Exploratory analysis techniques include descriptive statistics, but the most productive methods are based on data visualization \autocite{tukey_exploratory_1977}. If information is presented correctly, the human eye can instantaneously perceive patterns, trends, and oddities. However, usually one does not know in advance what is this correct way to represent the data, and therefore usually exploratory analysis requires trying different representations. The results from this kind of analyzes are often new questions and new hypotheses, which should be answered using tools from confirmatory analysis. Therefore both methods complement each other.
+Exploratory data analysis is a methodology for learning and understanding data without the need for previous hypotheses or questions. It seeks to let data talk, and let the researcher understand what the data is showing about the world. Exploratory analysis techniques include descriptive statistics, but the most productive methods are based on data visualization \autocite{tukey_exploratory_1977}. If information is presented correctly, the human eye can instantaneously perceive patterns, trends, and oddities. However, usually one does not know in advance what is this correct way to represent the data, and therefore usually exploratory analysis requires trying different representations. ``Examples of interesting results are anomalies (data that not behave consistent with expectations), clusters (data that has sufficiently similar behavior that may indicate the presence of a particular phenomenon), or trends (data that is changing in a manner that can be characterized and thus used for predictive models)'' \autocite{ward_interactive_2010}.
+These kind of analyzes can raise hypotheses, which should be tested using tools from confirmatory analysis. Therefore both methods complement each other.
 
 It is well known that the amount of data available for analysis is growing every day. Large amounts of data are available through social networks and government open data initiatives. Also several large research efforts are making the acquired data publicly available (For example the alzheimer's disease neuroimage initiative \autocite{jack_alzheimers_2008}, and the human connectome project\autocite{marcus_human_2013}). These data sets provide an opportunity and a need for large scale exploratory analysis. ``Secondary use of large and open data sets provides researcher with an opportunity o address high-impact questions that would otherwise be prohibitively expensive and time consuming'' \autocite{viangteeravat_giving_2014}. At a smaller scale, research groups are now able to acquire more data from more subjects. This data is often used in confirmatory analysis, and afterwards many groups are making the data available for exploratory research. 
 
@@ -39,7 +40,7 @@ It is well known that the amount of data available for analysis is growing every
 %Jim Cook
 %Keim
 
-Visual Analytics emerged as a response to the challenge of making sense of large amounts of heterogeneous data. The term was coined by Jim Cook, who proposed a research agenda on the field in the book Illuminating the Path \autocite{cook_illuminating_2005}. This discipline is located at an intersection between data management, data mining, scientific and information visualization, perception and cognition, and human computer interaction \autocite{keim_visual_2008}; and its main contribution is that it recognizes human domain experts as the most important actor in extracting meaning from data.
+Visual Analytics emerged as a response to the challenge of making sense of large amounts of heterogeneous data. The term was coined by Jim Cook, who proposed a research agenda on the field in the book \emph{Illuminating the Path} \autocite{cook_illuminating_2005}. This discipline is located at an intersection between data management, data mining, scientific and information visualization, perception and cognition, and human computer interaction \autocite{keim_visual_2008}; and its main contribution is that it recognizes human domain experts as the most important actor in extracting meaning from data.
 ``It is indispensable to include humans in the data analysis process to combine flexibility, creativity, and background knowledge with the enormous storage capacity and the computational power of today’s computers.'' \autocite{keim_visual_2008}
 
 The core of visual analytics is creating environments where human experts can work efficiently with high performance computers.
@@ -64,55 +65,35 @@ The discipline of visual analytics is still young, and there are still several c
 Interactive visualizations are one of the main supporting elements of visual analytics. Bertin 
 \autocite{bertin_graphics_1981} introduces two different types of graphics, ones used for communicating information, and others used for graphical processing. This thesis will be focused on the second type, but notice that Jim Cook recognized information dissemination as an important component in visual analytics \autocite{cook_illuminating_2005}.
 
-In this context graphics are used as a way of thinking about data. 
+% General graphical representation
 
-\autocite{card_structure_1997}	more examples of interactive visualizations. 
+Representing data statically efficiently requires significant attention to details. One of the most important works in the are is \emph{The Visual Display of Quantitative Information} \autocite{tufte_visual_1983} , by Tufte. It emphasizes that data should be the center of the visualization, and additional elements should be kept at a minimum. For example, labels in axes should correspond to the values of the data, instead of arbitrary \emph{round} numbers. Graphical elements and decorations that don't add anything to the understanding of the data (ducks) should be avoided. It is also important to keep in mind how the human brain perceives elements, and therefore avoid unnatural representations. For example, one should not map values to volumes in a paper or a computer screen. He also introduces small multiples displays as a way of efficiently comparing multidimensional data. In this representations full displays of each point are represented are displayed next to each other, all at the same scale and with the same set of visual parameters. This allows users to focus directly on the data, and don't worry about individual representation characteristics of each image.
 
-In \autocite{ware_information_2004} Colin Ware reviews perception issues affecting how images are understood in the brain. It also explains how interaction can be used to think about data. It insists on that "the cognitive impact of the interface should be minimized, so that thinking is about the problem and not the interface". The eye can move jump instantly from one position to another, while moving a mouse requires time. Switching to another windows by moving the eyes is much faster and easy than by using the mouse.
-
-		
-In \autocite{ware_visual_2013}, Ware exposes several design patterns for visualization applications, focusing on the interaction between the computer system and the human cognitive capabilities. He represents the system a machine where objects can be moved from the expert's working memory to the computer memory and viceverza. In a similar way problems can be solved by visual pattern search using the expert's visual system or by using the processor in the computer. Also moving the eye to a different area of the screen (or a different screen) is much faster than changing the visualization in the computer.
-The objective is to make the best possible use of this resources for the given application. 
-%Some interesting patterns for this thesis are reasoning with hybrid of visual display and mental imaginery, drill down-close with hierarchical application, cognitive reconstruction, pattern integration across views using brushing, and pattern comparisons in large information space. 
+It is also important to consider aspects of human cognition. For example consider that the visual system is much more sensible at discriminating lengths and positions than at discriminating colors or angles \autocite{ware_information_2004}, therefore the most important information should be encoded using position or length. Additionally, the visual system capable of correctly discriminating between seven different colors or shades of grey \autocite{miller_magical_1956}.
 
 
 
-Interactive data visualization requires to integrate knowledge from databases, machine learning, and statistics with perceptual psychology and human computer interaction among others \autocite{ward_interactive_2010}.
+% Unique to interactive graphics
+
+Interactive visualizations should allow specialists to think based on them. This means, that the interactions should match with the thought processes going on during data analysis. A good description of this process is described in the data visualization mantra ``Overview first, zoom and filter, details on demand'' \autocite{schneiderman_designing_1998}. \autocite{yi_toward_2007} provides a taxonomy of user intentions when analyzing data trough interactive visualizations, where such systems are characterized by the fact that information from the system to the user is much larger than from the user to the system. The proposed taxonomy seeks to be descriptive (captures most user intentions, and permits easy classification of new techniques), evaluative (can help to analyze if a system is helping the user) and generative (can help in the design of new systems). The intentions included in the are the basis for the enumeration of analysis tasks in chapter \ref{chap_model}.
+
+In \autocite{ware_information_2004} Colin Ware reviews perception issues affecting how images are understood in the brain. It also explains how interaction can be used to think about data. He insists on that ``the cognitive impact of the interface should be minimized, so that thinking is about the problem and not the interface''. The eye can move jump instantly from one position to another, while moving a mouse requires time. Switching to another windows by moving the eyes is much faster and easy than by using the mouse. According to Ware, ``the best visualizations are not static images to be printed in books, but fluid, dynamic artifacts that respond to the need for different views or for more detailed information''
+
+Several design patterns for visualization applications focused on the interaction between the computer system and the human cognitive capabilities are described by Ware in \autocite{ware_visual_2013}. He represents the system a machine where objects can be moved from the expert's working memory to the computer memory and viceverza. In a similar way problems can be solved by visual pattern search using the expert's visual system or by using the processor in the computer. Also moving the eye to a different area of the screen (or a different screen) is much faster than changing the visualization in the computer. The objective is to make the best possible use of this resources for the given application. 
 
 
+A review of visualization techniques can be found in \autocite{heer_tour_2010}. It emphasizes that visualizations should consider the natural strengths of the human visual system to see trends, patterns and identify outliers. \autocite{heer_interactive_2012} complements this review with techniques for interactive visualization. It is recommended to provide several linked views of the data, and allow connection between them. Systems should also work at the same speed as human reasoning does (fast). It is important to provide mechanisms to filter data and see more details of interesting data points. It is also convenient to include basic statistical functions to avoid making the user change to a different program, which would cause a disruption on the workflow. Likewise, maintaining a history of the analysis allows specialists to review the steps that lead to a certain point, and to go back and take detours in the data analysis. Having the option to undo all actions allows the specialist to take more risks and therefore move faster in the analysis. This history works better if it can be annotated to reflect what was going on in the specialists mind at different points. These mechanisms can also foster collaboration and sharing of information between members of a group. Communication between members of the group is more efficient if all members have access to the same visualization, even if they are physically at different places.
 
 
 
 %\autocite{fayyad_information_2002}	Information visualization in data mining and knowledge discovery (en la biblioteca, pg 9 revisión biblio)
 
-\autocite{spence_information_2007} provides an overview of the challenges and strategies present in interactive visualization settings.
+%\autocite{spence_information_2007} provides an overview of the challenges and strategies present in interactive visualization settings.
+
+%\autocite{card_structure_1997}	more examples of interactive visualizations. 	
+
+%Research on the theoretical aspects of data visualization \autocite{purchase_theoretical_2008} tries to better understand the factors that determine if a visualization is effective, and in this way predict which visualizations would be the most effective for a certain task and user.
 	
-
-Research on the theoretical aspects of data visualization \autocite{purchase_theoretical_2008} tries to better understand the factors that determine if a visualization is effective, and in this way predict which visualizations would be the most effective for a certain task and user.
-	
-
-A review of common interactive techniques can be found in \autocite{heer_interactive_2012}. It is recommended to provide several linked views of the data, and allow connection between them. Systems should also work at the same speed as human reasoning does (fast). It is important to provide mechanisms to filter data and see more details of interesting data points. It is also convenient to include basic statistical functions to avoid making the user change to a different program, which would cause a disruption on the workflow. Likewise, maintaining a history of the analysis allows specialists to review the steps that lead to a certain point, and to go back and take detours in the data analysis. Having the option to undo all actions allows the specialist to take more risks and therefore move faster in the analysis. This history works better if it can be annotated to reflect what was going on in the specialists mind at different points. These mechanisms can also foster collaboration and sharing of information between members of a group. Communication between members of the group is more efficient if all members have access to the same visualization, even if they are physically at different places.
-
-A similar review of visualization techniques can be found in \autocite{heer_tour_2010}. It emphasizes that visualizations should consider the natural strengths of the human visual system to see trends, patterns and identify outliers.
-
-
-
-\autocite{yi_toward_2007} provides a taxonomy of user intentions when analyzing data trough interactive visualizations, where such systems are characterized by the fact that information from the system to the user is much larger than from the user to the system. The proposed taxonomy seeks to be descriptive (captures most user intentions, and permits easy classification of new techniques), evaluative (can help to analyze if a system is helping the user) and generative (can help in the design of new systems). The intentions included in the are the basis for the enumeration of analysis tasks in chapter \ref{chap_model}.
-
-
-The work by Tufte \autocite{tufte_visual_1983} emphasizes that data should be the center of all visualizations, and additional elements should be kept at a minimum. Labels in axes should correspond to the values of the data, instead of arbitrary \emph{round} numbers. Graphical elements and decorations that don't add anything to the understanding of the data (ducks) should be avoided. It is also important to keep in mind how the human brain perceives elements, and therefore avoid unnatural representations. For example, one should not map values to volumes in a paper or a computer screen. He also introduces small multiples displays as a way of efficiently comparing multidimensional data. In this representations full displays of each point are represented are displayed next to each other, all at the same scale and with the same set of visual parameters. This allows users to focus directly on the data, and don't worry about individual representation characteristics of each image.
-
-
-\subsection{Evaluation in Visual Analytics}
-
-Hard problem
-Different techniques
-Different stages
-
-\autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. It goes from low level algorithm design where measuring computational performance is the correct approach, to domain problem characterization where validation consists on observing adoption rates and interviewing target users.
-
-Los del test con Ana
-Schneidermann.... long term in depth...
 
 \subsection{Visual Analytics Examples From Other Domains}
 
@@ -126,6 +107,18 @@ Multi-attribute ranking LineUP \autocite{gratzl_lineup:_2013}
 Public Health: \autocite{sedig_challenge_2014}
 Science policy: \autocite{mcinerny_information_2014}
 Electricity consumption \autocite{janetzko_anomaly_2014}
+
+\subsection{Evaluation in Visual Analytics}
+
+Hard problem
+Different techniques
+Different stages
+
+\autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. It goes from low level algorithm design where measuring computational performance is the correct approach, to domain problem characterization where validation consists on observing adoption rates and interviewing target users.
+
+Los del test con Ana
+Schneidermann.... long term in depth...
+
 
 \section{Tools for Visual Analysis of Tabular Data}
 
@@ -147,6 +140,12 @@ d3
 		\end{tabular}
 	\label{tab_related_tabular_applications}
 \end{table}
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+
 
 \section{Neuro-Image Analysis Techniques}
 
