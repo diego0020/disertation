@@ -219,32 +219,65 @@ A second level analysis can then be done to compare the maps of different subjec
 
 \subsection{Diffusion Weighted Images}
 
-CAMINO \autocite{cook_camino:_2006}
-DIFFUSION TOOLKIT
-TRACULA \autocite{yendiki_probabilistic_2008}
+% acquisition
+
+HARDI
+\autocite{jellison_diffusion_2004} review of diffusion 	
+
+% modeling
+
+% tensors and more
+\autocite{tournier_diffusion_2011} beyond tensors
 
 
+% scalars, fa and more
 
-Several software packages are available for processing diffusion weighted images \autocite{hasan_review_2011}
+TBSS \autocite{smith_tract-based_2006} is another approach for analysis of diffusion data. Its main characteristics is that images from different subjects are co-registered based on the structure of white matter. 
 
+% tracking
 Reconstructing fibers that cross each other, or fold in tight angles is a hard problem \autocite{fillard_quantitative_2011}, and specially tensor based methods are not able to deal with them \autocite{tournier_diffusion_2011}.
-
-
-\autocite{blaas_fast_2005} presents a method for isolating fiber bundles by defining several regions of interest. Internally bundles are organized in a KD-Tree which permits interactive selection.
 
 \autocite{goodlett_group_2008} proposes a method for performing statistical analysis of white matter, by constructing a representative fiber bundle of the population understudy, mapping it back to the diffusion image of each subject and sampling scalar values from it. In this way statistics can be performed along the tract, with scalars taken equivalent locations on each subject.
 
 \autocite{colby_along-tract_2011} proposes analyzing scalar values along the fiber, instead of extracting just one number that represents the whole bundle, this allows finding patterns that relate to specific pieces of a white matter way.
 
-
-TBSS \autocite{smith_tract-based_2006} is another approach for analysis of diffusion data. Its main characteristics is that images from different subjects are co-registered based on the structure of white matter. 
-
-\autocite{jiang_dtistudio:_2006} dti studio
-
-\autocite{jellison_diffusion_2004} review of diffusion 	
-
-\autocite{tournier_diffusion_2011} beyond tensors
 \autocite{behrens_probabilistic_2007} probabilistic tractography with multiple fiber orientations
+
+% bundles selection
+
+\autocite{blaas_fast_2005} presents a method for isolating fiber bundles by defining several regions of interest. Internally bundles are organized in a KD-Tree which permits interactive selection.
+
+% software
+
+Several software packages are available for processing diffusion weighted images \autocite{hasan_review_2011}
+CAMINO \autocite{cook_camino:_2006}
+TRACULA \autocite{yendiki_probabilistic_2008}
+\autocite{jiang_dtistudio:_2006} dti studio
+\autocite{wang_diffusion_2007} diffusion toolkit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsubsection{Tractography Clustering}
 
