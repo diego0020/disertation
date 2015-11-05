@@ -117,37 +117,53 @@ It lets researchers define phenotypes using binary decision trees, and see the e
 
 \subsection{Evaluation in Visual Analytics}
 
+Unfortunately proposal in visual analytics as not easy to evaluate because they are designed to be used by domain experts and usually for tasks that require a significant amount of work. \autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. At low level algorithm design, measuring computational performance is the correct approach. Low level design of visualizations or interaction techniques can be tested in controlled laboratory experiments with artificial data, planned tasks, and non-expert users. In this cases it is usual to measure the speed at which the task is completed and the error rate. However applications that involve using existing visualizations and techniques to solve real problems can't be tested using controlled experiments. The recommended approaches are to collect anecdotal evidence from users, perform field studies, and measure adoption rate.  
+ 
+Multi-dimensional in depth long therm case studies \autocite{shneiderman_strategies_2006} is a method derived from HCI ethnographic observations. This methods requires involving expert users who are willing to cooperate in a period that can be of several weeks to several months. At the start of the study the current methods used by the experts need to be documented, as well as information about their goals. Users should be trained in the new tool, and be instructed to continue working on their everyday problems using the best tool available for the job (could be traditional methods or the new proposed tool). The user will be visited at regular intervals and interviewed about which tools he has used, which features, how they have been used, which successes he had accomplished and which failures. The tools should be modified if required by user needs, the ultimate goal is to provide the best tool possible. Each visit the researcher should record success and failures and reflect on lessons learned.
 
-Hard problem
-Different techniques
-Different stages
+A more complete review of possible evaluation methodologies, appropriate for different projects at different stages is available in \autocite{lam_seven_2011}. The most important conclusion is that while controlled laboratory experiments provide the most objective and measurable results, they are seldom appropriate.
 
-\autocite{munzner_nested_2009} describes a model of the different levels at which it is possible to make contributions in data visualization, and the correct approaches to validate claims at each level. It goes from low level algorithm design where measuring computational performance is the correct approach, to domain problem characterization where validation consists on observing adoption rates and interviewing target users.
-
-Los del test con Ana
-Schneidermann.... long term in depth...	
 
 \section{Tools for Visual Analysis of Tabular Data}
 
-R  / stata  / python
-prism / spss / stata
-ggobi
-ggplot \autocite{wickham_practical_2008}
-ggvis
-shiny
-deducer
-tableau
-aabel
-d3
+An important component of the data encountered in this project is tabular data. This is, data that can be stored in a table where each row is an observation and each column a variable or feature. These variables can be numerical values or nominal labels (for example "male" and "female"). This type of data is typical in many areas and several applications are available to work with them.
 
-\begin{table}
-	\centering
-		\begin{tabular}
-			
-		\end{tabular}
-	\label{tab_related_tabular_applications}
-\end{table}
+% spreadsheets
+Possibly the most used applications are spreadsheet programs as \emph{Microsoft Excel} or \emph{Libre Office Calc}. These programs include basic descriptive statistics functionality (mean, median, max, min, etc) and some basic plots (bars, scatter, lines). However doing more complicated analyzes as fitting linear models, or creating more complex plots as histograms or box plots is cumbersome. Changing to different plots or models is time consuming. And most importantly, these applications are not practical when there are hundreds of observations or variables. 
 
+% prism / spss 
+
+There exist some statistical tools designed for this purpose, like \emph{SPSS} of \emph{Prism}. These tools internally manage data as variables and observations, and specifying statistical analysis is more direct. They also include implementation for a larger number of tests and plots. However these tools don't support well exploratory analysis workflows, as the generated plots are static, and iterating through different options is not direct.
+
+% aabel
+
+Some newer statistical packages, like \emph{Aabel} include interactive visualizations which can be used as part of exploratory analysis. These tools combine modern graphical user interfaces with a powerful statistical engine, and therefore can support visual analytics workflow. The down-side is that it is proprietary software and the licensing costs leave it out of reach of small research teams.	
+
+% tableau
+
+Tableau \autocite{hanrahan_tableau_2003} is another very successful  product for interactive visual analysis. Users may use it to generate several different plots of their data and organize them in dashboard like views. Plots can be linked together to allow interactions as brushing, where selecting a set of points on one representation highlights them in the others. Additionally there are mechanisms for filtering data and getting details of any point. 
+It is a very complete system, but some times one will require types of data that are not supported, and extending the system is very complex. 
+
+\emph{Ggobi} \autocite{cook_interactive_2007} is an open source exploratory analysis application. It provides several features for transforming data, fitting models, and visualizing data and models. It can also create several different plots in different windows, and link them together using brushing. It also permits filtering data, and getting details on demand of a particular point. Unfortunately it has not been updated in a while and is starting to feel old and slow.
+
+% R  / stata  / python 
+
+The tools presented above can be used through a graphical user interface and are rather friendly for new users. However the most powerful tools in statistical data analysis expose a command line interface and are oriented for users who are not afraid of programming. Some examples are \emph{Stata}, \emph{R} \autocite{team_r:_2012} and \emph{Python}. The later two are open source software, which means they can be used without restriction, and can be extended at will. These tools provides the most advanced data manipulation and processing algorithms. Specially, most of the time the newest statistical methods arrive first to \emph{R} than to commercial packages. Expert users can iterate through different combinations of variables, samples and models very quickly by using the command line, but the learning curve is steep. 
+
+% deducer and rattle
+Several packages have been developed that attempt to add a graphical user interface on top of \emph{R}, for example \emph{deducer} and Rattle. These packages provide access to the powerful \emph{R} computing engine through a graphical interface that is easier to learn and use. 
+
+%ggplot 
+%seaborn
+
+\emph{Ggplot} \autocite{wickham_practical_2008} and \emph{Seaborn}
+ \autocite{michael_waskom_seaborn:_2015} are excellent plotting libraries for \emph{R} and \emph{Python} respectively. They can produce high quality statistical graphics with short command lines, and therefore are great for exploratory analysis. However by default these plots are not interactive, and some additional work is required to get additional details from a point or to link two plots together. 
+
+A new graphical package for \emph{R} called \emph{ggvis} is being developed, and it is meant to replace \emph{ggplot}. It provides a much clearer programming interface and interactive visualizations. Plots are rendered in \emph{java script} which makes them perfect for embedding in web applications. This is specially useful when combined with \emph{shiny}, a web package that permits easy creation of web application that use the \emph{R} engine as a backend. By using this technology researchers can quickly implement custom applications tailored at specific analysis tasks. In this way, domain experts can benefit from applications designed explicitly for their use case, and therefore have simple interfaces that fit the use case and are therefore easy to learn.
+
+Data driven documents (D3) \emph{bostock_d3_2011} is another open source technology that can be used for building custom web applications for interactive data visualization. It lets developer link observations to graphical elements in the web page, and in this way create dynamic and responsive visualizations. This visualizations will instantaneously adapt to changes in the data, and therefore are ideal for exploration. It is also easy to add additional behaviors to graphical objects in order to let end users drill down for details, link several graphs together, or any other interaction. These technology has also contributed in the growth of custom applications.
+
+Currently there are several options for analyzing tabular data: commercial and open source, graphical and command based. There is also a trend towards building custom applications that aim to solve specific problems. These have the advantage that are easier to learn for specialists and provide more opportunities for optimizing the work-flow. However, some cases will require additional features, and therefore there is also a need for comprehensive tools that can be used as swiss-knives. It is also becoming common to find large statistical engines as \emph{R} at the back-end of custom applications. In this way, custom applications can benefit from new \emph{R} packages, and creators of packages have an opportunity to reach a wider audience. This collaboration strengthens the open source world and lets it compete with expensive commercial applications.
 
 %--------------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------------
@@ -268,5 +284,5 @@ Invizian \autocite{bowman_query-based_2011, bowman_visual_2012, van_horn_graphic
 		\begin{tabular}
 			
 		\end{tabular}
-	\label{tab_related_brain_applications}
+	\label{tab_related_applications}
 \end{table}
