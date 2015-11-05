@@ -182,36 +182,40 @@ In studies that involve several participants, several image modalities, or sever
 
 \subsection{Image Registration}
 
-FSL
-ANTs
-SPM-Dartel
-VBM
+Neuro image data is usually represented as an array of voxels and an affine transformation. Usually structural images are represented as a three dimensions arrays, while diffusion and functional images are series of three dimensional images or a four dimensions matrix. Elements in the array are numbered using integers, and the coordinates in associated to the physical space of each voxel are obtained by applying the affine transformation to the integers that indicate its position on the array. Distances in this physical space can be are associated to physical distances usually in mili-meters. The zero of this coordinate coordinate system may represent a meaningful location or may be arbitrary. 
 
-Comparing two different brains is a challenging task, specially in the cortex where the pattern of folding between two subjects can be substantially different \autocite{toga_new_2002}.
+Given two different images, it is likely they will not be defined on the same coordinates system. The most simple option is to estimate a third affine transformation that can map locations in one coordinate system to locations in the other. The estimation is usually iteratively, by minimizing a measure of disparity between both images. Software like FSL-FLIRT \autocite{jenkinson_fsl_2012} or SPM \autocite{friston_statistical_2007} can be used for this purpose. The affine transformations permits comparing locations at the two images, but the voxels will not match. If one wants to create a one to one match between the voxels in one image to the other one, it is necessary to resample one of them. This process consist of estimating the value of the scalars of one image at the locations of the desired voxel array. This value is usually estimated using different types of interpolation. Resampling inevitably losses information, and therefore it should be done only when it is necessary.
 
+Linear registration works well for images from different modalities or different sessions belonging to the same subject, as in this case only displacements, rotations and scaling can explain the differences. However, ``comparing two different brains is a challenging task, specially in the cortex where the pattern of folding between two subjects can be substantially different'' \autocite{toga_new_2002}. In this case, linear registration can still be applied and it will provide some very basic alignment. If done towards a reference brain (like \emph{Talairach} or \emph{MNI}), it will produce standard coordinates that can be used to report, share and compare results among researches.
+
+Non-linear registration methods provide a more powerful option to compare two different brains. These techniques uses warp fields to distort the brain in different ways at different locations, and therefore can adjust to large topological differences. When the analysis involves a group of subjects, it is typical to first create a template brain representing the population, and then calculate warp fields between each subject and the template. Notice that these transformation must be invertible. Tools like ANTs, SPM or FSL can be used for this purpose (see \autocite{klein_evaluation_2009,klein_evaluation_2010}). Resampling can also be applied after non-linear registration, but in must be considered that the loss of information in this case is larger.
+ 
 \subsection{Structural Images}
 
-SPM
-FreeSurfer
+Structural images contain information about the anatomy of the brain and the elements that compose them. This category includes T1 and T2 weighted images, as well as fractional anisotropy (FA) and mean diffusion (MD) maps derived from DWI series. Segmentation is the process of dividing the image into the different structures or types of matter that make up the brain, gray matter, white matter and cerebro-spinal fluid (CSF). It can be done manually by image experts, or by using automatic algorithms. 
 
-Segmentation
+% SPM
+% VBM
 
-Segmentation of hippocampus, robust in presence of pathology \autocite{kim_robust_2011}.
+Voxel Based Morphometry (VBM) is a method that can be used to analyze differences in white or gray matter at each location of the brain \autocite{friston_statistical_2007}. For example, if one is interested in differences in gray matter between two groups in a study, the first step would be creating gray matter maps for every subject. Them the images would be co-registered to a template brain, and resampled. If one is interested in global gray matter differences then resampling must be done in such a way that the total volume of gray matter is conserved. Next, a Gaussian filter of appropriate width (depends on the expected size of the differences under analysis) is applied to all images. Finally, a statistical model is fit at every voxel using the group labels as regressors and the amount of gray matter as outcome. The final output will be a statistical map, where locations with a large difference of gray matter between the two groups will have high values. 
 
-Shape analysis
+% Segmentation of hippocampus, robust in presence of pathology \autocite{kim_robust_2011}.
 
-SPHARM
+FreeSurfer \autocite{dale_cortical_1999-1, fischl_whole_2002} is a software package which can perform automatic segmentation of sub-cortical brain structures, cortical surface reconstruction and cortical parcellation. Cortical surfaces from different subjects are also mapped to a standard cortical, which allows researchers to compare cortical thickness (and other scalars) between subjects at the different parts of the cortex. The software also reports the volumes of all sub-cortical structures, which can be used in classical statistical analyzes. The project presented in this thesis makes heavy use of the FreeSurfer results.
 
-\autocite{hermann_visual_2014} propose a system to interactively explore shape variations between a structure from different subjects or at different times. The system provides three different visualizations at different levels of detail. The first view shows the overall pattern across the structure, the second one allows the user to focus on a substructure and see how changes on it are related to the rest of the structure, and the final one lets the user interactively modify the structure by dragging a  point and see how the rest of the structure would be modified. 
+Segmented structures can be reconstructed and used for shape analysis, this is, analyzing differences in the whole shape of a structure. 
+Spharm \autocite{gerig_shape_2001} is a method that parametrizes shapes, and can then statistically compare the shapes of different subjects across all points.  \autocite{hermann_visual_2014} propose a system to interactively explore shape variations between a structure from different subjects or at different times. The system provides three different visualizations at different levels of detail. The first view shows the overall pattern across the structure, the second one allows the user to focus on a substructure and see how changes on it are related to the rest of the structure, and the final one lets the user interactively modify the structure by dragging a  point and see how the rest of the structure would be modified. 
 
 \subsection{Functional Magnetic Resonance}
 
-SPM
-FSL
-AFNI
-Handbook of fMRI
+In fMRI several BOLD volumes are acquired during several minutes. In the mean time the subject may be performing a task, reacting to stimuli or in resting state. During the course of the experiment the subject's head may move some mili-meters, therefore the first step in the processing pipeline is performing a spatial realignment of all the volumes. After this step there will be a timeline associated with each voxel. Some authors recommend applying a Gaussian filter at this stage (\autocite{friston_statistical_2007}) while others don't (\autocite{goebel_brainvoyagerpast_2012}). One possible analysis is searching for correlations between the signals at different voxels, and from them inferring which regions are connected. A possible outcome is a correlation map where voxels associated to a certain region have a strong signal. Another option is constructing a graph where nodes are regions and links are weighted by the correlation of the signals between them. Notice that these correlations may change during the course of the experiments. The analysis of this class of graphs will be discussed later with similar graphs derived from DWI. 
 
-BrainVoyager \autocite{goebel_brainvoyagerpast_2012} is a commercial package for high performance processing of functional, diffusion and structural brain data. Its algorithms are optimized for producing fast results (some even realtime), by using all of the available hardware. It includes a scripting language for analyzing bulks of images, and it is also incorporating the newest techniques as Multi-Voxel pattern analysis, a machine learning technique for inferring the state of the mind based on data from functional imaging and a previous training. By doing this analysis in real time it can be used for brain computer interfaces. 
+Another more traditional analysis option consists on explaining the BOLD signal using the experiment design (stimulus or task) as a regressor, possibly considering also other confounders (for example the estimated motion of the head). Notice that the experimental design should be convoluted with an hemodinamic response function that explains the delay between a stimulus and the associated increase in oxygen (see \autocite{poldrack_handbook_2011}). After fitting the statistical model at each voxel, statistical maps can be generated for each contrast, where a contrast is a combination of the conditions or factors that make up the experiment. For example, if an experiment interleaves actions with the left and right hands, possible contrasts could be the effect of the left hand, the effect of the right hand, or the difference between both hands. This statistical maps will contain high values for regions where the BOLD signal can be well explained by the contrast. 
+
+Notice there will be such a map for each subject.
+A second level analysis can then be done to compare the maps of different subjects, and use linear models to explain the differences based on some other variable. The method for this analysis is similar to VBM. These analyzes can be carried out using SPM \autocite{friston_statistical_2007}, AFNI \autocite{cox_afni:_1996}, Brain Voyager \autocite{goebel_brainvoyagerpast_2012} and FSL \autocite{jenkinson_fsl_2012} among others \autocite{gold_functional_1998}.
+
+%BrainVoyager \autocite{goebel_brainvoyagerpast_2012} is a commercial package for high performance processing of functional, diffusion and structural brain data. Its algorithms are optimized for producing fast results (some even realtime), by using all of the available hardware. It includes a scripting language for analyzing bulks of images, and it is also incorporating the newest techniques as Multi-Voxel pattern analysis, a machine learning technique for inferring the state of the mind based on data from functional imaging and a previous training. By doing this analysis in real time it can be used for brain computer interfaces. 
 
 \subsection{Diffusion Weighted Images}
 
