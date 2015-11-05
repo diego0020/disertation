@@ -172,16 +172,20 @@ Currently there are several options for analyzing tabular data: commercial and o
 
 \section{Neuro-Image Analysis Techniques}
 
-Basics of images, voxels, coordinates, scalars
+Imaging the brain permits analyzing its structure on alive subjects. These images can be acquired using several techniques, for example computer aided tomography (CAT), positron emission tomography (PET), ecography on babies (before the skull closes) and magnetic resonance imaging (MRI). 
 
-Data acquisition and visualization methods have rapidly evolved in the past years \autocite{botha_individual_2012}.
+For research purposes MRI is the preferred technique because it does not produce ionizing radiation, and therefore there are no negative effects on participants. In addition, magnetic resonance machines are very versatile, and several different kinds of information can be gathered. For example, in \emph{T1} images tissues with high amounts of fat appears bright, while in \emph{T2} images water will produce the stronger signal. Diffusion weighted imaging (DWI) permits analyzing the structure of fibrous tissue by measuring water diffusion in different directions. Functional MRI (f-MRI) uses a blood oxygen level dependent (BOLD) signal to measure the amount of oxygen present at the different areas of the brain. By relating the changes in oxygen with a task or stimulus it is possible to infer which areas of the brain are involved. By analyzing correlations between different areas of the brain one can infer how these areas are connected.
 
-\subsection{Registration}
+In studies that involve several participants, several image modalities, or several points of time; information from all these images must be combined (see \autocite{botha_individual_2012}). One option is to independently extract scalar measures from each image which can then be used as variables to continue the analysis using tabular-data methods. Another possibility is mapping the locations of one image to equivalent locations in the others. This is known as registration. The next of this section will take a closer look to the analysis methods associated to the different types of MRI images.
+ 
+%Basics of images, voxels, coordinates, scalars
+
+\subsection{Image Registration}
 
 FSL
 ANTs
 SPM-Dartel
-
+VBM
 
 Comparing two different brains is a challenging task, specially in the cortex where the pattern of folding between two subjects can be substantially different \autocite{toga_new_2002}.
 
