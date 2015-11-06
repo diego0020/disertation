@@ -208,11 +208,10 @@ Spharm \autocite{gerig_shape_2001} is a method that parametrizes shapes, and can
 
 \subsection{Functional Magnetic Resonance}
 
-In fMRI several BOLD volumes are acquired during several minutes. In the mean time the subject may be performing a task, reacting to stimuli or in resting state. During the course of the experiment the subject's head may move some mili-meters, therefore the first step in the processing pipeline is performing a spatial realignment of all the volumes. After this step there will be a timeline associated with each voxel. Some authors recommend applying a Gaussian filter at this stage (\autocite{friston_statistical_2007}) while others don't (\autocite{goebel_brainvoyagerpast_2012}). One possible analysis is searching for correlations between the signals at different voxels, and from them inferring which regions are connected. A possible outcome is a correlation map where voxels associated to a certain region have a strong signal. Another option is constructing a graph where nodes are regions and links are weighted by the correlation of the signals between them. Notice that these correlations may change during the course of the experiments. The analysis of this class of graphs will be discussed later with similar graphs derived from DWI. 
+In fMRI several BOLD volumes are acquired during several minutes. In the mean time the subject may be performing a task, reacting to stimuli or in resting state. During the course of the experiment the subject's head may move some mili-meters, therefore the first step in the processing pipeline is performing a spatial realignment of all the volumes. After this step there will be a timeline associated with each voxel. Some authors recommend applying a Gaussian filter at this stage (\autocite{friston_statistical_2007}) while others don't (\autocite{goebel_brainvoyagerpast_2012}). One possible analysis is searching for correlations between the signals at different voxels, and from them inferring which regions are connected. A possible outcome is a correlation map where voxels associated to a certain region have a strong signal. Another option is constructing a graph where nodes are regions and links are weighted by the correlation of the signals between them. Notice that these correlations may change during the course of the experiments \autocite{richiardi_decoding_2011}. The analysis of this class of graphs will be discussed later with similar graphs derived from DWI. 
 
-Another more traditional analysis option consists on explaining the BOLD signal using the experiment design (stimulus or task) as a regressor, possibly considering also other confounders (for example the estimated motion of the head). Notice that the experimental design should be convoluted with an hemodinamic response function that explains the delay between a stimulus and the associated increase in oxygen (see \autocite{poldrack_handbook_2011}). After fitting the statistical model at each voxel, statistical maps can be generated for each contrast, where a contrast is a combination of the conditions or factors that make up the experiment. For example, if an experiment interleaves actions with the left and right hands, possible contrasts could be the effect of the left hand, the effect of the right hand, or the difference between both hands. This statistical maps will contain high values for regions where the BOLD signal can be well explained by the contrast. 
+Another more traditional analysis option consists on explaining the BOLD signal using the experiment design (stimulus or task) as a regressor, possibly considering also other confounders (for example the estimated motion of the head). Notice that the experimental design should be convoluted with an hemodinamic response function that explains the delay between a stimulus and the associated increase in oxygen (see \autocite{poldrack_handbook_2011}). After fitting the statistical model at each voxel, statistical maps can be generated for each contrast, where a contrast is a combination of the conditions or factors that make up the experiment. For example, if an experiment interleaves actions with the left and right hands, possible contrasts could be the effect of the left hand, the effect of the right hand, or the difference between both hands. This statistical maps will contain high values for regions where the BOLD signal can be well explained by the contrast. Notice there will be such a map for each subject.
 
-Notice there will be such a map for each subject.
 A second level analysis can then be done to compare the maps of different subjects, and use linear models to explain the differences based on some other variable. The method for this analysis is similar to VBM. These analyzes can be carried out using SPM \autocite{friston_statistical_2007}, AFNI \autocite{cox_afni:_1996}, Brain Voyager \autocite{goebel_brainvoyagerpast_2012} and FSL \autocite{jenkinson_fsl_2012} among others \autocite{gold_functional_1998}.
 
 %BrainVoyager \autocite{goebel_brainvoyagerpast_2012} is a commercial package for high performance processing of functional, diffusion and structural brain data. Its algorithms are optimized for producing fast results (some even realtime), by using all of the available hardware. It includes a scripting language for analyzing bulks of images, and it is also incorporating the newest techniques as Multi-Voxel pattern analysis, a machine learning technique for inferring the state of the mind based on data from functional imaging and a previous training. By doing this analysis in real time it can be used for brain computer interfaces. 
@@ -220,60 +219,50 @@ A second level analysis can then be done to compare the maps of different subjec
 \subsection{Diffusion Weighted Images}
 
 % acquisition
+% HARDI
 
-HARDI
-\autocite{jellison_diffusion_2004} review of diffusion 	
+During a DWI protocol several volumes are acquired using a signal that is sensible to water diffusion in a given direction (see \autocite{jellison_diffusion_2004} for more details). Typically around thirty volumes are acquired in different directions, but a new technique known as high angular resolution diffusion imaging (HARDI) uses hundreds of directions. One or more images without any diffusion gradient are also acquired in the series to use as anatomical reference, this image has a contrast similar to T2 weighted images.
 
 % modeling
-
 % tensors and more
-\autocite{tournier_diffusion_2011} beyond tensors
-
+Processing of DWI begins by realigning the volumes and correcting for known noise sources. The next step is estimating a diffusion model on each voxel, based on data for the different directions. Frequently a tensor model is used, which represents diffusion of a voxel as a tensor. This technique is called diffusion tensor imaging (DTI). This model has six degrees of freedom, and is adequate for discrimating between regions where diffusion is isotropic (CSF and grey matter), and regions where diffusion is predominant in one direction (similarly oriented myelinated axons). However this model fails when there are crossing fibers, or fibers that bend in tight angles. Also, compressing the information from hundreds of volumes in just six degrees of freedom causes an important loss of information. In the recent years more complex models that solve these problems have been developed \autocite{tournier_diffusion_2011}.  
 
 % scalars, fa and more
-
-TBSS \autocite{smith_tract-based_2006} is another approach for analysis of diffusion data. Its main characteristics is that images from different subjects are co-registered based on the structure of white matter. 
+From these diffusion models several scalar values can be derived. One of them is the fraction of anisotropy (FA), which goes from zero to one, and represents how directed is the diffuion on a given voxel. This value is usually associated to the amount of myelin present in brain fibers. Another interesting value is the mean diffusion (MD) which measures the total amount of diffusion going on at each voxel. This value will be high on areas with large amounts of water, for example the ventricles. FA images can be compared among subjects using techniques similar to VBM. TBSS \autocite{smith_tract-based_2006} is another approach. Its main characteristics is that images from different subjects are co-registered based on the main white matter pathways. 
 
 % tracking
-Reconstructing fibers that cross each other, or fold in tight angles is a hard problem \autocite{fillard_quantitative_2011}, and specially tensor based methods are not able to deal with them \autocite{tournier_diffusion_2011}.
+After the diffusion model for every voxel is available, it can be used to generate streamlines that represent full brain fibers. This technique is called tractography, and the basic algorithm starts each line at specific seed points, and then propagates them along the main diffusion direction of each voxel; but several enhancements and variations have been developed. The newest algorithms are probabilistic \autocite{behrens_probabilistic_2007} and provide output as likelihood maps.
+Reconstructing fibers that cross each other, or fold in tight angles is a hard problem \autocite{fillard_quantitative_2011}, and specially tensor based methods are not able to deal with them \autocite{tournier_diffusion_2011}. 
 
-\autocite{goodlett_group_2008} proposes a method for performing statistical analysis of white matter, by constructing a representative fiber bundle of the population understudy, mapping it back to the diffusion image of each subject and sampling scalar values from it. In this way statistics can be performed along the tract, with scalars taken equivalent locations on each subject.
-
-\autocite{colby_along-tract_2011} proposes analyzing scalar values along the fiber, instead of extracting just one number that represents the whole bundle, this allows finding patterns that relate to specific pieces of a white matter way.
-
-\autocite{behrens_probabilistic_2007} probabilistic tractography with multiple fiber orientations
+Algorithms for processing diffusion data are available in several packages, such as camino \autocite{cook_camino:_2006}, dipy \autocite{garyfallidis_dipy_2014}, dti studio \autocite{jiang_dtistudio:_2006} and diffusion toolkit \autocite{wang_diffusion_2007}
+(see \autocite{hasan_review_2011} for a full review). 
+Tracula \autocite{yendiki_probabilistic_2008} is part of the FreeSurfer suit, and it is especial because it uses anatomical priors together with diffusion data to estimate the most likely paths for the main brain pathways.
 
 % bundles selection
 
-\autocite{blaas_fast_2005} presents a method for isolating fiber bundles by defining several regions of interest. Internally bundles are organized in a KD-Tree which permits interactive selection.
+Tractographies provide visual information about white matter structure in a particular subject. It is useful for planning surgeries as it indicates the positions of principal tracts. However full brain tractographies are usually very crowded, and it must be filtered to allow analysis. 
+For example \autocite{blaas_fast_2005} presents a method for isolating fiber bundles by defining several regions of interest. Internally bundles are organized in a KD-Tree which permits interactive selection. 
 
-% software
+% scalars among fibers
 
-Several software packages are available for processing diffusion weighted images \autocite{hasan_review_2011}
-CAMINO \autocite{cook_camino:_2006}
-TRACULA \autocite{yendiki_probabilistic_2008}
-\autocite{jiang_dtistudio:_2006} dti studio
-\autocite{wang_diffusion_2007} diffusion toolkit
-
+For research purposes it is important to compare tractographies from different subjects. The usual pattern is isolating pathaways of interest, either manually by placing regions of interest or using automatic atlas based methods, and then calculating the mean FA in the bundle, the mean length, the mean MD or the mean length. This scalar values can then be used on statistical methods.
+\autocite{goodlett_group_2008} proposes a method for performing statistical analysis of white matter, by constructing a representative fiber bundle of the population under study, mapping it back to the diffusion image of each subject and sampling scalar values from it. In this way statistics can be performed along the tract, with scalars taken equivalent locations on each subject. In \autocite{colby_along-tract_2011} a different method for doing this is presented. Here fiber bundles are isolated on each subject using any method, and then each fiber in the bundle is resampled to a standard number of points. Scalar values are aggregated into this points. Statistical methods can then be used for each of this points, and also across subjects.
 
 \subsubsection{Tractography Clustering}
 
-\autocite{song_zhang_identifying_2008} explore two methods for clustering fiber bundles, in the first one fibers are assigned to the same cluster if they are sufficiently close, while the second one tries to optimize a global measure of separation between clusters.
+Another approach to simplify full brain tractography is by clustering it. This is more useful if the generated clusters match with true anatomical pathways.
 
-\autocite{guevara_automatic_2012} presents a method for clustering the main pathways on massive tractography datasets based on an atlas composed of common pathways in a group of subjects, and manually labeled by experts. This atlas can afterwards be used to isolate these bundles on new brains.
-
-
-\autocite{garyfallidis_dipy_2014} dipy, fast bundles
+\autocite{song_zhang_identifying_2008} explores two methods for clustering fiber bundles, in the first one fibers are assigned to the same cluster if they are sufficiently close, while the second one tries to optimize a global measure of separation between clusters
+\autocite{guevara_automatic_2012} presents a method based on an atlas composed of common pathways in a group of subjects, and manually labeled by experts. 
+In \autocite{garyfallidis_dipy_2014} the \emph{quick bundles} is introduced. This algorithm is able to efficiently isolate fiber bundles that match known structures.
 
 \subsubsection{Connectivity Networks}
 
-\autocite{rubinov_complex_2010} presents several methods for building networks from MRI data, and how graph theory metrics can be applied and interpreted in such networks.
+Tractography can also be used to create brain networks where nodes are regions of interest and edges are defined by characteristics of the fibers that connect them. Recall that these networks can also be defined using fMRI data. Once these networks are constructed, methods from graph theory can be applied \autocite{rubinov_complex_2010}. For example it is possible to find well connected neighbours, find hubs, analyze the shortest path between nodes, and measure the mean degree of nodes.
 
-\autocite{li_visual_2012} introduces a software for robust construction and analysis of brain networks. In this software local diffusion or functional features are calculated at the position of each node, then the system tries to find the best position for the corresponding node in different subjects by minimizing the differences of these local features.
+\autocite{li_visual_2012} introduces a software for robust construction and analysis of brain networks in a group of subjects. In this software local diffusion or functional features are calculated at the position of each node, then the system tries to find the best position for the corresponding node in different subjects by minimizing the differences of these local features.
+Visual techniques for comparing two weighted brain networks are studied in \autocite{alper_weighted_2013}. The tool is based on a research of common analysis tasks and interaction with domain experts. At the end, two visualizations are recommended based on a user study; one of them is based on node and links diagrams and performs well in small networks while the other one, based on a connectivity matrix, performs better in networks with many nodes and edges.
 
-In \autocite{richiardi_decoding_2011} a system for decoding the state of the brain based on the fMRI connectivity graph at different frequencies.
-
-\autocite{alper_weighted_2013} studies visual techniques for comparing two weighted brain networks. The tool is based on a research of analysis tasks common in brain network research. At the end two visualizations are recommended based on a user study; one of them is very good for small networks while the other performs better in networks with many nodes and edges.
 
 \subsection{Spatial Data Visualization}
 
