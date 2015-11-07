@@ -264,29 +264,45 @@ Tractography can also be used to create brain networks where nodes are regions o
 Visual techniques for comparing two weighted brain networks are studied in \autocite{alper_weighted_2013}. The tool is based on a research of common analysis tasks and interaction with domain experts. At the end, two visualizations are recommended based on a user study; one of them is based on node and links diagrams and performs well in small networks while the other one, based on a connectivity matrix, performs better in networks with many nodes and edges.
 
 
-\subsection{Spatial Data Visualization}
+\subsection{Software for Visualization of Spatial Data}
 
 Of course visualizing spatial data is one of the most important tasks in neuro-image research. It should be done at every step of the analysis, to verify quality, and make sure everything is going as expected, and so problems can be corrected opportunely.
 
-As soon as the image is acquired it should be validated by the team that operates the MRI machine. This is usually done with proprietary software distributed by the scanner manufacturer. 
+As soon as the image is acquired it should be validated by the team that operates the MRI machine. This is usually done with proprietary software distributed by the scanner manufacturer. These systems can integrate processing algorithms as surface reconstructions or fiber tracking, and they can also provide advanced visualization options like 3D graphics and volume rendering.
 
 %basic
-Osirix / PACS / Proprietary \autocite{rosset_osirix:_2004}
+% Osirix / PACS / Proprietary 
+% MRICRON / ITKSNAP
 
-MRICRON / ITKSNAP
+After the files are downloaded from the scanner, they can be visualized by other members of the team in their own machines using open source software. A very powerful and popular choice is Osirix \autocite{rosset_osirix:_2004}, which provides several advanced visualization methods, and can be extended using plugins. Other light options are mricron and itk-snap. These packages also include tools for annotating images and performing manual and assisted segmentation of images.
 
-FreeView / TkView \autocite{fischl_freesurfer_2012}
-FSL-view \autocite{jenkinson_fsl_2012}
-SPM \autocite{friston_statistical_2006}
+%FSL-view \autocite{jenkinson_fsl_2012} 
 
-BrainVisa \autocite{cointepas_brainvisa:_2001}
+Most of the processing packages described in this section also include visualization modules. \emph{FSL} includes a viewer called FSL-View which can display structural, diffusion and functional MRI data. 
 
-3D Slicer \autocite{fedorov_3d_2012}
+%FreeView / TkView \autocite{fischl_freesurfer_2012} : Loading data from command line, specify the subject only once.
 
-VTK / PARAVIEW \autocite{schroeder_design_1996} \autocite{ahrens_paraview:_2005}
+The \emph{FreeSurfer} package includes several visualization applications: FreeView, tkMedit, tkRegister and tkSurfer. Of course these applications are tailored at the different stages of the FreeSurfer processing pipeline, including Tracula. tkSurfer specializes in visualization of cortical surface reconstructions together with scalar data (curvature, thickness, fMRI statistical maps, etc). TkMedit is designed for visualizing anatomical data, together with cortical surfaces and fMRI statistical maps which are added as overlays. This tool also provides mechanisms for drawing image segmentations. TkRegister is meant for controlling and correcting registration between images. Finally, FreeView is a full 3D viewer that can display cortical surfaces, tracula bundles, and images. It also provides mechanisms for comparing different subjects, for applying custom transformations, and for performing manual segmentation. A convenient feature from all FreeSurfer tools is that they can be launched and configured from the command line. If data is organized using the FreeSurfer subjects directory structure, the subject, images and surfaces can be specified by name in the command line. In this way it is easy to load several structures for a specific subject, and most importantly, repeating this view for several subjects. 
 
+%SPM \autocite{friston_statistical_2006}
 
+The SPM package also provides several options for visualizing data at every stage of the pipeline. Large portions of such pipeline rely on a correct registration between images, and fortunately SPM includes a very powerful visualization for verifying and correcting registration between images. The module for displaying results is also very powerful, and allows users to use different thresholds to filter results, find and display in a table activation peaks, and create 3D renders. It provides a \emph{glass brain} visualization, where three orthogonal slices are shown side by side, and activations from the whole volume are projected to these three planes. This provides a quick overview of the location of activations in the full volume, but is only effective if there are few activations. SPM also provides several views of the underlying statistical model, as contrasts and parameters estimates, and fitted and adjusted responses.
 
+% BrainVisa \autocite{cointepas_brainvisa:_2001}
+
+BrainVisa \autocite{cointepas_brainvisa:_2001} is a software that integrates data management, data processing and visualization. Raw data is loaded into a database and organized internally by the application, processing algorithms are executed by accessing data in this database, and results are stored in the same place. The user can select objects to visualize from the database, which at the end means that after loading raw data into the system the user won't have to worry about file locations of file formats any more. Unfortunately this package has not been upgraded since 2013.
+
+% 3D Slicer \autocite{fedorov_3d_2012}
+
+3D Slicer \autocite{fedorov_3d_2012} is a powerful applications that can display and manipulate several kinds of data. It has a plugins architecture, which allows developers from all around the world to add new functionality. This application can load and display all kinds of images, it can overlay two images together, do volume rendering and 3d reconstructions, it can perform semi-automatic segmentation, model reconstruction, and fiber tracking among others. 
+
+% VTK / PARAVIEW \autocite{schroeder_design_1996} \autocite{ahrens_paraview:_2005}
+
+Most of the applications mentioned above use VTK \autocite{schroeder_design_1996} for rendering. This is a high performance graphical library which implements several processing and visualization algorithms common in scientific visualizations. It includes modules for filtering, resampling and slicing volumes, it can perform volume rendering, it can calculate and display iso-contours from volume data, it can generate and display streamlines and apply color-maps and opacity to objects among other features. It also permits building interactive visualizations and linking several views together.
+It is mature and has become the standard for displaying neuro-image based data. 
+
+% Conclussion... why we need something else? why these are not appropriate for visual analytics or exploratory research?
+Even though there are several options available for visualizing neuro-image based spatial data, they don't interact well with each other, and each of them seems to support well specific workflows. They were not designed for the highly iterative patterns common in exploratory analysis, and they are not easy to integrate with tabular data and related visualizations and analyzes. 
 
 %---------------------------------------------------------------
 
