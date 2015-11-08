@@ -1,4 +1,7 @@
 
+Intro to related work
+
+
 %Structure
 
 %Exploratory Analysis + Large datasets  = Visual Analytics
@@ -317,18 +320,21 @@ Even though there are several options available for visualizing neuro-image base
 
 \section{Visual Analytics for Brain Images}
 
-\autocite{bezgin_matching_2009} presents a tool for exploring data of the macaque brain. It uses an onthology and an atlas to query spatial features and connectivity, and connects to the \emph{cocomac} database which contains data from several studies. ``Comparison between studies provide more meaningful insights than each study alone''.
+% introduccion
 
-IRaster \autocite{somerville_iraster:_2010}  is a tool for visualization and analyzis of electrical signals acquired from high density intracraneal micro-electrodes. Integrates several known signal analysis methods with interactive visualizations which supports deciphering several spiking patterns.
+The need for exploring and extracting knowledge from large data-sets has been recognized by several researchers and some tools have been proposed to aid in this task. The necessity to link together spatial data with tabular data is an important feature of these tools. For example, \autocite{steenwijk_integrated_2010} presents two integrated tools, one for processing of image data in order to extract features, and one for interactively visualize and explore such features. Data is visualized through scatter plots and parallel coordinates plots, using techniques such as brushing and coloring by a different variable.  Given one point in the exploration, the tool allows the user to find the raw data that originated it. The objective of these tools is generating hypotheses, and rapidly iterating through different features in order to find relationships with clinical outcomes. 
 
-\autocite{steenwijk_integrated_2010} presents two integrated tools, one for processing of image data in order to extract features, and one for interactively visualize and explore such features. Visualization is achieved through scatter plots and parallel coordinates plots, using techniques such as brushing and coloring by a different variable.  Given one point in the exploration, the tool allows the user to find the raw data that originated it. This system is presented as a tool for hypothesis generation. 
+% coins \autocite{wood_harnessing_2014}
+% xnat-soup \autocite{gutman_web_2014}
 
-Invizian \autocite{bowman_query-based_2011, bowman_visual_2012, van_horn_graphical_2013} provides a representation of multiple brain scans in a "Feature Similarity Space", where all brain surfaces are located in a 3d space in such a way that \emph{similar} brains are nearby. The similarity metric can be defined used several scalar features calculated from each brain. The system also integrates with ggobi to combine the spatial analysis with interactive analysis of scalar data.
+As of today, several neuro-science repositories are available, for example SPINE \autocite{guttmann_spine_2012}, LONI-IDA \autocite{van_horn_is_2009} and COINS \autocite{wood_harnessing_2014}. Through these repositories researchers who acquire large amount of data can share it with the broader community. Other researchers can request access to these data through the platform, and if granted, download the images and other complementary data. As the amount of data available in these repositories grows larger, it becomes necessary to add advanced features to navigate through it and find the appropriate data for answering a specific question. The COINS system implemented a graphical query tool\autocite{wood_harnessing_2014} that lets researchers search for data by combining several types of filters in a graphical interface. The tool will display how much data is available at each branch of the query, and when the user is satisfied, it will assist in issuing the requests for access to the respective data owners.  After data access is granted, data can be downloaded.
 
-\begin{table}
-	\centering
-		\begin{tabular}{c}
-			hola
-		\end{tabular}
-	\label{tab_related_applications}
-\end{table}
+Downloading data from these repositories creates a bottle-neck for users, therefore there are proposals to visualize and run analyzis on these data without the need to download it. In \autocite{gutman_web_2014} a web viewer for this data is presented. It includes a feature for sharing visualizations by sending a link to collaborators, which should make collaboration more efficient. It also includes a system for navigating data by finding related data, and displaying it in a graph where each node is a subject. 
+
+% content based search 
+Another opportunity that emerges from these repositories is finding similar images based on the content of the images. This is, based on a similarity between the two images and not on associated variables. For example, \autocite{joshi_interactive_2009} presents a system that constantly indexes a repository in order to let researchers query the system for images similar to a given example. 
+
+Invizian \autocite{bowman_query-based_2011, bowman_visual_2012, van_horn_graphical_2013} provides a representation of multiple brain scans in a ``Feature Similarity Space'', where brain surfaces are positioned in a 3d space in such a way that \emph{similar} brains are nearby. The similarity metric can be defined using scalar features calculated from each brain. The system integrates with ggobi to combine the spatial analysis with interactive analysis of scalar data using linked scatter plots, parallel coordinates visualizations, etc. It also provides mechanisms to filter the datasets in order to select or highlight specific subjects. This permits a rapid visual assessment of the correspondence between specific variables and the similarity space.  In \autocite{van_horn_graphical_2014} present an extensive use case where the system is applied to the ADNI data-set, where the diagnosis is related to several structural features like cortical thickness, cortical gray matter volume and cortical gray matter area. Notice this system also integrates machine learning methods that can automatically find the best features to separate the data-set into specified groups. 
+
+
+% conclussion
