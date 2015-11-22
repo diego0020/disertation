@@ -13,6 +13,7 @@
 \setminted{breaklines,bgcolor=bg}
 \usepackage{booktabs}
 \usepackage{amsfonts} 
+\usepackage{pdfpages}
 
 \usepackage{adjustbox}
 \usepackage{array}
@@ -41,10 +42,32 @@
 	% {\large Institution Name}\\
 %	{\includegraphics{university.jpg}}
 }
-\author{Author Name}
-\date{Day Month Year}
+\author{Diego Andrés Angulo Pabón}
+\date{November 2015}
 
-\maketitle
+%\maketitle
+
+
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.15\textwidth]{uniandes}\par\vspace{1cm}
+	{\scshape\LARGE Universidad de los Andes \par}
+	\vspace{1cm}
+	{\LARGE\bfseries A multi-facetted visual analytics tool for exploratory analysis of human brain and function datasets \par}
+	\vspace{2cm}
+	{\Large\itshape Diego Andrés Angulo Pabón\par}
+	\vfill
+	Supervised by:\par
+	Dr. José Tiberio \textsc{Hernández} \par
+	Dr. James \textsc{Oliver} \par
+	Dr. Cyril \textsc{Schneider} \par
+	\vspace{1cm}
+	Special contributions by: \par
+	Dr. Nathalie \textsc{Charpak}\par			
+	\vfill
+% Bottom of the page
+	{\large November 2015}
+\end{titlepage}
 
 %\chapter*{Abstract}
 %Abstract goes here
@@ -92,7 +115,8 @@
 \printbibliography
 
 \appendix
-\chapter{Appendix Title}
+\includepdf{CaseStudiesfortestingInsightGenerationofBRAVIZ}
+%\chapter{Appendix Title}
 %\input{chapters/appendix}
 
 
