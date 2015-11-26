@@ -17,18 +17,25 @@ The first task will be the scoping of the domain and the definition of a subdoma
 
 \section{Domain Engineering}
 
-Domain Engineering is the practice of selecting and characterizing the domain in which the application family will be built. A good description of the steps required for this task can be found in \autocite{czarnecki_generative_2000}. The following describes how this process is used to identify the specific application domain to be addressed by this research.
+Domain Engineering is the practice of selecting and characterizing the domain in which the application family will be built. A good description of the steps required for this task can be found in \autocite{czarnecki_generative_2000}. Two main activities in this process are 
+
+\begin{enumerate}
+	\item Domain Scoping: Defining, bounding and characterizing the target problems for the solution.
+	\item Domain Engineering: Define and characterize the elements that represent problems and solutions in the chosen domain.
+\end{enumerate}
 
 \subsection{Domain Scoping}
 
 As noted previously brain research involves several specialties, skills and techniques. It could be argued that because the brain is involved in almost every human action, all human and social sciences are at essentially studying the brain. However this effort will focus on direct studies of the human brain; in particular on facilitating exploration of the relationships between cognitive function and the brain's physical structure. Even with this initial definition, however, there are still many ways to scope the application domain.
+
+\subsubsection{Data Sources}
 
 In domain engineering the decision of where to focus must be driven by the strengths and experience of the organization, in this case, IMAGINE, VRAC and CNS. Previous projects of the group have principally focused on analysis of medical images at millimeter scale, acquired by CT and MRI machines. The team has good relationships with radiology departments at several hospitals and therefore has access to images and, more critically, domain experts. MRI is an specially interesting technique as it does not produce ionizing radiation, and therefore is harmless for the subject. In contrast CT and general x-rays involve radiating the human body. This is not harmful at small doses but the effects may accumulate over time. Therefore these techniques must be used with care and only when there is a valid medical reason that justifies it. On the other hand, MRI scans can be applied to any subject and there is no need for a medical justification (but the study must typically be approved by an ethics committee). MRI scanners are also versatile machines which can acquire numerous kinds of images. Structural images can be acquired at different configurations which provides better contrast for different tissues or molecules. Advanced techniques provide the ability to do spectroscopy in order to characterize the composition of specific areas of the brain. By using contrast agents it is also possible to precisely locate specific proteins, cells or structures. 
 For these reasons the group chose to focus development on images acquired by MRI. We also chose to focus on T1 and T2 weighted structural images, diffusion weighted images and BOLD f-MRI. This decision was motivated by the previous experiences in the group, with the understanding that domain definition and scoping is an iterative process, and this decision can be revisited in the future.
 
 An objective of the project from the start has been the integration of data, therefore in addition to MRI data, which provides structural information, additional data is necessary to provide context and a more complete picture. Recall that a primary  hypothesis of this research is that the brain is better understood by teams of specialists who can bring different perspectives. This leads to the fundamental  challenge of linking the structure and function of the brain. Brain function may signify quick reactions to stimuli, like catching a ball, to complex social behaviors over several years. This kind of data can be collected by economists, psychologists, epidemiologists, and sociologists among others. This information can be very complex, but a non-trivial subset of it can be characterized by numerical, nominal and ordinal variables which can be registered in spreadsheet tables. Thus, the application domain must encompass this type of tabular data. 
 
-Finally data from TMS exams \autocite{nollet_transcranial_2003} is important to consider as it provides a perfect link between structure and functioning of the brain. This is, data from TMS exams. In this technique a fast magnetic pulse is applied outside the skull, which induces an electric field inside the brain. This field can have different effects on the underlying neurons. For example a pulse in the motor region will cause a signal to be send to the corresponding muscle. This electric signal can be measured at the muscle, which allows physiologists to infer the speed and quality of the transmission from brain to muscle. This project is fortunate to have access to neurophysiologists specialized in these kinds of exams. 
+Finally data from TMS (Transcraneal Magnetic Stimulation) exams \autocite{nollet_transcranial_2003} is important as it provides a perfect link between structure and functioning of the brain. This is, data from TMS exams. In this technique a fast magnetic pulse is applied outside the skull, which induces an electric field inside the brain. This field can have different effects on the underlying neurons. For example a pulse in the motor region will cause a signal to be send to the corresponding muscle. This electric signal can be measured at the muscle, which allows physiologists to infer the speed and quality of the transmission from brain to muscle. This project is fortunate to have access to neurophysiologists specialized in these kinds of exams. 
 
 To recapitulate, the current project considers the following kinds of data:
 
@@ -40,13 +47,15 @@ To recapitulate, the current project considers the following kinds of data:
 \item Functional MRI
 \end{itemize}
 \item TMS exams
-\item Tabular data from other disciplines
+\item Non-spatial data
 \begin{itemize}
-\item Nominal variables
-\item Ordinal variables
-\item Numeric variables
+\item Clinical 
+\item Neuro-Psychological 
+\item Socio-economic 
 \end{itemize}
 \end{itemize}  
+
+\subsubsection{Stake Holders}
 
 Another key aspect of domain scoping is identifying stakeholders and their interests. As mentioned earlier the brain can be studied from a clinical perspective with the aim of healing it. This is usually done case by case in hospitals or health centers. However, addressing the clinical diagnosis practice would involve dealing with significantly more regulations, which would increase the complexity of the project. The other major group of users of medical images are brain researchers. As was described in the introduction, these users are generally interested in analyzing cohorts of subjects (rather than individuals), and are the primary target user community. In particular this research focuses on interdisciplinary brain research projects, where there is data from multiple subjects and different nature, and the user community seeks to find relationships across the different dimensions and disciplines. The data available for each subject should be reasonably consistent across the complete sample. The stakeholders are therefore the researchers involved in such a project. These researchers can come from several backgrounds, including
 
@@ -87,6 +96,7 @@ In conclusion, the scope of the project is now bounded in data types (MRI and ta
 After choosing and bounding the domain the next step in its characterization is modeling. This task is accomplished by reading relevant literature in the domain, interviewing stakeholders and analyzing existing software. The details of the information gathered at this stage are described in chapter \ref{chap_related}. In this section the application domain will be further defined and modeled based on that information.
 
 %Workflow
+\subsubsection{Workflow}
 A typical MRI experiment starts with a set of hypotheses to be tested on a target population. A protocol is designed to test the hypotheses, and if, possible correct sample sizes are calculated. Then, participants are recruited and data is collected. This process is not always smooth, and often corrections must be made and acquisition repeated. Inevitably some data will not be useful and some participants will have to be removed from the study. Data acquired from the MRI machine must be acquired, stored and processed. There are different processing pipelines for different kinds of images, but most of them are designed to perform statistical tests using the images and some external variables. The results of the statistical tests must be interpreted in order to write the report of the experiment and what was learned from it.
 
 As mentioned in chapter \ref{chap_intro} the goal to use data collected in these types of experiments as well as data collected in open-ended fashion to perform exploratory and data-driven analyzes. Of course, most of the steps in traditional experiments will be the same, and the proposal should be compatible with them. 
@@ -108,7 +118,7 @@ As mentioned in chapter \ref{chap_intro} the goal to use data collected in these
 
 Figure \ref{fig_workflows} shows a comparison of the two work-flows. Notice that the input for traditional experiments are hypotheses, while the output of data driven research are  hypotheses. Notice also that the input to the data-driven research loop is data, which as mentioned earlier, can come from finished experiments. This shows how both work-flows can complement each other. Finally data processing clearly takes place at both both work flows, which indicate that the data-driven and hypotheses-driven research domains are deeply linked.  
 
-%Data
+\subsubsection{Data}
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{domain/ClassDiagramData}
@@ -163,8 +173,8 @@ Some concrete examples of data are
 \end{itemize}
 
 Meta-data plays an important role. On the spatial side it enables identification of which images or polydata can be analyzed together. In other words, metadata makes it possible to identify matching pieces of information belonging to different subjects. In the case of variables, the metadata provides important information on how to interpret the values that the variable takes. 
-%Processing
 
+\subsubsection{Data Processing}
 This simple structure allows representation of a wide array of data types. Some of this data are raw values that are obtained directly, and some are the results of processing steps applied to raw data. As mentioned earlier the system is not designed to do data processing, but there is a close relationship with these kind of procedures. In fact the system should be able to do additional processing when it is required, but delegating this task to third party tools is usually appropriate. As shown in figure \ref{fig_workflows} processed data is fed back into the system, and afterwards can be used in the same way as raw data. Some examples of the processing steps that are expected to be utilized are:
 
 \begin{itemize}
@@ -185,7 +195,7 @@ This simple structure allows representation of a wide array of data types. Some 
 
 As usual, this is not an exhaustive nor final list; as the project evolves it is likely that additional processing algorithms will be integrated. The vision is to take advantage of available tools whenever possible. Fortunately there is an ample set of high quality open source tools available as was described on Chapter \ref{chap_related}.
 
-%Stake Holders
+\subsubsection{Stake Holders}
 
 The expected users in this project are research groups comprised of specialists from different backgrounds, however several other stakeholders must be considered in the development of the project. The data comes from real participants, and they may have concerns about the privacy and use of their data. On the other hand the project managers and funding agencies want the best return on investment possible, which means extracting as much information and knowledge from the collected data. Usually the participants of the experiment sign a consent which permits some use of the data. The contents and permissions granted by these agreements have to be taken into account. A common trade-off is for the participants to grant unlimited usage of the data as long as it is anonymized. In theory it shouldn't be possible to determine the true identity of a subject based on anonymized data, but this is hard to guarantee in practice, especially when so much complementary data can be obtained from third parties \autocite{singel_netflix_2009}. Also the anonymization procedure involves adding noise to the data, which may have an impact on the analysis. When data is analyzed as extensively and deeply as proposed here, the risk of deanonimyzing the subjects increases. Therefore measures have to be taken to increase protection, either by limiting access to the data to a small group of researchers, or increasing the strength of anonymization measures. 
 
@@ -197,7 +207,7 @@ First of all, brain researchers are human and this have limitations on the amoun
 
 Visual Analytics recognizes that humans have limited cognitive capacity, and the point is to make the best possible use of it, in particular, that the cognitive budget should be spent on the data and not on the tools. This means that the experts should always be thinking about the underlying data, not on details of the tool used to look at it. If tools require complex commands, or the controls are not intuitive, user attention may have to shift to how to accomplish a task in the tool. Another key concept required here is that tools should adapt to users, instead of making users adapt to tools \autocite{norman_design_2002}. This means that technical details or repetitive actions should be easy to automate. For example there are dozens of image data formats available, and each tool works with some of them. This forces the user to spend time to consider which tool is appropriate for each format, or if there is a need to convert it. The same issue applies in dealing with files in file system: users should not required to determine what is the best way to organize files so that they can be easily found afterwards. 
 
-Of course the researchers are the most capable of interpreting and making sense of  vast amounts of data and as the number of dimensions grows larger, the likelihood of patterns appearing by chance increases. Only experts can discriminate between trully interesting findings and random noise. They can do this because they possess a strong theoretical background, which can be used to give meaning to data. They also have experience working with patients and data, and therefore can associate data from a study to past experiences and similar cases. All of these factors combined can lead to  intuition, that can guide experts to interesting places. Given the familiarity with the data, experts can quickly spot common mistakes or find simple explanations to what may appear surprising for an outsider. 
+Of course the researchers are the most capable at interpreting and making sense of  vast amounts of data and as the number of dimensions grows larger, the likelihood of patterns appearing by chance increases. Only experts can discriminate between trully interesting findings and random noise. They can do this because they possess a strong theoretical background, which can be used to give meaning to data. They also have experience working with patients and data, and therefore can associate data from a study to past experiences and similar cases. All of these factors combined can lead to  intuition, that can guide experts to interesting places. Given the familiarity with the data, experts can quickly spot common mistakes or find simple explanations to what may appear surprising for an outsider. 
 
 In summary some of the main characteristics of a hypothetical user are
 
@@ -220,38 +230,35 @@ In summary some of the main characteristics of a hypothetical user are
 Groups of experts are also interesting because their expertise is generally in different areas. Therefore while they are deeply familiar with some aspects of the data, other aspects may be foreign. In a similar way each expert is inclined to analyze data of a particular nature or in a particular way. Some teams are composed of experts located far from each other. They may not even share the same mother language. Communication between the different members of the group is therefore challenging, as is reconciling their interests and objectives, and moving forward as a group. Communication is different when a link to the physical reality can be stablished \autocite{rojas_arredondo_dinamica_2010}. By having data easily available at a meeting, researchers can provide evidence to support their ideas, and in this way have a conversation rooted to reality, instead of relying on memory or notes. Also ideas or questions that come up during the conversation could be explored right away, which can lead to a more fluent and efficient work session. Visual analytics recognizes the human visual system as the most effective channel to get information into the expert's mind. Communication can be improved by using this channel efficiently. Also providing easy access may lower the resistance of experts to explore data from other fields , to follow-up with colleagues and bring them questions. Of course, given this functionality, some members of the group want more control of their data, and my not like the idea of non-experts looking at it because they may not understand it. Thus it will be important to evaluate how these kind of tools may affect group dynamics.
 
 
-\bigskip
-
-% Existing viualization applications
+\subsubsection{Existing Software}
 In chapter \ref{chap_intro} a review of the tools currently used in the domain was presented. While most of the processing tools provide utilities for batch processing several subjects, visualization tools generally support viewing data for a single subject or for the results of statistical tests. Going through visualizations of several subjects requires several steps and most of the time repeating work. Also while most of them permit the use of affine transformations to move the data to a different coordinate system, the end user must specify the adequate transform for each case. These tools offer very good performance for quality control or publication graphs, but for exploratory analysis a more streamlined workflow is required, with minimal need for repetition, and limiting as much as possible the exposure of technical details to the user. 
 
 In the world of information visualization there has been a bigger growth in interactive solutions. For example Tableau \autocite{hanrahan_tableau_2003} can be used to create highly interactive dashboards for the exploration of large datasets. These dashboards display several coordinated views of the data and permit the user to interactively change parameters and therefore get visualizations tailored for the current question. One goal of this work is to use these kinds of techniques but extend them to be better integrated with spatial data. 
 
 
+%In summary, the target domain is characterized by
+%\begin{itemize}
+%\item Data Sources
+%\begin{itemize}
+%\item Spatial Data
+%\item Tabular Data
+%\end{itemize}
+%\item Visual Analytics
+%\begin{itemize}
+%\item Data Transformations
+%\item Fast iteration
+%\item Interactive Visualizations
+%\item Focus on data, not tools
+%\end{itemize}
+%\item Research groups
+%\begin{itemize}
+%\item Collaboration
+%\item Interrupted work
+%\item Diverse points of view
+%\end{itemize}
+%\end{itemize}
 
-\bigskip
-
-In summary, the target domain is characterized by
-\begin{itemize}
-\item Data Sources
-\begin{itemize}
-\item Spatial Data
-\item Tabular Data
-\end{itemize}
-\item Visual Analytics
-\begin{itemize}
-\item Data Transformations
-\item Fast iteration
-\item Interactive Visualizations
-\item Focus on data, not tools
-\end{itemize}
-\item Research groups
-\begin{itemize}
-\item Collaboration
-\item Interrupted work
-\item Diverse points of view
-\end{itemize}
-\end{itemize}
+\subsubsection{Towards a Family of Applications}
 
 The overall objective is to create a family of applications that can adapt to different tasks inside the domain. Following visual analytics principles these applications should put the data at front, and let users focus on it instead of the applications. For these reasons applications should be simple, and have a limited set of features. Nevertheless to foster collaboration it is important that applications inside the family integrate well with one other. It is also important that applications provide capabilities the user save and restore work efficiently, and therefore work over several interrupted sessions. Figure \ref{fig_use_case_general} shows an overview of the activities to be completed by users in the domain.
 
