@@ -105,8 +105,15 @@ At this moment, BRAVIZ is been actively used by a small community. A challenge f
 % -policy
 The value of solutions for exploratory analysis, such as BRAVIZ, will increase as more data becomes publicly available. This requires important changes in  culture and policy behind research. The current research funding system is highly competitive and does not encourage collaboration between teams. Also there are not incentives for exploring old data-sets, repeating experiments with new data or sharing data and methods with others. 
 
-%- Clinical?
+\subsection{Navigating through variables}
 
+One of the main limitations users find when using BRAVIZ is understanding the meaning of variables and finding the correct variables for a question (see section \ref{sec_ana_results}). Currently variables can be searched by name, and additional information can be gathered from the description, variable type, and labels for nominal variables or range for numerical variables. However variable numbers are arbitrary. For example, the KMC data-set has variable names and descriptions in three different languages (English, Spanish and French). 
+
+Also, while the naming conventions may be logical for members of the group, outsiders have a hard time getting use to them. In order to have datasets that can be exploited outside the group  that created it, it is necessary to design and implement standard mechanisms for naming and navigating variables. For example, by using controlled vocabularies and ontologies. There should also be additional mechanisms to search variables, for example by keywords and categories.
+
+Finally, there should be \emph{recommendations} of potentially related variables. These should come from mining the data-set, mining available literature or mining analyzes histories.
+
+%- Clinical?
 \subsection{Other Applications}
 
 Another questions that needs to be addressed in the future is if there are clinical applications of this proposal. If so, which ones are there, and what needs to be done in order to support them. One feature that has been recurrently requested by clinicians would be the possibility to integrate spatial data with neuro navigation systems for neuro-surgery. However these imposes several challenges (see for example \autocite{talos_diffusion_2003}) and because it imposes a  risk to the patient, such an application would require extensive testing and validation.
