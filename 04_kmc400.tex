@@ -19,14 +19,14 @@ The final component is an early discharge from the hospital, with proper followu
     \centering
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{kmc400/221_trimmed}
-    \end{subfigure} ~
+    \end{subfigure} \hfill
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{kmc400/0503canguro4d}
     \end{subfigure}
 		\par \bigskip
 		\begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{kmc400/Inde}
-    \end{subfigure} ~
+    \end{subfigure} \hfill
 		    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{kmc400/papa2}
     \end{subfigure}
@@ -355,7 +355,7 @@ All data collected during this study will be made available on request to intere
 \section{Braviz Contributions}
 
 %quality control
-\subsubsection{Quality Control}
+\subsection{Quality Control}
 
 Gathering data and collecting it in a database in a project of this magnitude is large and complex task. Several steps are required and on each of them several things can go wrong. Data has to be continuously checked, validated and corrected as the project moves forward. This labor can benefit from automatic tools that check for values that are outside of range, are missing or which don't add up with other values. However large amounts of manual inspecting is also required. 
 
@@ -364,7 +364,7 @@ Anomalies in the data are much easier to detect when data is presented in graphi
 Verifying image data is also simple using tools from Braviz. The setup used the most was several \emph{Subject Viewer} applications showing different critical slices of the image. An expert in radiology could then cycle through the subjects using the keyboard, and asses their quality. By using the platform it was possible to go over two hundred subjects in an hour. Images that appeared strange at first sight would be further evaluated by navigating in the 3d Viewer. Likewise quality of the registration between the different modalities could be checked by for example displaying the corpus callosum segmentation on top of an FA image or using the dedicated \emph{Check registration} application. 
 
 %fibers analysis
-\subsubsection{Fiber Bundles Creation}
+\subsection{Fiber Bundles Creation}
 
 As the project advanced, questions related to different pathways in the brain started to emerge. In order to answer these questions it was necessary to isolate in the tractography specific fiber bundles. Some of these could be defined using structures segmented by FreeSurfer, and therefore easily extracted for all subjects. However some of them required more precise location of regions of interest. 
 
@@ -373,17 +373,17 @@ The \emph{Roi Builder} application was created to streamline the placement of RO
 \begin{figure}
 \centering
 	\begin{subfigure}{0.3\textwidth}
-		\includegraphics[width=\textwidth, trim = 450pt 50pt 500pt 100pt, clip]{kmc400/thalamus_mri}
+		\includegraphics[height=\textwidth, trim = 450pt 50pt 500pt 100pt, clip]{kmc400/thalamus_mri}
 		\caption{T1}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth, trim = 450pt 50pt 500pt 100pt, clip]{kmc400/thalamus_dti}
 		\caption{DTI}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth, trim = 450pt 50pt 500pt 100pt, clip]{kmc400/thalamus_aparc}
 		\caption{APARC}
-	\end{subfigure}	
+	\end{subfigure}
 \caption{Placing a region of interest in the lateral thalamic region
 \label{fig_thalamus_seed}}
 \end{figure}
@@ -395,7 +395,7 @@ The \emph{Roi Builder} application was created to streamline the placement of RO
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim = 450pt 150pt 400pt 100pt, clip]{kmc400/thalamus_side_fibers}
 		\caption{}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.45\textwidth}
 \includegraphics[width=\textwidth, trim = 450pt 150pt 400pt 100pt, clip]{kmc400/thalamus_side_fibers_peduncle}
 		\caption{}
@@ -413,7 +413,7 @@ Figure \ref{fig_fronto_occipital} shows how the fronto occipital tract can be is
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim = 450pt 150pt 400pt 100pt, clip]{kmc400/fronto_occipital_1}
 		\caption{}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.45\textwidth}
 \includegraphics[width=\textwidth, trim = 450pt 150pt 400pt 100pt, clip]{kmc400/fronto_occipital_2}
 		\caption{}
@@ -430,7 +430,7 @@ The superior longitudinal fasciculus can be isolated by placing a single ROI in 
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=300pt 250pt 350pt 250pt, clip]{kmc400/long_coronal_seed}
 		\caption{ROI placement}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.45\textwidth}
 \includegraphics[width=\textwidth, trim = 250pt 100pt 50pt 20pt, clip]{kmc400/long_fas_tracula_roi}
 		\caption{Comparison with Tracula}
@@ -468,7 +468,7 @@ The \emph{Logic Bundles} application can be used to define bundles using segment
 
 %sharing, presentations
 
-\subsubsection{Data exploration}
+\subsection{Data exploration}
 
 One of the main purposes of Braviz was enabling researchers to quickly find potential relationships in the data that deserved a closer look. Displaying data visually lets the human visual system find odd aspects, which can lead experts to think of new possibilities. 
 
@@ -498,7 +498,7 @@ Figure \ref{fig_anova_example} shows the plot of an ANOVA analysis for the volum
 	\label{fig_asymetric_caudate_detail}
 \end{figure}
 
-\subsubsection{Selected Subjects Cases}
+\subsection{Selected Subjects Cases}
  
 % 173
 The FLAIR image from one of the subjects present several circular regions with hypersignal which indicate ischemic lesions, this can be seen in Figure \ref{fig_white_matter_lessions_a}. These are typical in patients with sifilis, drug abuse or hypertension, and do not usually appear before birth. The clinical data does not show any drug related problems, but it does  that the subject had a hearing loss which went undetected for the first year of life, and did not improve with by hearing aids or implants. 
@@ -506,14 +506,10 @@ The Grifiths coefficient at 12 months had a value of 100 which is located in the
 
 \begin{figure}
 	\centering
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=\textwidth]{kmc400/wm_lessions}
-		\caption{Flair Image 	\label{fig_white_matter_lessions_a}}
-	\end{subfigure}
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=\textwidth]{kmc400/wm_gri_wasi}
-		\caption{Plot of Griffiths and WASI scores 	\label{fig_white_matter_lessions_b}}
-	\end{subfigure}
+	\subcaptionbox[0.45\textwidth]{Flair Image 	\label{fig_white_matter_lessions_a}}
+		{\includegraphics[width=0.45\textwidth]{kmc400/wm_lessions}} \hfill
+	\subcaptionbox[0.45\textwidth]{Plot of Griffiths and WASI scores 	\label{fig_white_matter_lessions_b}}
+		{\includegraphics[width=0.45\textwidth]{kmc400/wm_gri_wasi}}
 	\caption{This subject's white matter lessions probably appeared after birth}
 	\label{fig_white_matter_lessions}
 \end{figure}
@@ -527,7 +523,7 @@ One of the subjects presents a prominent dilation of the supratentorial ventricu
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=300pt 120pt 350pt 85pt, clip]{kmc400/homunculo_pies_2}
 		\caption{Abnormal}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=300pt 120pt 350pt 85pt, clip]{kmc400/homunculo_pies_control_2}
 		\caption{Control}
@@ -545,7 +541,7 @@ While looking at white matter volumes in the sample, one subject stood out for h
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=700pt 400pt 220pt 150pt, clip]{kmc400/wm_atrophy}
 		\caption{Abnormal}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=700pt 400pt 220pt 150pt, clip]{kmc400/wm_control}
 		\caption{Control}
@@ -559,7 +555,7 @@ While looking at white matter volumes in the sample, one subject stood out for h
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=1400pt 0pt 1400pt 0pt, clip]{kmc400/thick_skull}
 		\caption{Abnormal}
-	\end{subfigure}
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth, trim=1400pt 0pt 1400pt 0pt, clip]{kmc400/thick_skull_control}
 		\caption{Control}
