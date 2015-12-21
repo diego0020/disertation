@@ -69,9 +69,20 @@ The unique point for reading operations defined in the architecture lets develop
 %- Based on Braviz
 
 
-\section{Main Contributions of the Thesis}
+\section{Scientific Contributions}
+
+Chapters \ref{chap_kmc} and \ref{chap_analysis} showed how BRAVIZ and its underlying model can help domain experts to perform exploratory analysis. Moreover, the software is already being used by specialists in the Kangaroo foundation and several others are interested in using it. While this is already a major practical result, this section will discuss the scientific contributions of the project. 
 
 \subsection{Contributions to Visual Analytics}
+
+% Task centered applications
+The approach of providing multiple applications fit for specific analysis tasks allows experts to learn and use the features that interest them the most. Different experts can use different applications, but they can still share data and preliminary results with the rest of the team, who could be using a different set of applications. The overall effect is more efficient team work and a more efficient use of each expert's time and skills. To the best our knowledge this approach has not been exploited in visual analytics and most projects are trying to produce single applications that can satisfy the needs of a group of experts. 
+
+The underlying software model allows developer to build new applications for the same domain, focused on the interaction with the end user rather than on technical details of handling specific data. While the visual analytics community has developed several high quality software libraries (D3 \autocite{bostock_d3_2011}, Caleydo \autocite{}, pandas \autocite{}, etc), these libraries target very broad domains and are meant to be used at a low level. In contrast, the BRAVIZ library focuses on a concrete problem and concrete data-set. It is designed to provide high level access to this data and relevant functionality, again easing the load on application developers, and allowing them to think of the visualization problem at a higher level. As far as we know this approach is not common on the visual analytics community, and we believe it provides a very interesting option to construct extensible systems that can adapt to different users working on the same data. 
+
+The architecture in BRAVIZ also allow programmers to provide a wider range of visual analytics features to users, therefore expanding the range of exploration possibilities. On the other users do not need high amounts of time to learn to use each application, and they can start working fast. Because applications will likely share several common features, users will feel familiar when trying a different application in the system, which contributes to decreasing the slope of the learning curve. We suggest to continue exploring the use of this kind of systems in other visual analytics scenarios.
+
+% Domain modeling
 
 \subsection{Contribution to Brain Research Visual Analysis }
 
